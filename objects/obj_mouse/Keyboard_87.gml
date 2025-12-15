@@ -15,28 +15,28 @@ direction = 90;
 
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
-/// @DnDHash : 6A00AA6C
+/// @DnDHash : 35D4CB5C
 /// @DnDArgument : "var" "powerup"
 /// @DnDArgument : "value" "1"
 if(powerup == 1)
 {
 	/// @DnDAction : YoYo Games.Movement.Set_Speed
 	/// @DnDVersion : 1
-	/// @DnDHash : 62A9637D
-	/// @DnDParent : 6A00AA6C
-	/// @DnDArgument : "speed" "7"
-	speed = 7;
+	/// @DnDHash : 7DA96CCC
+	/// @DnDParent : 35D4CB5C
+	/// @DnDArgument : "speed" "15"
+	speed = 15;
 }
 
 /// @DnDAction : YoYo Games.Common.Else
 /// @DnDVersion : 1
-/// @DnDHash : 0C3900A7
+/// @DnDHash : 4F12A493
 else
 {
 	/// @DnDAction : YoYo Games.Movement.Set_Speed
 	/// @DnDVersion : 1
-	/// @DnDHash : 7DA96CCC
-	/// @DnDParent : 0C3900A7
+	/// @DnDHash : 12223C88
+	/// @DnDParent : 4F12A493
 	/// @DnDArgument : "speed" "5"
 	speed = 5;
 }
