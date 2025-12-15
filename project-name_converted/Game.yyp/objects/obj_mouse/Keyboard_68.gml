@@ -24,25 +24,19 @@ speed = 5;
 /// @DnDHash : 1991CD10
 /// @DnDArgument : "var" "powerup"
 /// @DnDArgument : "value" "1"
-if(powerup == 1)
-{
-	/// @DnDAction : YoYo Games.Movement.Set_Speed
+if(powerup == 1){	/// @DnDAction : YoYo Games.Movement.Set_Speed
 	/// @DnDVersion : 1
 	/// @DnDHash : 1B94EBE4
 	/// @DnDParent : 1991CD10
 	/// @DnDArgument : "speed" "15"
-	speed = 15;
-}
+	speed = 15;}
 
 /// @DnDAction : YoYo Games.Common.Else
 /// @DnDVersion : 1
 /// @DnDHash : 61E034A4
-else
-{
-	/// @DnDAction : YoYo Games.Movement.Set_Speed
+else{	/// @DnDAction : YoYo Games.Movement.Set_Speed
 	/// @DnDVersion : 1
 	/// @DnDHash : 26E4A1E7
 	/// @DnDParent : 61E034A4
-	/// @DnDArgument : "speed" "5"
-	speed = 5;
-}
+	/// @DnDArgument : "speed" "1.95"
+	speed = 1.95;}
