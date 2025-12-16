@@ -21,6 +21,9 @@ sprite_index = spr_cat_idle_down;
 direction = 270;
 speed = 0;
 
+image_xscale = 1.3;
+image_yscale = 1.3;
+
 
 
 

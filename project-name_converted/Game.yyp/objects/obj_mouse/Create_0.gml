@@ -24,6 +24,9 @@ speed = 0;
 // Game variables
 cheese_collected = 0;
 
+image_xscale = 0.7;
+image_yscale = 0.7;
+
 
 
 
