@@ -71,9 +71,6 @@
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
     {"id":{"name":"spr_rat_walk_up","path":"sprites/spr_rat_walk_up/spr_rat_walk_up.yy",},},
   ],
-  "RoomOrderNodes": [
-  "resourceType":"GMProject",
-  "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Home","path":"rooms/Home/Home.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
