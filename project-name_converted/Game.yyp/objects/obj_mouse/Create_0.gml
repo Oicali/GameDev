@@ -17,6 +17,7 @@ sprite_index = spr_rat_idle_down;
 direction = 270;
 speed = 0;
 
+// this is edit
 
 
 
