@@ -1,5 +1,5 @@
 {
-  "FolderOrderSettings":[
+  "FolderOrderSettings": [
     {"name":"Animation Curves","order":12,"path":"folders/Animation Curves.yy",},
     {"name":"Extensions","order":14,"path":"folders/Extensions.yy",},
     {"name":"Fonts","order":7,"path":"folders/Fonts.yy",},
@@ -16,14 +16,24 @@
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
-  "ResourceOrderSettings":[
+  "ResourceOrderSettings": [
+    {"name":"snd_confuse","order":2,"path":"sounds/snd_confuse/snd_confuse.yy",},
     {"name":"obj_gift","order":1,"path":"objects/obj_gift/obj_gift.yy",},
     {"name":"obj_mouse","order":2,"path":"objects/obj_mouse/obj_mouse.yy",},
+    {"name":"spr_effect_speed","order":18,"path":"sprites/spr_effect_speed/spr_effect_speed.yy",},
     {"name":"Room2","order":1,"path":"rooms/Room2/Room2.yy",},
+    {"name":"obj_effect_indicator","order":4,"path":"objects/obj_effect_indicator/obj_effect_indicator.yy",},
+    {"name":"Room3","order":2,"path":"rooms/Room3/Room3.yy",},
     {"name":"spr_cat_idle_down","order":4,"path":"sprites/spr_cat_idle_down/spr_cat_idle_down.yy",},
+    {"name":"snd_gift_spawn","order":4,"path":"sounds/snd_gift_spawn/snd_gift_spawn.yy",},
     {"name":"spr_cat_idle_left","order":6,"path":"sprites/spr_cat_idle_left/spr_cat_idle_left.yy",},
+    {"name":"snd_pick","order":5,"path":"sounds/snd_pick/snd_pick.yy",},
+    {"name":"spr_effect_stun","order":20,"path":"sprites/spr_effect_stun/spr_effect_stun.yy",},
     {"name":"spr_cat_idle_right","order":7,"path":"sprites/spr_cat_idle_right/spr_cat_idle_right.yy",},
     {"name":"spr_cat_idle_up","order":8,"path":"sprites/spr_cat_idle_up/spr_cat_idle_up.yy",},
+    {"name":"spr_cheese","order":23,"path":"sprites/spr_cheese/spr_cheese.yy",},
+    {"name":"spr_effect_slow","order":19,"path":"sprites/spr_effect_slow/spr_effect_slow.yy",},
+    {"name":"spr_effect_confuse","order":22,"path":"sprites/spr_effect_confuse/spr_effect_confuse.yy",},
     {"name":"spr_cat_walk_left","order":5,"path":"sprites/spr_cat_walk_left/spr_cat_walk_left.yy",},
     {"name":"spr_cat_walk_right","order":1,"path":"sprites/spr_cat_walk_right/spr_cat_walk_right.yy",},
     {"name":"spr_cat_walk_up","order":3,"path":"sprites/spr_cat_walk_up/spr_cat_walk_up.yy",},
@@ -33,8 +43,11 @@
     {"name":"spr_rat_idle_right","order":16,"path":"sprites/spr_rat_idle_right/spr_rat_idle_right.yy",},
     {"name":"spr_rat_idle_up","order":13,"path":"sprites/spr_rat_idle_up/spr_rat_idle_up.yy",},
     {"name":"spr_rat_walk_down","order":10,"path":"sprites/spr_rat_walk_down/spr_rat_walk_down.yy",},
+    {"name":"snd_stun","order":3,"path":"sounds/snd_stun/snd_stun.yy",},
     {"name":"spr_rat_walk_left","order":11,"path":"sprites/spr_rat_walk_left/spr_rat_walk_left.yy",},
     {"name":"spr_rat_walk_right","order":12,"path":"sprites/spr_rat_walk_right/spr_rat_walk_right.yy",},
+    {"name":"snd_slow","order":1,"path":"sounds/snd_slow/snd_slow.yy",},
+    {"name":"obj_controller","order":3,"path":"objects/obj_controller/obj_controller.yy",},
     {"name":"spr_rat_walk_up","order":17,"path":"sprites/spr_rat_walk_up/spr_rat_walk_up.yy",},
   ],
 }
