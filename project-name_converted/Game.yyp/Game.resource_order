@@ -17,7 +17,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings": [
-    {"name":"obj_effects_indicator","order":4,"path":"objects/obj_effects_indicator/obj_effects_indicator.yy",},
+    {"name":"obj_effect_indicator","order":4,"path":"objects/obj_effect_indicator/obj_effect_indicator.yy",},
     {"name":"spr_effects_confuse","order":21,"path":"sprites/spr_effects_confuse/spr_effects_confuse.yy",},
     {"name":"spr_effects_slow","order":19,"path":"sprites/spr_effects_slow/spr_effects_slow.yy",},
     {"name":"obj_gift","order":1,"path":"objects/obj_gift/obj_gift.yy",},
