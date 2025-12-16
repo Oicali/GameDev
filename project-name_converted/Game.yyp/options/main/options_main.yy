@@ -1,6 +1,4 @@
 {
-  "resourceType":"GMMainOptions",
-  "resourceVersion":"1.4",
   "name":"Main",
   "option_author":"",
   "option_collision_compatibility":false,
@@ -17,4 +15,6 @@
   "option_template_icon":"${base_options_dir}/main/template_icon.png",
   "option_template_image":"${base_options_dir}/main/template_image.png",
   "option_window_colour":255,
+  "resourceType":"GMMainOptions",
+  "resourceVersion":"1.4",
 }

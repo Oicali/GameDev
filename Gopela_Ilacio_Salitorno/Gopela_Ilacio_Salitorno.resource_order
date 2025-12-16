@@ -25,7 +25,6 @@
     {"name":"obj_gift","order":1,"path":"objects/obj_gift/obj_gift.yy",},
     {"name":"obj_mouse","order":2,"path":"objects/obj_mouse/obj_mouse.yy",},
     {"name":"Object6","order":5,"path":"objects/Object6/Object6.yy",},
-    {"name":"Room3","order":1,"path":"rooms/Room3/Room3.yy",},
     {"name":"snd_effects_confuse","order":4,"path":"sounds/snd_effects_confuse/snd_effects_confuse.yy",},
     {"name":"snd_effects_slow","order":1,"path":"sounds/snd_effects_slow/snd_effects_slow.yy",},
     {"name":"snd_effects_stun","order":2,"path":"sounds/snd_effects_stun/snd_effects_stun.yy",},
@@ -56,5 +55,6 @@
     {"name":"spr_rat_walk_left","order":11,"path":"sprites/spr_rat_walk_left/spr_rat_walk_left.yy",},
     {"name":"spr_rat_walk_right","order":12,"path":"sprites/spr_rat_walk_right/spr_rat_walk_right.yy",},
     {"name":"spr_rat_walk_up","order":17,"path":"sprites/spr_rat_walk_up/spr_rat_walk_up.yy",},
+    {"name":"Sprite27","order":27,"path":"sprites/Sprite27/Sprite27.yy",},
   ],
 }
