@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-/// @description collected by cat
 // Collected by cat
 
 // Check if already collected
@@ -14,14 +13,14 @@ collected = true;
 
 // Weighted effect pool
 var effects = [
-    //"mouse_fast", 
-    //"mouse_slow", "mouse_slow",   
+    "mouse_fast", 
+    "mouse_slow", "mouse_slow",   
     "mouse_stun",                  
-    //"mouse_confused",             
-    //"cat_fast", 
-    //"cat_slow",
-    //"cat_stun", 
-    //"cat_confused"                
+    "mouse_confused", "mouse_confused",             
+    "cat_fast", "cat_fast",
+    "cat_slow",
+    "cat_stun", 
+    "cat_confused"                
 ];
 
 // Pick random entry
@@ -145,7 +144,7 @@ switch(chosen) {
         other.spd = 0;
         other.effect_timer = 5 * room_speed;
         
-        indicator_sprite = snd_effects_stun;
+        indicator_sprite = spr_effects_stun;
         target_player = other.id;
 		indicator_offset_y = -15; // Move right by 12 pixels
 		indicator_offset_x = -10
