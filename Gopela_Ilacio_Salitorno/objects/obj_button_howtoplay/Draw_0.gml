@@ -1,10 +1,11 @@
-/// @description Insert description here
-// You can write your code in this editor
+if (hover) {
+    draw_sprite_ext(sprite_index, 0, x + 3, y + 3, scale, scale, 0, c_black, 0.4);
+}
 
-var mouse_over = position_meeting(mouse_x, mouse_y, id);
+draw_sprite_ext(sprite_index, 0, x, y, scale, scale, 0, c_white, 1);
 
-if (mouse_over) {
-    draw_sprite_ext(sprite_index, 0, x, y, 1.1, 1.1, 0, c_white, 1);
-} else {
-    draw_self();
+if (hover) {
+    gpu_set_blendmode(bm_add);
+    draw_sprite_ext(sprite_index, 0, x, y, scale * 1.03, scale * 1.03, 0, c_lime, 0.3);
+    gpu_set_blendmode(bm_normal);
 }
