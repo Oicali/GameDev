@@ -1,6 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
-
+/// @description Draw UI
 // Display effect timer
 if (effect_timer > 0) {
     var seconds_left = ceil(effect_timer / room_speed);
@@ -33,78 +31,11 @@ if (effect_timer > 0) {
     draw_set_color(c_white);
 }
 
-// Display cheese collected
-draw_set_color(c_white);
+// Display cheese collected - GREEN when 10 or more
+if (cheese_collected >= 10) {
+    draw_set_color(c_lime);  // Green color
+} else {
+    draw_set_color(c_white);
+}
 draw_text(10, 10, "Mouse Cheese: " + string(cheese_collected) + "/10");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+draw_set_color(c_white);  // Reset color
