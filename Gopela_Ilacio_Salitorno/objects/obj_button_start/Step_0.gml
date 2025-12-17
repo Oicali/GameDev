@@ -1,7 +1,4 @@
-// Smooth animation
-scale = lerp(scale, target_scale, 0.3);
-
-// Check if mouse is hovering using bounding box
+// Check if mouse is hovering over button
 hover = (mouse_x >= bbox_left && mouse_x <= bbox_right && 
          mouse_y >= bbox_top && mouse_y <= bbox_bottom);
 
