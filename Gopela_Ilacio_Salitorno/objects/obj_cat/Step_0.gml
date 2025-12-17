@@ -1,3 +1,10 @@
+// Pause check - ignore input when paused
+if (global.game_paused) {
+    exit;
+}
+
+// REST OF YOUR MOUSE MOVEMENT CODE BELOW THIS...
+
 /// @description Movement with Collision
 // ===== EFFECT TIMER COUNTDOWN =====
 if (effect_timer > 0) {
