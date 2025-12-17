@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_pick",
+  "%Name":"snd_catch",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.492917,
+  "duration":0.5979365,
   "exportDir":"",
-  "name":"snd_pick",
+  "name":"snd_catch",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_pick.wav",
-  "volume":1.0,
+  "soundFile":"snd_catch.wav",
+  "volume":0.5,
 }

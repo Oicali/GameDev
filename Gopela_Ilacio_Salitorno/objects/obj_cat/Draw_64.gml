@@ -1,6 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+// Display cat score (top right)
+draw_set_color(c_white);
+draw_set_halign(fa_right);
+draw_text(room_width - 10, 10, "Cat Score: " + string(cat_score) + "/3");
+draw_set_halign(fa_left);
+
 // Display effect timer
 if (effect_timer > 0) {
     var seconds_left = ceil(effect_timer / room_speed);
@@ -25,10 +31,10 @@ if (effect_timer > 0) {
         effect_color = c_purple;
     }
     
-    // Draw timer text (positioned on right side)
+    // Draw timer text (positioned on right side below score)
     draw_set_color(effect_color);
     draw_set_halign(fa_right);
-    draw_text(room_width - 10, 10, "Cat: " + effect_text + " " + string(seconds_left) + "s");
+    draw_text(room_width - 10, 30, "Cat: " + effect_text + " " + string(seconds_left) + "s");
     draw_set_halign(fa_left);
     draw_set_color(c_white);
 }
