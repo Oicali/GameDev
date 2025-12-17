@@ -1,7 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
-
-
+/// @description Movement with Collision
 // ===== EFFECT TIMER COUNTDOWN =====
 if (effect_timer > 0) {
     effect_timer -= 1;
@@ -46,7 +43,10 @@ if (is_stunned) {
     exit;
 }
 
-// ===== NORMAL MOVEMENT =====
+// ===== GET TILEMAP FOR COLLISION =====
+var _tilemap = layer_tilemap_get_id("Collision");
+
+// ===== NORMAL MOVEMENT WITH COLLISION =====
 speed = 0;
 
 // Use confused mapping if active
@@ -55,106 +55,62 @@ var down_key  = is_confused ? confused_keys[1] : ord("S");
 var left_key  = is_confused ? confused_keys[2] : ord("A");
 var right_key = is_confused ? confused_keys[3] : ord("D");
 
+var move_x = 0;
+var move_y = 0;
+var moving = false;
+
 // UP (90 degrees)
 if (keyboard_check(up_key)) {
     direction = 90;
-    speed = spd;
+    move_y = -spd;
     sprite_index = spr_rat_walk_up;
+    moving = true;
 }
 // DOWN (270 degrees)
 else if (keyboard_check(down_key)) {
     direction = 270;
-    speed = spd;
+    move_y = spd;
     sprite_index = spr_rat_walk_down;
+    moving = true;
 }
 // LEFT (180 degrees)
 else if (keyboard_check(left_key)) {
     direction = 180;
-    speed = spd;
+    move_x = -spd;
     sprite_index = spr_rat_walk_left;
+    moving = true;
 }
 // RIGHT (0 degrees)
 else if (keyboard_check(right_key)) {
     direction = 0;
-    speed = spd;
+    move_x = spd;
     sprite_index = spr_rat_walk_right;
+    moving = true;
 }
-// Idle
+
+// ===== APPLY MOVEMENT WITH COLLISION CHECK =====
+if (moving) {
+    // Store old position
+    var old_x = x;
+    var old_y = y;
+    
+    // Try to move
+    x += move_x;
+    y += move_y;
+    
+    // Check collision slightly above center (adjust the +7 to make collision higher/lower)
+    var collision_check = tilemap_get_at_pixel(_tilemap, x, y + 2);
+    
+    // If colliding, undo movement
+    if (collision_check != 0) {
+        x = old_x;
+        y = old_y;
+    }
+}
+// ===== IDLE ANIMATIONS =====
 else {
     if (direction == 90) sprite_index = spr_rat_idle_up;
     else if (direction == 270) sprite_index = spr_rat_idle_down;
     else if (direction == 180) sprite_index = spr_rat_idle_left;
     else if (direction == 0) sprite_index = spr_rat_idle_right;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
