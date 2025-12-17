@@ -4,8 +4,8 @@
 randomize();
 
 // Movement variables
-spd = 3.2;
-base_spd = 3.2;
+spd =2
+base_spd = 2
 hspd = 0;
 vspd = 0;
 
@@ -23,6 +23,8 @@ speed = 0;
 
 // Game variables
 cheese_collected = 0;
+image_xscale = 0.8
+image_yscale = 0.8
 
 
 

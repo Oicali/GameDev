@@ -4,8 +4,8 @@
 randomize();
 
 // Movement variables
-spd = 3;
-base_spd = 3;
+spd = 1.8
+base_spd = 1.8
 hspd = 0;
 vspd = 0;
 
@@ -20,6 +20,9 @@ confusion_shuffled = false;
 sprite_index = spr_cat_idle_down;
 direction = 270;
 speed = 0;
+
+image_xscale = 1.3
+image_yscale = 1.3
 
 
 
