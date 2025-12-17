@@ -16,6 +16,8 @@ is_confused = false;
 confused_keys = [vk_up, vk_down, vk_left, vk_right]; // Arrow keys
 confusion_shuffled = false;
 
+cat_score = 0;
+
 // Start with idle down sprite
 sprite_index = spr_cat_idle_down;
 direction = 270;
