@@ -51,7 +51,9 @@
     {"id":{"name":"snd_effects_fast","path":"sounds/snd_effects_fast/snd_effects_fast.yy",},},
     {"id":{"name":"snd_effects_slow","path":"sounds/snd_effects_slow/snd_effects_slow.yy",},},
     {"id":{"name":"snd_effects_stun","path":"sounds/snd_effects_stun/snd_effects_stun.yy",},},
+    {"id":{"name":"snd_gameplay_bg","path":"sounds/snd_gameplay_bg/snd_gameplay_bg.yy",},},
     {"id":{"name":"snd_gift_spawn","path":"sounds/snd_gift_spawn/snd_gift_spawn.yy",},},
+    {"id":{"name":"snd_home_bg","path":"sounds/snd_home_bg/snd_home_bg.yy",},},
     {"id":{"name":"snd_pick","path":"sounds/snd_pick/snd_pick.yy",},},
     {"id":{"name":"spr_button_exit","path":"sprites/spr_button_exit/spr_button_exit.yy",},},
     {"id":{"name":"spr_button_howtoplay","path":"sprites/spr_button_howtoplay/spr_button_howtoplay.yy",},},
@@ -98,9 +100,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Map1","path":"rooms/Map1/Map1.yy",},},
     {"roomId":{"name":"Home","path":"rooms/Home/Home.yy",},},
     {"roomId":{"name":"Stage1","path":"rooms/Stage1/Stage1.yy",},},
+    {"roomId":{"name":"Map1","path":"rooms/Map1/Map1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

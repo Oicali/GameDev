@@ -34,10 +34,10 @@ var indicator_offset_y = -32; // NEW: Y offset (default above head)
 // Apply chosen effect
 switch(chosen) {
     case "mouse_fast":
-        other.spd = other.base_spd + 1.8;
+        other.spd = other.base_spd + 1.5;
         other.effect_timer = 5 * room_speed;
-		indicator_offset_y = -20;
-		indicator_offset_x = -5;
+		indicator_offset_y = -25;
+		indicator_offset_x = -8;
 		
         indicator_sprite = spr_effects_fast;
         indicator_color = c_lime;
@@ -50,8 +50,8 @@ switch(chosen) {
         other.spd = other.base_spd - 4;
         if (other.spd < 1) other.spd = 1;
         other.effect_timer = 5 * room_speed;
-		indicator_offset_y = -20;
-		indicator_offset_x = -5;
+		indicator_offset_y = -25;
+		indicator_offset_x = -8;
 		
 		
         indicator_sprite = spr_effects_slow; // Use same sprite or create spr_effects_slow
@@ -62,8 +62,8 @@ switch(chosen) {
         break;
         
     case "mouse_stun":
-        indicator_offset_y = -20;
-		indicator_offset_x = -5;
+        indicator_offset_y = -25;
+		indicator_offset_x = -8;
 		
 		other.is_stunned = true;
         other.spd = 0;
@@ -75,8 +75,8 @@ switch(chosen) {
         break;
         
     case "mouse_confused":
-        indicator_offset_x = 7; // Move right by 12 pixels
-        indicator_offset_y = -20; // Above head
+        indicator_offset_x = -15; // Move right by 12 pixels
+        indicator_offset_y = -25; // Above head
 		
 		other.is_confused = true;
         other.effect_timer = 5 * room_speed;
@@ -89,14 +89,14 @@ switch(chosen) {
     case "cat_fast":
         indicator_sprite = spr_effects_fast;
         indicator_color = c_lime;
-		indicator_offset_y = -15; // Move right by 12 pixels
-		indicator_offset_x = -10
+		indicator_offset_y = -25; // Move right by 12 pixels
+		indicator_offset_x = -9
     
         // Find the cat instance FIRST
         var cat_instance = instance_find(obj_cat, 0);
     
         if (instance_exists(cat_instance)) {
-            cat_instance.spd = cat_instance.base_spd + 2;
+            cat_instance.spd = cat_instance.base_spd + 1.5;
             cat_instance.effect_timer = 5 * room_speed;
             target_player = cat_instance; // Save cat reference
         }
@@ -108,8 +108,8 @@ switch(chosen) {
     case "cat_slow":
         indicator_sprite = spr_effects_slow;
         indicator_color = c_red;
-		indicator_offset_y = -15; // Move right by 12 pixels
-		indicator_offset_x = -10
+		indicator_offset_y = -25; // Move right by 12 pixels
+		indicator_offset_x = -9
     
         // Find the cat instance FIRST
         var cat_instance = instance_find(obj_cat, 0);
@@ -126,8 +126,8 @@ switch(chosen) {
         
     case "cat_stun":
         indicator_sprite = spr_effects_stun; // Use same sprite or create spr_effects_stun
-		indicator_offset_y = -15; // Move right by 12 pixels
-		indicator_offset_x = -10
+		indicator_offset_y = -25; // Move right by 12 pixels
+		indicator_offset_x = -9
 		
 		
 		// Find the cat instance FIRST
@@ -145,8 +145,8 @@ switch(chosen) {
         
     case "cat_confused":
         indicator_sprite = spr_effects_confuse; // Use same sprite or create spr_effects_confused
-		indicator_offset_x = 12; // Move right by 12 pixels
-        indicator_offset_y = -12; // Above head
+		 indicator_offset_x = -16; // Move right by 12 pixels
+        indicator_offset_y = -20; // Above head
 
 
 		// Find the cat instance FIRST

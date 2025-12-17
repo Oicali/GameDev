@@ -36,14 +36,14 @@ switch(chosen) {
     case "mouse_fast":
         indicator_sprite = spr_effects_fast;
         indicator_color = c_lime;
-		indicator_offset_y = -20;
-		indicator_offset_x = -5;
+		indicator_offset_y = -25;
+		indicator_offset_x = -8;
         
         // Find the mouse instance
         var mouse_instance = instance_find(obj_mouse, 0);
         
         if (instance_exists(mouse_instance)) {
-            mouse_instance.spd = mouse_instance.base_spd + 1.8;
+            mouse_instance.spd = mouse_instance.base_spd + 1.5;
             mouse_instance.effect_timer = 5 * room_speed;
             target_player = mouse_instance;
         }
@@ -55,8 +55,8 @@ switch(chosen) {
     case "mouse_slow":
         indicator_sprite = spr_effects_slow;
         indicator_color = c_red;
-		indicator_offset_y = -20;
-		indicator_offset_x = -5;
+		indicator_offset_y = -25;
+		indicator_offset_x = -8;
         
         // Find the mouse instance
         var mouse_instance = instance_find(obj_mouse, 0);
@@ -74,8 +74,8 @@ switch(chosen) {
         
     case "mouse_stun":
         indicator_sprite = spr_effects_stun;
-		indicator_offset_y = -20;
-		indicator_offset_x = -5;
+		indicator_offset_y = -25;
+		indicator_offset_x = -8;
         
         // Find the mouse instance
 		var mouse_instance = instance_find(obj_mouse, 0);
@@ -94,8 +94,8 @@ switch(chosen) {
         
     case "mouse_confused":
         indicator_sprite = spr_effects_confuse;
-       indicator_offset_x = 7; // Move right by 12 pixels
-        indicator_offset_y = -20; // Above head
+      indicator_offset_x = -15; // Move right by 12 pixels
+        indicator_offset_y = -25;
         
         // Find the mouse instance
         var mouse_instance = instance_find(obj_mouse, 0);
@@ -111,14 +111,14 @@ switch(chosen) {
         break;
         
     case "cat_fast":
-        other.spd = other.base_spd + 2;
+        other.spd = other.base_spd + 1.5;
         other.effect_timer = 5 * room_speed;
         
         indicator_sprite = spr_effects_fast;
         indicator_color = c_lime;
         target_player = other.id;
-		indicator_offset_y = -15; // Move right by 12 pixels
-		indicator_offset_x = -10
+		indicator_offset_y = -25; // Move right by 12 pixels
+		indicator_offset_x = -9
         
         audio_play_sound(snd_effects_fast, 0, false);
         show_debug_message("Cat: Speed Boost!");
@@ -132,8 +132,8 @@ switch(chosen) {
         indicator_sprite = spr_effects_slow;
         indicator_color = c_red;
         target_player = other.id;
-		indicator_offset_y = -15; // Move right by 12 pixels
-		indicator_offset_x = -10
+		indicator_offset_y = -25; // Move right by 12 pixels
+		indicator_offset_x = -9
         
         audio_play_sound(snd_effects_slow, 0, false);
         show_debug_message("Cat: Slowed Down!");
@@ -146,8 +146,8 @@ switch(chosen) {
         
         indicator_sprite = spr_effects_stun;
         target_player = other.id;
-		indicator_offset_y = -15; // Move right by 12 pixels
-		indicator_offset_x = -10
+		indicator_offset_y = -25; // Move right by 12 pixels
+		indicator_offset_x = -9
         
         audio_play_sound(snd_effects_stun, 0, false);
         show_debug_message("Cat: Stunned!");
@@ -158,8 +158,8 @@ switch(chosen) {
         other.effect_timer = 5 * room_speed;
         
         indicator_sprite = spr_effects_confuse;
-        indicator_offset_x = 12; // Move right by 12 pixels
-        indicator_offset_y = -12; // Above head
+        indicator_offset_x = -16; // Move right by 12 pixels
+        indicator_offset_y = -20
         target_player = other.id;
         
         audio_play_sound(snd_effects_confuse, 0, false);

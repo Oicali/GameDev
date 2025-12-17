@@ -4,8 +4,8 @@
 randomize();
 
 // Movement variables
-spd = 1.8
-base_spd = 1.8
+spd = 2
+base_spd = 2
 hspd = 0;
 vspd = 0;
 
