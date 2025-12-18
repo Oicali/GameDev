@@ -3,4 +3,3 @@
 
 room_goto(Map1);
 audio_stop_all()
-audio_play_sound(snd_gameplay_bg, 0, true);
