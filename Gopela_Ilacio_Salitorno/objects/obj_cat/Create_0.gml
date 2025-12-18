@@ -26,6 +26,11 @@ speed = 0;
 image_xscale = 1.3
 image_yscale = 1.3
 
+// Ice physics variables (for Map3)
+hsp = 0;  // Horizontal speed
+vsp = 0;  // Vertical speed
+friction_ice = 0.93;  // Higher = more slippery (0.85 = slides a lot, 0.5 = less slide)
+ice_accel_multiplier = 0.06; 
 
 
 

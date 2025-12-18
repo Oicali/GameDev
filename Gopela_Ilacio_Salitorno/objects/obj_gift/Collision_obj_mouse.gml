@@ -14,7 +14,7 @@ collected = true;
 // Weighted effect pool
 var effects = [
     "mouse_fast", "mouse_fast", 
-    "mouse_slow",   
+    "mouse_slow",  
     "mouse_stun",                  
     "mouse_confused",            
     "cat_fast", 
@@ -34,73 +34,88 @@ var indicator_offset_y = -32; // NEW: Y offset (default above head)
 // Apply chosen effect
 switch(chosen) {
     case "mouse_fast":
-        other.spd = other.base_spd + 1.7;
-        other.effect_timer = 5 * room_speed;
-		indicator_offset_y = -25;
-		indicator_offset_x = -8;
-		
+        indicator_offset_y = -25;
+        indicator_offset_x = -8;
+        
         indicator_sprite = spr_effects_fast;
         indicator_color = c_lime;
         target_player = other.id;
-		
+        
+        if (room == Map3) {
+            other.ice_accel_multiplier = 0.18;
+            other.friction_ice = 0.89;
+        } else {
+            other.spd = other.base_spd + 1.7;
+        }
+        
+        other.effect_timer = 5 * room_speed;
         audio_play_sound(snd_effects_fast, 0, false);
         break;
         
     case "mouse_slow":
-        other.spd = other.base_spd - 4;
-        if (other.spd < 1) other.spd = 1;
-        other.effect_timer = 5 * room_speed;
-		indicator_offset_y = -25;
-		indicator_offset_x = -8;
-		
-		
-        indicator_sprite = spr_effects_slow; // Use same sprite or create spr_effects_slow
+        indicator_offset_y = -25;
+        indicator_offset_x = -8;
+        
+        indicator_sprite = spr_effects_slow;
         target_player = other.id;
-		indicator_color = c_red;
-		
+        indicator_color = c_red;
+        
+        if (room == Map3) {
+            other.ice_accel_multiplier = 0.06;
+            other.friction_ice = 0.94;
+        } else {
+            other.spd = other.base_spd - 4;
+            if (other.spd < 1) other.spd = 1;
+        }
+        
+        other.effect_timer = 5 * room_speed;
         audio_play_sound(snd_effects_slow, 0, false);
         break;
         
     case "mouse_stun":
         indicator_offset_y = -25;
-		indicator_offset_x = -8;
-		
-		other.is_stunned = true;
+        indicator_offset_x = -8;
+        
+        other.is_stunned = true;
         other.spd = 0;
         other.effect_timer = 5 * room_speed;
 
-        indicator_sprite = spr_effects_stun; // Use same sprite or create spr_effects_stun
+        indicator_sprite = spr_effects_stun;
         target_player = other.id;
         audio_play_sound(snd_effects_stun, 0, false);
         break;
         
     case "mouse_confused":
-        indicator_offset_x = -15; // Move right by 12 pixels
-        indicator_offset_y = -25; // Above head
-		
-		other.is_confused = true;
+        indicator_offset_x = -15;
+        indicator_offset_y = -25;
+        
+        other.is_confused = true;
         other.effect_timer = 5 * room_speed;
-        indicator_sprite = spr_effects_confuse; // Use same sprite or create spr_effects_confused
+        indicator_sprite = spr_effects_confuse;
         target_player = other.id;
         audio_play_sound(snd_effects_confuse, 0, false);
-        
         break;
         
     case "cat_fast":
         indicator_sprite = spr_effects_fast;
         indicator_color = c_lime;
-		indicator_offset_y = -25; // Move right by 12 pixels
-		indicator_offset_x = -9
-    
-        // Find the cat instance FIRST
+        indicator_offset_y = -25;
+        indicator_offset_x = -9;
+
         var cat_instance = instance_find(obj_cat, 0);
-    
+
         if (instance_exists(cat_instance)) {
-            cat_instance.spd = cat_instance.base_spd + 1.5;
+            if (room == Map3) {
+                cat_instance.ice_accel_multiplier = 0.10;
+                cat_instance.friction_ice = 0.88;
+            } else {
+                cat_instance.spd = cat_instance.base_spd + 1.5;
+            }
+            
             cat_instance.effect_timer = 5 * room_speed;
-            target_player = cat_instance; // Save cat reference
+            target_player = cat_instance;
         }
-    
+
         audio_play_sound(snd_effects_fast, 0, false);
         show_debug_message("Cat: Speed Boost!");
         break;
@@ -108,33 +123,37 @@ switch(chosen) {
     case "cat_slow":
         indicator_sprite = spr_effects_slow;
         indicator_color = c_red;
-		indicator_offset_y = -25; // Move right by 12 pixels
-		indicator_offset_x = -9
-    
-        // Find the cat instance FIRST
+        indicator_offset_y = -25;
+        indicator_offset_x = -9;
+
         var cat_instance = instance_find(obj_cat, 0);
-		
+        
         if (instance_exists(cat_instance)) {
-            cat_instance.spd = cat_instance.base_spd - 4;
-			if (cat_instance.spd < 1) cat_instance.spd = 1; 
+            if (room == Map3) {
+                cat_instance.ice_accel_multiplier = 0.04;
+                cat_instance.friction_ice = 0.95;
+            } else {
+                cat_instance.spd = cat_instance.base_spd - 4;
+                if (cat_instance.spd < 1) cat_instance.spd = 1;
+            }
+            
             cat_instance.effect_timer = 5 * room_speed;
             target_player = cat_instance;
         }
-    
+
         audio_play_sound(snd_effects_slow, 0, false);
         break;
         
     case "cat_stun":
-        indicator_sprite = spr_effects_stun; // Use same sprite or create spr_effects_stun
-		indicator_offset_y = -25; // Move right by 12 pixels
-		indicator_offset_x = -9
-		
-		// Find the cat instance FIRST
+        indicator_sprite = spr_effects_stun;
+        indicator_offset_y = -25;
+        indicator_offset_x = -9;
+        
         var cat_instance = instance_find(obj_cat, 0);
-		
-		if (instance_exists(cat_instance)) {
-			cat_instance.is_stunned = true;	
-			cat_instance.spd = 0;
+        
+        if (instance_exists(cat_instance)) {
+            cat_instance.is_stunned = true;    
+            cat_instance.spd = 0;
             cat_instance.effect_timer = 5 * room_speed;
             target_player = cat_instance;
         }
@@ -143,20 +162,17 @@ switch(chosen) {
         break;
         
     case "cat_confused":
-        indicator_sprite = spr_effects_confuse; // Use same sprite or create spr_effects_confused
-		 indicator_offset_x = -16; // Move right by 12 pixels
-        indicator_offset_y = -20; // Above head
+        indicator_sprite = spr_effects_confuse;
+        indicator_offset_x = -16;
+        indicator_offset_y = -20;
 
-
-		// Find the cat instance FIRST
         var cat_instance = instance_find(obj_cat, 0);
-		
-		if (instance_exists(cat_instance)) {
-			cat_instance.is_confused = true;	
+        
+        if (instance_exists(cat_instance)) {
+            cat_instance.is_confused = true;    
             cat_instance.effect_timer = 5 * room_speed;
             target_player = cat_instance;
         }
-       
         
         audio_play_sound(snd_effects_confuse, 0, false);
         break;

@@ -1,5 +1,9 @@
 /// @description Spawn 15 Cheese (Inside Camera View)
 var _tilemap = layer_tilemap_get_id("Collision");
+var _tilemap_tree = -1;
+if (layer_exists("Tree_Collision")) {
+    _tilemap_tree = layer_tilemap_get_id("Tree_Collision");
+}
 var tile_size = 16;
 
 // Get camera boundaries
@@ -28,6 +32,10 @@ while (cheese_spawned < 12 && max_attempts > 0) {
     
     // Check 1: Not in collision tile
     var tile_check = tilemap_get_at_pixel(_tilemap, grid_x, grid_y);
+	var tree_check = 0;
+	if (_tilemap_tree != -1) {
+	    tree_check = tilemap_get_at_pixel(_tilemap_tree, grid_x, grid_y);
+	}
     
     // Check 2: Not too close to other cheese
     var too_close = false;
@@ -43,7 +51,7 @@ while (cheese_spawned < 12 && max_attempts > 0) {
     }
     
     // If valid position: spawn cheese
-    if (tile_check == 0 && !too_close) {
+   if (tile_check == 0 && tree_check == 0 && !too_close) { 
         instance_create_layer(grid_x, grid_y, "Instances_1", obj_cheese);
         
         // Store position

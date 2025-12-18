@@ -10,15 +10,20 @@ if (global.game_paused) {
 if (effect_timer > 0) {
     effect_timer -= 1;
     
-    if (effect_timer == 0) {
-        spd = base_spd;
-        is_stunned = false;
-        is_confused = false;
-        confused_keys = [vk_up, vk_down, vk_left, vk_right];
-        confusion_shuffled = false;
-        image_blend = c_white;
-        show_debug_message("Cat: Effect ended - back to normal");
-    }
+   if (effect_timer == 0) {
+    spd = base_spd;
+    is_stunned = false;
+    is_confused = false;
+    confused_keys = [vk_up, vk_down, vk_left, vk_right];
+    confusion_shuffled = false;
+    image_blend = c_white;
+    
+    // ADD THESE TWO LINES:
+    ice_accel_multiplier = 0.06;  // Reset to default
+    friction_ice = 0.93;           // Reset to default
+    
+    show_debug_message("Cat: Effect ended - back to normal");
+}
 }
 
 // ===== CONFUSION SETUP (ONLY SHUFFLE ONCE) =====
@@ -52,6 +57,10 @@ if (is_stunned) {
 
 // ===== GET TILEMAP FOR COLLISION =====
 var _tilemap = layer_tilemap_get_id("Collision");
+var _tilemap_tree = -1;
+if (layer_exists("Tree_Collision")) {
+    _tilemap_tree = layer_tilemap_get_id("Tree_Collision");
+}
 
 // ===== NORMAL MOVEMENT WITH COLLISION =====
 speed = 0;
@@ -96,28 +105,96 @@ else if (keyboard_check(right_key)) {
 }
 
 // ===== APPLY MOVEMENT WITH COLLISION CHECK =====
+// ===== APPLY MOVEMENT WITH COLLISION CHECK =====
+// Check if we're in Map3 (slippery ice map)
+var is_ice_map = (room == Map3);
+
 if (moving) {
-    // Store old position
-    var old_x = x;
-    var old_y = y;
-    
-    // Try to move
-    x += move_x;
-    y += move_y;
-    
-    // Check collision slightly above center (adjust the -4 to make collision higher/lower)
-    // -4 means check 4 pixels above center. Change this number to adjust height!
-    var collision_check = tilemap_get_at_pixel(_tilemap, x, y + 7);
-    
-    // If colliding, undo movement
-    if (collision_check != 0) {
-        x = old_x;
-        y = old_y;
+    if (is_ice_map) {
+        // ICE PHYSICS: Add acceleration instead of direct movement
+    hsp += move_x * ice_accel_multiplier;
+    vsp += move_y * ice_accel_multiplier;
+    } else {
+        // NORMAL: Direct movement
+        hsp = move_x;
+        vsp = move_y;
     }
 }
+
+// Apply friction
+if (is_ice_map) {
+    // Ice: Always apply friction (slides after releasing keys!)
+    hsp *= friction_ice;
+    vsp *= friction_ice;
+    
+    // Stop completely if speed is very low
+    if (abs(hsp) < 0.1) hsp = 0;
+    if (abs(vsp) < 0.1) vsp = 0;
+} else {
+    // Normal map: stop immediately when no keys pressed
+    if (!moving) {
+        hsp = 0;
+        vsp = 0;
+    }
+}
+
+// Store old position
+var old_x = x;
+var old_y = y;
+
+// Try to move using velocity
+x += hsp;
+y += vsp;
+
+// Check collision
+var collision_check = tilemap_get_at_pixel(_tilemap, x, y+10);
+
+// Only check tree collision if the layer exists
+var tree_collision_check = 0;
+if (_tilemap_tree != -1) {
+    tree_collision_check = tilemap_get_at_pixel(_tilemap_tree, x, y);
+}
+
+// If colliding with rocks OR trees, undo movement and stop sliding
+if (collision_check != 0 || tree_collision_check != 0) {
+    x = old_x;
+    y = old_y;
+    hsp = 0;
+    vsp = 0;
+}
+
+// ===== UPDATE DIRECTION BASED ON ACTUAL VELOCITY =====
+// This fixes sprite animation - check actual movement, not just keys!
+var actually_moving = (abs(hsp) > 0.1 || abs(vsp) > 0.1);
+
+if (actually_moving) {
+    // Determine direction based on velocity
+    if (abs(vsp) > abs(hsp)) {
+        // Moving more vertically
+        if (vsp < 0) {
+            direction = 90;
+            sprite_index = spr_cat_walk_up;  // Change to spr_cat_walk_up for cat
+        } else {
+            direction = 270;
+            sprite_index = spr_cat_walk_down;  // Change to spr_cat_walk_down for cat
+        }
+    } else {
+        // Moving more horizontally
+        if (hsp < 0) {
+            direction = 180;
+            sprite_index = spr_cat_walk_left;  // Change to spr_cat_walk_left for cat
+        } else {
+            direction = 0;
+            sprite_index = spr_cat_walk_right;  // Change to spr_cat_walk_right for cat
+        }
+    }
+}
+
 // ===== IDLE ANIMATIONS (THIS WAS MISSING!) =====
-else {
-    if (direction == 90) sprite_index = spr_cat_idle_up;
+// ===== IDLE ANIMATIONS =====
+// Only show idle when NOT actually moving
+if (!actually_moving) {
+    if (direction == 90) sprite_index = spr_cat_idle_up;  // Change to spr_cat for cat
     else if (direction == 270) sprite_index = spr_cat_idle_down;
     else if (direction == 180) sprite_index = spr_cat_idle_left;
     else if (direction == 0) sprite_index = spr_cat_idle_right;
