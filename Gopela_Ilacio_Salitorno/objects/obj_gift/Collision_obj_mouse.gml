@@ -33,44 +33,38 @@ var indicator_offset_y = -32; // NEW: Y offset (default above head)
 
 // Apply chosen effect
 switch(chosen) {
-    case "mouse_fast":
-        indicator_offset_y = -25;
-        indicator_offset_x = -8;
+   case "mouse_fast":
+    indicator_offset_y = -25;
+    indicator_offset_x = -8;
+    
+    indicator_sprite = spr_effects_fast;
+    indicator_color = c_lime;
+    target_player = other.id;
+    
+    // Disable ice physics and use normal speed
+    other.ice_physics_active = false;
+    other.spd = other.base_spd + 1.7;
+    other.effect_timer = 5 * room_speed;
+    
+    audio_play_sound(snd_effects_fast, 0, false);
+    break;
         
-        indicator_sprite = spr_effects_fast;
-        indicator_color = c_lime;
-        target_player = other.id;
-        
-        if (room == Map3) {
-            other.ice_accel_multiplier = 0.18;
-            other.friction_ice = 0.89;
-        } else {
-            other.spd = other.base_spd + 1.7;
-        }
-        
-        other.effect_timer = 5 * room_speed;
-        audio_play_sound(snd_effects_fast, 0, false);
-        break;
-        
-    case "mouse_slow":
-        indicator_offset_y = -25;
-        indicator_offset_x = -8;
-        
-        indicator_sprite = spr_effects_slow;
-        target_player = other.id;
-        indicator_color = c_red;
-        
-        if (room == Map3) {
-            other.ice_accel_multiplier = 0.06;
-            other.friction_ice = 0.94;
-        } else {
-            other.spd = other.base_spd - 4;
-            if (other.spd < 1) other.spd = 1;
-        }
-        
-        other.effect_timer = 5 * room_speed;
-        audio_play_sound(snd_effects_slow, 0, false);
-        break;
+   case "mouse_slow":
+    indicator_offset_y = -25;
+    indicator_offset_x = -8;
+    
+    indicator_sprite = spr_effects_slow;
+    target_player = other.id;
+    indicator_color = c_red;
+    
+    // Disable ice physics and use normal speed
+    other.ice_physics_active = false;
+    other.spd = other.base_spd - 4;
+    if (other.spd < 1) other.spd = 1;
+    other.effect_timer = 5 * room_speed;
+    
+    audio_play_sound(snd_effects_slow, 0, false);
+    break;
         
     case "mouse_stun":
         indicator_offset_y = -25;
@@ -96,53 +90,46 @@ switch(chosen) {
         audio_play_sound(snd_effects_confuse, 0, false);
         break;
         
-    case "cat_fast":
-        indicator_sprite = spr_effects_fast;
-        indicator_color = c_lime;
-        indicator_offset_y = -25;
-        indicator_offset_x = -9;
+	   case "cat_fast":
+	    indicator_sprite = spr_effects_fast;
+	    indicator_color = c_lime;
+	    indicator_offset_y = -25;
+	    indicator_offset_x = -9;
 
-        var cat_instance = instance_find(obj_cat, 0);
+	    var cat_instance = instance_find(obj_cat, 0);
 
-        if (instance_exists(cat_instance)) {
-            if (room == Map3) {
-                cat_instance.ice_accel_multiplier = 0.10;
-                cat_instance.friction_ice = 0.88;
-            } else {
-                cat_instance.spd = cat_instance.base_spd + 1.5;
-            }
-            
-            cat_instance.effect_timer = 5 * room_speed;
-            target_player = cat_instance;
-        }
+	    if (instance_exists(cat_instance)) {
+	        // Disable ice physics and use normal speed
+	        cat_instance.ice_physics_active = false;
+	        cat_instance.spd = cat_instance.base_spd + 1.5;
+	        cat_instance.effect_timer = 5 * room_speed;
+	        target_player = cat_instance;
+	    }
+
 
         audio_play_sound(snd_effects_fast, 0, false);
         show_debug_message("Cat: Speed Boost!");
         break;
         
     case "cat_slow":
-        indicator_sprite = spr_effects_slow;
-        indicator_color = c_red;
-        indicator_offset_y = -25;
-        indicator_offset_x = -9;
+    indicator_sprite = spr_effects_slow;
+    indicator_color = c_red;
+    indicator_offset_y = -25;
+    indicator_offset_x = -9;
 
-        var cat_instance = instance_find(obj_cat, 0);
-        
-        if (instance_exists(cat_instance)) {
-            if (room == Map3) {
-                cat_instance.ice_accel_multiplier = 0.04;
-                cat_instance.friction_ice = 0.95;
-            } else {
-                cat_instance.spd = cat_instance.base_spd - 4;
-                if (cat_instance.spd < 1) cat_instance.spd = 1;
-            }
-            
-            cat_instance.effect_timer = 5 * room_speed;
-            target_player = cat_instance;
-        }
+    var cat_instance = instance_find(obj_cat, 0);
+    
+    if (instance_exists(cat_instance)) {
+        // Disable ice physics and use normal speed
+        cat_instance.ice_physics_active = false;
+        cat_instance.spd = cat_instance.base_spd - 4;
+        if (cat_instance.spd < 1) cat_instance.spd = 1;
+        cat_instance.effect_timer = 5 * room_speed;
+        target_player = cat_instance;
+    }
 
-        audio_play_sound(snd_effects_slow, 0, false);
-        break;
+    audio_play_sound(snd_effects_slow, 0, false);
+    break;
         
     case "cat_stun":
         indicator_sprite = spr_effects_stun;
