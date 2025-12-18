@@ -17,6 +17,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"obj_border","order":17,"path":"objects/obj_border/obj_border.yy",},
     {"name":"obj_button_exit","order":7,"path":"objects/obj_button_exit/obj_button_exit.yy",},
     {"name":"obj_button_howtoplay","order":8,"path":"objects/obj_button_howtoplay/obj_button_howtoplay.yy",},
     {"name":"obj_button_start","order":6,"path":"objects/obj_button_start/obj_button_start.yy",},
@@ -49,6 +50,7 @@
     {"name":"teleport_out","order":16,"path":"sounds/teleport_out/teleport_out.yy",},
     {"name":"spr_arrow_left","order":29,"path":"sprites/spr_arrow_left/spr_arrow_left.yy",},
     {"name":"spr_arrow_right","order":30,"path":"sprites/spr_arrow_right/spr_arrow_right.yy",},
+    {"name":"spr_border","order":32,"path":"sprites/spr_border/spr_border.yy",},
     {"name":"spr_button_exit","order":25,"path":"sprites/spr_button_exit/spr_button_exit.yy",},
     {"name":"spr_button_howtoplay","order":26,"path":"sprites/spr_button_howtoplay/spr_button_howtoplay.yy",},
     {"name":"spr_button_start","order":24,"path":"sprites/spr_button_start/spr_button_start.yy",},

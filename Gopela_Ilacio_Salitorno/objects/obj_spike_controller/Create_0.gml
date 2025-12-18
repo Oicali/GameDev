@@ -9,6 +9,8 @@ horizontal_marker = 17;         // Tile 17 = horizontal spike lanes
 vertical_marker = 15;           // Tile 15 = vertical spike lanes
 always_on_marker = 14;          // Tile 14 = always on (both patterns)
 
+base_switch_time = 8; // seconds
+
 // State
 current_pattern = "horizontal";  // Start with horizontal
 
