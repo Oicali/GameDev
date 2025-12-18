@@ -1,15 +1,12 @@
-/// @description Insert description here
-// You can write your code in this editor
+randomize(); // Add this line first!
 
-time_remaining = 15; // 120 seconds
-alarm[0] = room_speed; // Countdown every second
+time_remaining = irandom_range(5, 15);
+alarm[0] = room_speed;
 
 // ===== POSITION SETTINGS (ADJUST THESE) =====
-timer_x = room_width / 2;  // Horizontal position (center of screen)
-timer_y = 20;              // Vertical position (20 pixels from top)
-
+timer_x = room_width / 2;
+timer_y = 20;
 // ===== SPACING SETTINGS (ADJUST THIS) =====
-spacing = 32;  // Distance between each number/symbol
-
+spacing = 32;
 // ===== SIZE SETTINGS (ADJUST THIS) =====
-number_scale = 1; // 1 = normal size, 0.5 = half size, 2 = double size
+number_scale = 1;

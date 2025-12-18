@@ -26,6 +26,13 @@ cheese_collected = 0;
 image_xscale = 0.8
 image_yscale = 0.8
 
+// Ice physics variables (for Map3)
+// Ice physics variables (for Map3)
+hsp = 0;  // Horizontal speed
+vsp = 0;  // Vertical speed
+friction_ice = 0.94;  // Default friction
+ice_accel_multiplier = 0.07;  // ADD THIS - default acceleration (matches your step event)// Higher = more slippery (adjust if needed)
+
 
 
 
