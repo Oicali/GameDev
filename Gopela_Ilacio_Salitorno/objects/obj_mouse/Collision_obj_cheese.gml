@@ -11,12 +11,21 @@ instance_destroy(other);
 // Check win condition
 if (cheese_collected >= 10) {
     // Stop timer
-    with (obj_timer_controller) {
-        alarm[0] = -1; // Stop countdown
-    }
-    
-    show_message("Mouse Wins! All cheese collected!");
-    room_restart();
+	room_restart();
+	// Create an array of your rooms
+	//var rooms = [Map1, Map2, Map3];
+
+	// Pick a random index
+	//var choice = irandom(array_length(rooms) - 1);
+
+	// Go to that room
+	//room_goto(rooms[choice]);
+	
+	if(room==Map1){
+		room_goto(Map2);
+	} else if (room==Map2){
+		room_goto(Map3);
+	} 
 }
 
 // Optional: Show debug message
