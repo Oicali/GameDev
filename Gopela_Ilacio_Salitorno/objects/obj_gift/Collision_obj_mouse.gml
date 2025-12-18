@@ -34,7 +34,7 @@ var indicator_offset_y = -32; // NEW: Y offset (default above head)
 // Apply chosen effect
 switch(chosen) {
     case "mouse_fast":
-        other.spd = other.base_spd + 1.5;
+        other.spd = other.base_spd + 1.7;
         other.effect_timer = 5 * room_speed;
 		indicator_offset_y = -25;
 		indicator_offset_x = -8;
@@ -128,7 +128,6 @@ switch(chosen) {
         indicator_sprite = spr_effects_stun; // Use same sprite or create spr_effects_stun
 		indicator_offset_y = -25; // Move right by 12 pixels
 		indicator_offset_x = -9
-		
 		
 		// Find the cat instance FIRST
         var cat_instance = instance_find(obj_cat, 0);

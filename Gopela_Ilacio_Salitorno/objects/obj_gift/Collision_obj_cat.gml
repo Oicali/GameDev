@@ -43,7 +43,7 @@ switch(chosen) {
         var mouse_instance = instance_find(obj_mouse, 0);
         
         if (instance_exists(mouse_instance)) {
-            mouse_instance.spd = mouse_instance.base_spd + 1.5;
+            mouse_instance.spd = mouse_instance.base_spd + 1.7;
             mouse_instance.effect_timer = 5 * room_speed;
             target_player = mouse_instance;
         }
