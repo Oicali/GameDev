@@ -17,6 +17,9 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"cave1","order":19,"path":"objects/cave1/cave1.yy",},
+    {"name":"cave2","order":20,"path":"objects/cave2/cave2.yy",},
+    {"name":"cave3","order":21,"path":"objects/cave3/cave3.yy",},
     {"name":"obj_button_exit","order":7,"path":"objects/obj_button_exit/obj_button_exit.yy",},
     {"name":"obj_button_howtoplay","order":8,"path":"objects/obj_button_howtoplay/obj_button_howtoplay.yy",},
     {"name":"obj_button_start","order":6,"path":"objects/obj_button_start/obj_button_start.yy",},
@@ -50,6 +53,7 @@
     {"name":"spike_open","order":15,"path":"sounds/spike_open/spike_open.yy",},
     {"name":"teleport_in","order":8,"path":"sounds/teleport_in/teleport_in.yy",},
     {"name":"teleport_out","order":16,"path":"sounds/teleport_out/teleport_out.yy",},
+    {"name":"caveins","order":42,"path":"sprites/caveins/caveins.yy",},
     {"name":"spr_arrow_left","order":37,"path":"sprites/spr_arrow_left/spr_arrow_left.yy",},
     {"name":"spr_arrow_right","order":39,"path":"sprites/spr_arrow_right/spr_arrow_right.yy",},
     {"name":"spr_button_exit","order":32,"path":"sprites/spr_button_exit/spr_button_exit.yy",},
