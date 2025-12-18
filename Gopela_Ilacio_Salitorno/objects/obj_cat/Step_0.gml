@@ -18,9 +18,7 @@ if (effect_timer > 0) {
     confusion_shuffled = false;
     image_blend = c_white;
     
-    // ADD THESE TWO LINES:
-    ice_accel_multiplier = 0.06;  // Reset to default
-    friction_ice = 0.93;           // Reset to default
+   ice_physics_active = true;
     
     show_debug_message("Cat: Effect ended - back to normal");
 }
@@ -107,13 +105,18 @@ else if (keyboard_check(right_key)) {
 // ===== APPLY MOVEMENT WITH COLLISION CHECK =====
 // ===== APPLY MOVEMENT WITH COLLISION CHECK =====
 // Check if we're in Map3 (slippery ice map)
+// ===== APPLY MOVEMENT WITH COLLISION CHECK =====
+// Check if we're in Map3 (slippery ice map)
+// ===== APPLY MOVEMENT WITH COLLISION CHECK =====
+// Check if ice physics should be active
 var is_ice_map = (room == Map3);
+var use_ice_physics = (is_ice_map && ice_physics_active);
 
 if (moving) {
-    if (is_ice_map) {
+    if (use_ice_physics) {
         // ICE PHYSICS: Add acceleration instead of direct movement
-    hsp += move_x * ice_accel_multiplier;
-    vsp += move_y * ice_accel_multiplier;
+        hsp += move_x * ice_accel_multiplier;
+        vsp += move_y * ice_accel_multiplier;
     } else {
         // NORMAL: Direct movement
         hsp = move_x;
@@ -122,7 +125,7 @@ if (moving) {
 }
 
 // Apply friction
-if (is_ice_map) {
+if (use_ice_physics) {
     // Ice: Always apply friction (slides after releasing keys!)
     hsp *= friction_ice;
     vsp *= friction_ice;
@@ -137,8 +140,6 @@ if (is_ice_map) {
         vsp = 0;
     }
 }
-
-// Store old position
 var old_x = x;
 var old_y = y;
 
@@ -147,7 +148,7 @@ x += hsp;
 y += vsp;
 
 // Check collision
-var collision_check = tilemap_get_at_pixel(_tilemap, x, y+10);
+var collision_check = tilemap_get_at_pixel(_tilemap, x, y + 10);
 
 // Only check tree collision if the layer exists
 var tree_collision_check = 0;
@@ -162,7 +163,6 @@ if (collision_check != 0 || tree_collision_check != 0) {
     hsp = 0;
     vsp = 0;
 }
-
 // ===== UPDATE DIRECTION BASED ON ACTUAL VELOCITY =====
 // This fixes sprite animation - check actual movement, not just keys!
 var actually_moving = (abs(hsp) > 0.1 || abs(vsp) > 0.1);

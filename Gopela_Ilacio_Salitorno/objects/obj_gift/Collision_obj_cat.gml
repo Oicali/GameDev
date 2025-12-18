@@ -43,16 +43,9 @@ switch(chosen) {
     var mouse_instance = instance_find(obj_mouse, 0);
     
     if (instance_exists(mouse_instance)) {
-        // Check if we're on Map3 (ice map)
-        if (room == Map3) {
-            // ICE MAP: Increase acceleration and reduce friction
-            mouse_instance.ice_accel_multiplier = 0.18;
-            mouse_instance.friction_ice = 0.89;
-        } else {
-            // NORMAL MAPS: Increase speed directly
-            mouse_instance.spd = mouse_instance.base_spd + 1.7;
-        }
-        
+        // Disable ice physics and use normal speed
+        mouse_instance.ice_physics_active = false;
+        mouse_instance.spd = mouse_instance.base_spd + 1.7;
         mouse_instance.effect_timer = 5 * room_speed;
         target_player = mouse_instance;
     }
@@ -61,7 +54,7 @@ switch(chosen) {
     show_debug_message("Mouse: Speed Boost!");
     break;
         
-    case "mouse_slow":
+   case "mouse_slow":
     indicator_sprite = spr_effects_slow;
     indicator_color = c_red;
     indicator_offset_y = -25;
@@ -71,17 +64,10 @@ switch(chosen) {
     var mouse_instance = instance_find(obj_mouse, 0);
     
     if (instance_exists(mouse_instance)) {
-        // Check if we're on Map3 (ice map)
-        if (room == Map3) {
-            // ICE MAP: Reduce acceleration and increase friction
-            mouse_instance.ice_accel_multiplier = 0.06;
-            mouse_instance.friction_ice = 0.94;
-        } else {
-            // NORMAL MAPS: Reduce speed directly
-            mouse_instance.spd = mouse_instance.base_spd - 4;
-            if (mouse_instance.spd < 1) mouse_instance.spd = 1;
-        }
-        
+        // Disable ice physics and use normal speed
+        mouse_instance.ice_physics_active = false;
+        mouse_instance.spd = mouse_instance.base_spd - 4;
+        if (mouse_instance.spd < 1) mouse_instance.spd = 1;
         mouse_instance.effect_timer = 5 * room_speed;
         target_player = mouse_instance;
     }
@@ -135,16 +121,9 @@ switch(chosen) {
     indicator_offset_y = -25;
     indicator_offset_x = -9;
     
-    // Check if we're on Map3 (ice map)
-    if (room == Map3) {
-        // ICE MAP: Increase acceleration and reduce friction
-        other.ice_accel_multiplier = 0.10;  // Much faster (default 0.06)
-        other.friction_ice = 0.88;          // Less friction = slides more (default 0.93)
-    } else {
-        // NORMAL MAPS: Increase speed directly
-        other.spd = other.base_spd + 1.5;
-    }
-    
+    // Disable ice physics and use normal speed
+    other.ice_physics_active = false;
+    other.spd = other.base_spd + 1.5;
     other.effect_timer = 5 * room_speed;
     
     audio_play_sound(snd_effects_fast, 0, false);
@@ -158,17 +137,10 @@ switch(chosen) {
     indicator_offset_y = -25;
     indicator_offset_x = -9;
     
-    // Check if we're on Map3 (ice map)
-    if (room == Map3) {
-        // ICE MAP: Reduce acceleration and increase friction
-        other.ice_accel_multiplier = 0.045;  // Much slower (default 0.06)
-        other.friction_ice = 0.85;          // More friction (default 0.93)
-    } else {
-        // NORMAL MAPS: Reduce speed directly
-        other.spd = other.base_spd - 4;
-        if (other.spd < 1) other.spd = 1;
-    }
-    
+    // Disable ice physics and use normal speed
+    other.ice_physics_active = false;
+    other.spd = other.base_spd - 4;
+    if (other.spd < 1) other.spd = 1;
     other.effect_timer = 5 * room_speed;
     
     audio_play_sound(snd_effects_slow, 0, false);

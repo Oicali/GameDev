@@ -32,7 +32,7 @@ hsp = 0;  // Horizontal speed
 vsp = 0;  // Vertical speed
 friction_ice = 0.94;  // Default friction
 ice_accel_multiplier = 0.07;  // ADD THIS - default acceleration (matches your step event)// Higher = more slippery (adjust if needed)
-
+ice_physics_active = true;  // Controls whether ice physics are on/off
 
 
 

@@ -19,8 +19,7 @@ if (effect_timer > 0) {
     image_blend = c_white;
     
     // Reset ice physics to default
-    ice_accel_multiplier = 0.07;
-    friction_ice = 0.94;
+   ice_physics_active = true;
     
     show_debug_message("Mouse: Effect ended - back to normal");
 }
@@ -106,13 +105,18 @@ else if (keyboard_check(right_key)) {
 
 // ===== APPLY MOVEMENT WITH COLLISION CHECK =====
 // Check if we're in Map3 (slippery ice map)
+// ===== APPLY MOVEMENT WITH COLLISION CHECK =====
+// Check if we're in Map3 (slippery ice map)
+// ===== APPLY MOVEMENT WITH COLLISION CHECK =====
+// Check if ice physics should be active
 var is_ice_map = (room == Map3);
+var use_ice_physics = (is_ice_map && ice_physics_active);
 
 if (moving) {
-    if (is_ice_map) {
+    if (use_ice_physics) {
         // ICE PHYSICS: Add acceleration instead of direct movement
-       hsp += move_x * ice_accel_multiplier;  // Use variable
-vsp += move_y * ice_accel_multiplier;
+        hsp += move_x * ice_accel_multiplier;
+        vsp += move_y * ice_accel_multiplier;
     } else {
         // NORMAL: Direct movement
         hsp = move_x;
@@ -121,7 +125,7 @@ vsp += move_y * ice_accel_multiplier;
 }
 
 // Apply friction
-if (is_ice_map) {
+if (use_ice_physics) {
     // Ice: Always apply friction (slides after releasing keys!)
     hsp *= friction_ice;
     vsp *= friction_ice;
