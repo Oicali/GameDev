@@ -11,12 +11,19 @@ if (cheese_collected >= 10) {
     global.mouse_score += 1;
     
     if (global.mouse_score >= 3) {
-        show_debug_message("Mouse Champion");
-        audio_stop_all();
-        room_goto(Home);
-        global.mouse_score = 0;
-        global.cat_score = 0;
-		global.round = 1;
+         // Move cat for next round
+        obj_cat.x = 700;
+        obj_cat.y = 600;
+		
+		 // Show the persistent banner and set position/scale
+        obj_mouse_banner.visible = true;
+
+		audio_stop_all();
+		audio_play_sound(snd_victory, 0, false);
+		// Pause and wait for key press (removed alarm)
+		global.game_paused = true;
+		show_mouse_champion = true;  // Flag for key detection
+
     } else {
         // Move cat for next round
         obj_cat.x = 700;

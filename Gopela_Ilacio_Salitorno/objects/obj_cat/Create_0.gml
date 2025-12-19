@@ -20,7 +20,6 @@ confusion_shuffled = false;
 show_cat_winner = false;
 show_cat_champion = false;
 
-
 // Start with idle down sprite
 sprite_index = spr_cat_idle_down;
 direction = 270;

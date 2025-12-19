@@ -18,6 +18,8 @@ confused_keys = [ord("W"), ord("S"), ord("A"), ord("D")];
 confusion_shuffled = false;
 
 show_mouse_winner = false
+show_mouse_champion = false;
+
 
 // Start with idle down sprite
 sprite_index = spr_rat_idle_down;
