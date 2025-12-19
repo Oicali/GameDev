@@ -1,11 +1,9 @@
-/// @description Insert description here
-// You can write your code in this editor
 /// @description Cat catches mouse
 
 // Increase cat score
-cat_score += 1;
+global.cat_score += 1;
 
-show_debug_message("Cat scored! Score: " + string(cat_score) + "/3");
+show_debug_message("Cat scored! Score: " + string(global.cat_score) + "/3");
 
 // Remove all effects from MOUSE
 other.effect_timer = 0;
@@ -28,24 +26,26 @@ image_blend = c_white;
 show_debug_message("All effects cleared from both players");
 
 // Check win condition
-if (cat_score >= 3) {
-    show_message("Cat Wins! Caught the mouse 3 times!");
-    room_restart();
+if (global.cat_score >= 3) {
+    audio_stop_all()
+	show_debug_message("Cat Champion!");
+    room_goto(Home);
+	global.cat_score = 0;
+	global.mouse_score = 0;
 }
 else {
-    // Teleport both players to random spawn positions
-    
-    // Teleport mouse to one of two positions
-    var mouse_spawns = [[20, 325], [20, 50]];
-    var mouse_spawn = mouse_spawns[irandom(1)]; // Pick random spawn
-    other.x = mouse_spawn[0];
-    other.y = mouse_spawn[1];
-    
-    // Teleport cat to one of two positions
-    var cat_spawns = [[580, 325], [580, 50]];
-    var cat_spawn = cat_spawns[irandom(1)]; // Pick random spawn
-    x = cat_spawn[0];
-    y = cat_spawn[1];
-    audio_play_sound(snd_catch, 0, false)
-    show_debug_message("Players teleported! Cat: " + string(cat_score) + "/3");
+    var rooms = []
+		if(room==Map1){
+			rooms = [Map2, Map3];
+		} else if (room==Map2){
+			rooms = [Map1, Map3];
+		} else if (room==Map3){
+			rooms = [Map2, Map1];
+		}
+		
+		// Pick a random index
+		var choice = irandom(array_length(rooms) - 1);
+		room_goto(rooms[choice]);
+		
+		show_debug_message("cat score: " + string(global.cat_score));
 }
