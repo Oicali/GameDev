@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_gift_spawn",
+  "%Name":"snd_refresh",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.533424,
+  "duration":1.5980499,
   "exportDir":"",
-  "name":"snd_gift_spawn",
+  "name":"snd_refresh",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_gift_spawn.wav",
+  "soundFile":"snd_refresh.wav",
   "volume":1.0,
 }

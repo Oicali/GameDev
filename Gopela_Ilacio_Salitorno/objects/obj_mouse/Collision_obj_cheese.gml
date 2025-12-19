@@ -1,13 +1,10 @@
 /// @description Collect Cheese
-// Increment cheese counter
-cheese_collected += 1;
-// Play sound effect (add your sound here)
+cheese_collected += 1; // CHANGED BACK TO LOCAL
+
 audio_play_sound(snd_collect_cheese, 1, false);
-// Destroy the cheese
 instance_destroy(other);
-// Check win condition
-if (cheese_collected >= 10) {
-    // Stop timer and increment score FIRST
+
+if (cheese_collected >= 10) { // CHANGED BACK TO LOCAL
     global.mouse_score += 1;
     
     if (global.mouse_score >= 3) {
@@ -16,9 +13,9 @@ if (cheese_collected >= 10) {
         room_goto(Home);
         global.mouse_score = 0;
         global.cat_score = 0;
-		global.round = 1;
+        global.round = 1;
+        // Don't need to reset cheese - it resets automatically
     } else {
-        // Move cat for next round
         obj_cat.x = 700;
         obj_cat.y = 600;
         
@@ -36,14 +33,15 @@ if (cheese_collected >= 10) {
         audio_play_sound(snd_win_round, 0, false);
         audio_play_sound(snd_mouse_squeak, 0, false);
         
-        // Set up the win display BEFORE any room changes
-        next_room = rooms[choice];       // store next room
-        show_mouse_winner = true;        // flag to draw message
-        global.game_paused = true;       // pause controls + timer
-        alarm[1] = room_speed * 5;       // after 5 seconds, Alarm[1] will fire
+        next_room = rooms[choice];
+        show_mouse_winner = true;
+        global.game_paused = true;
+        alarm[1] = room_speed * 5;
+        
+        // Cheese resets automatically when room changes (Create event sets it to 0)
         
         show_debug_message("mouse score: " + string(global.mouse_score));
     }
 }
-// Optional: Show debug message
-show_debug_message("Mouse collected cheese! Total: " + string(cheese_collected));
+
+show_debug_message("Mouse collected cheese! Total: " + string(cheese_collected)); // CHANGED BACK

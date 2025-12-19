@@ -11,6 +11,14 @@ else if (mode == "out") {
     if (alpha < 1) {
         alpha += fade_speed;
     } else {
+        // Before changing room, set globals if this is a gift teleport
+        if (is_gift_teleport) {
+            global.teleported_by_gift = true;
+            global.saved_timer = saved_timer_value;
+            global.mouse_cheese_collected = saved_cheese_value;
+            show_debug_message("Fade: Setting teleport flag + values before room change");
+        }
+        
         // Fade complete, change room
         if (target_room != -1) {
             room_goto(target_room);
