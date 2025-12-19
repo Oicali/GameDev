@@ -3,6 +3,7 @@
 
 randomize();
 
+
 // Movement variables
 spd = 1.8
 base_spd = 1.8

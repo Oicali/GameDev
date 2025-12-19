@@ -10,4 +10,3 @@ if(room==Map1){
 	audio_stop_all();
 	audio_play_sound(snd_gameplay_bg3, 0, true);
 }
-

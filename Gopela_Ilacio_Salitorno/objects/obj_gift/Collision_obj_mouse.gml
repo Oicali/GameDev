@@ -43,7 +43,7 @@ switch(chosen) {
     
     // Disable ice physics and use normal speed
     other.ice_physics_active = false;
-    other.spd = other.base_spd + 1.7;
+    other.spd = other.base_spd + 1.2;
     other.effect_timer = 5 * room_speed;
     
     audio_play_sound(snd_effects_fast, 0, false);
@@ -101,7 +101,7 @@ switch(chosen) {
 	    if (instance_exists(cat_instance)) {
 	        // Disable ice physics and use normal speed
 	        cat_instance.ice_physics_active = false;
-	        cat_instance.spd = cat_instance.base_spd + 1.5;
+	        cat_instance.spd = cat_instance.base_spd + 1;
 	        cat_instance.effect_timer = 5 * room_speed;
 	        target_player = cat_instance;
 	    }

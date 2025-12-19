@@ -16,8 +16,6 @@ is_confused = false;
 confused_keys = [vk_up, vk_down, vk_left, vk_right]; // Arrow keys
 confusion_shuffled = false;
 
-cat_score = 0;
-
 // Start with idle down sprite
 sprite_index = spr_cat_idle_down;
 direction = 270;
@@ -32,73 +30,3 @@ vsp = 0;  // Vertical speed
 friction_ice = 0.94;  // Higher = more slippery (0.85 = slides a lot, 0.5 = less slide)
 ice_accel_multiplier = 0.07; 
 ice_physics_active = true;  // Controls whether ice physics are on/off
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

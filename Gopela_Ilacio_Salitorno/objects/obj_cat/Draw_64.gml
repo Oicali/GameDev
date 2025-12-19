@@ -2,10 +2,10 @@
 // You can write your code in this editor
 
 // Display cat score (top right)
-draw_set_color(c_white);
-draw_set_halign(fa_right);
-draw_text(room_width - 10, 10, "Cat Score: " + string(cat_score) + "/3");
-draw_set_halign(fa_left);
+//draw_set_color(c_white);
+//draw_set_halign(fa_right);
+//draw_text(room_width - 10, 10, "Cat Scoresss: " + string(global.cat_score) + "/3");
+//draw_set_halign(fa_left);
 
 // Display effect timer
 if (effect_timer > 0) {
@@ -38,74 +38,3 @@ if (effect_timer > 0) {
     draw_set_halign(fa_left);
     draw_set_color(c_white);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,4 @@
-// Total time in seconds
-//time_left = (2 * 40) + 1; 
-time_left = 6; 
-
-timer_done =false;
+// Round timer
+time_left = 76;
+loop_count = 0;
+timer_done = false;
