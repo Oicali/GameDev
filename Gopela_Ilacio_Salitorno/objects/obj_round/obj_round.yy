@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"Object6",
-  "eventList":[],
+  "%Name":"obj_round",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"Object6",
+  "name":"obj_round",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",

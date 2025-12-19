@@ -36,6 +36,9 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space)) {
             
         case 3: // Quit to main menu
             global.game_paused = false;
+			audio_stop_all();
+			global.mouse_score = 0;
+			global.cat_score = 0;
             room_goto(Home);
             instance_destroy();
             break;

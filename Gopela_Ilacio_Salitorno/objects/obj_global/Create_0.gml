@@ -7,5 +7,8 @@ if (!variable_global_exists("mouse_score")) {
 if (!variable_global_exists("cat_score")) {
     global.cat_score = 0;
 }
+if (!variable_global_exists("round")) {
+    global.round = 1;
+}
 
 persistent = true;

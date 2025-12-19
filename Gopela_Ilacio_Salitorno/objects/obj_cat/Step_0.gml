@@ -3,7 +3,16 @@ if (global.game_paused) {
     exit;
 }
 
-// REST OF YOUR MOUSE MOVEMENT CODE BELOW THIS...
+// ===== DISABLE MOVEMENT DURING COUNTDOWN ===== 
+if (instance_exists(obj_timer_controller)) { 
+	if (obj_timer_controller.state == "countdown") { 
+		// Force idle sprite while waiting 
+		if (direction == 90) sprite_index = spr_cat_idle_up; 
+		else if (direction == 270) sprite_index = spr_cat_idle_down; 
+		else if (direction == 180) sprite_index = spr_cat_idle_left; 
+		else if (direction == 0) sprite_index = spr_cat_idle_right; exit; 
+	} 
+}
 
 /// @description Movement with Collision
 // ===== EFFECT TIMER COUNTDOWN =====
