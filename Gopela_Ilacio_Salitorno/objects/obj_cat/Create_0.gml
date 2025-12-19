@@ -18,6 +18,7 @@ confusion_shuffled = false;
 
 // ROUND PAUSE VARIABLES
 show_cat_winner = false;
+show_cat_champion = false;
 
 
 // Start with idle down sprite

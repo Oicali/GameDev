@@ -1,7 +1,29 @@
 // Pause check - ignore input when paused
+// ===== CHECK FOR KEY PRESS TO GO HOME AFTER CHAMPION WIN =====
+if (show_cat_champion) {
+    if (keyboard_check_pressed(vk_anykey)) {
+        show_cat_champion = false;
+        
+        if (instance_exists(obj_cat_banner)) {
+            obj_cat_banner.visible = false;
+        }
+        
+        global.game_paused = false;
+		audio_stop_all()
+		audio_play_sound(snd_hover, 0, false);
+        room_goto(Home);
+        global.cat_score = 0;
+        global.mouse_score = 0;
+        global.round = 1;
+    }
+    exit; // Don't process any other input while waiting for key press
+}
+
+
 if (global.game_paused) {
     exit;
 }
+
 
 // ===== DISABLE MOVEMENT DURING COUNTDOWN ===== 
 if (instance_exists(obj_timer_controller)) { 
