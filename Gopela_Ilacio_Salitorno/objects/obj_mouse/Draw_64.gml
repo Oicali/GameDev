@@ -29,7 +29,6 @@ if (effect_timer > 0) {
     var gui_height = display_get_gui_height();
     
     draw_set_font(fnt_lilita_one); 
-    draw_set_color(effect_color);
     draw_set_halign(fa_right);
     draw_set_valign(fa_bottom);
     
@@ -37,9 +36,25 @@ if (effect_timer > 0) {
     var text_x = gui_width - 10;  // 10 pixels from right edge
     var text_y = gui_height - 10; // 10 pixels from bottom edge
     
-    draw_text(text_x, text_y, "Mouse: " + effect_text + " " + string(seconds_left) + "s");
+    var full_text = "Mouse: " + effect_text + " " + string(seconds_left) + "s";
     
-    // Reset alignment
+    // Draw outline
+    var outline_color = c_black;
+    var stroke = 2;
+    draw_set_color(outline_color);
+    for (var ox = -stroke; ox <= stroke; ox++) {
+        for (var oy = -stroke; oy <= stroke; oy++) {
+            if (ox != 0 || oy != 0) {
+                draw_text(text_x + ox, text_y + oy, full_text);
+            }
+        }
+    }
+    
+    // Draw main text
+    draw_set_color(effect_color);
+    draw_text(text_x, text_y, full_text);
+    
+    // Reset alignment and color
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_color(c_white);
