@@ -16,28 +16,28 @@ if (global.game_paused) exit;
 if (game_over) exit;
 
 // METHOD 2: Score-based win (first to reach win_score)
-if (global.cat_score >= win_score) {
-    game_over = true;
+//if (global.cat_score >= win_score) {
+ //   game_over = true;
     
     // Cat wins!
-    with (obj_win_screen) {
-        visible = true;
-        active = true;
-        winner = "cat";
-        cat_score = global.cat_score;
-        mouse_score = global.mouse_score;
-    }
-}
+ //   with (obj_win_screen) {
+////        visible = true;
+ //       active = true;
+//        winner = "cat";
+//        cat_score = global.cat_score;
+//        mouse_score = global.mouse_score;
+//    }
+//}
 
-if (global.mouse_score >= win_score) {
-    game_over = true;
+//if (global.mouse_score >= win_score) {
+ //   game_over = true;
     
     // Mouse wins!
-    with (obj_win_screen) {
-        visible = true;
-        active = true;
-        winner = "mouse";
-        cat_score = global.cat_score;
-        mouse_score = global.mouse_score;
-    }
-}
+//    with (obj_win_screen) {
+//        visible = true;
+//        active = true;
+//        winner = "mouse";
+ //       cat_score = global.cat_score;
+//        mouse_score = global.mouse_score;
+//    }
+//}

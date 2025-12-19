@@ -72,7 +72,7 @@ if (effect_timer > 0) {
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
 
-    var score_text = "Mouse: " + string(global.mouse_score);
+    var score_text = "Mouse: "+ string(global.mouse_score);
     var draw_x = 10;
     var draw_y = 10;
 

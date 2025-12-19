@@ -1,8 +1,43 @@
 /// DRAW GUI EVENT
 
+// ===== ROOM REFRESH DISPLAY (CHECK FIRST) =====
+if (show_room_refresh) {
+    draw_set_font(fnt_lilita_one);  // Changed font
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    
+    // Blinking effect
+    var blink = ((current_time div 500) mod 2 == 0);
+    var main_color = blink ? c_yellow : c_orange;
+    var outline_color = c_black;
+    var text = "ROOM REFRESH";
+    var cx = display_get_gui_width() / 2;
+    var cy = display_get_gui_height() / 2;
+    var scale = 3;
+    
+    // Outline
+    draw_set_color(outline_color);
+    var stroke = 4;
+    for (var ox = -stroke; ox <= stroke; ox++) {
+        for (var oy = -stroke; oy <= stroke; oy++) {
+            if (ox != 0 || oy != 0) {
+                draw_text_transformed(cx + ox, cy + oy, text, scale, scale, 0);
+            }
+        }
+    }
+    
+    // Main fill
+    draw_set_color(main_color);
+    draw_text_transformed(cx, cy, text, scale, scale, 0);
+    
+    exit; // Don't draw anything else
+}
+
+// ... rest of your Draw GUI code stays the same ...
+
 // ===== PAUSE CHECK =====
 if (global.game_paused) {
-    draw_set_font(fnt_lilita_one); // changed font
+    draw_set_font(fnt_lilita_one);
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
     draw_set_color(c_white);
@@ -25,7 +60,7 @@ if (state == "countdown") {
     var cx = display_get_gui_width() / 2;
     var cy = display_get_gui_height() / 2;
 
-    draw_set_font(fnt_lilita_one); // changed font
+    draw_set_font(fnt_lilita_one);
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
 
@@ -64,7 +99,7 @@ else if (state == "active") {
     var draw_x = 635;
     var draw_y = 650;
 
-    draw_set_font(fnt_lilita_one); // changed font
+    draw_set_font(fnt_lilita_one);
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
 
@@ -109,6 +144,7 @@ else if (state == "active") {
         draw_set_color(gradient_top);
         draw_text_transformed(draw_x, draw_y - 1, timer_text, 1.3, 1.3, 0);
 
+        draw_set_color(gradient_bottom);
         draw_set_color(gradient_bottom);
         draw_text_transformed(draw_x, draw_y + 2, timer_text, 1.3, 1.3, 0);
 

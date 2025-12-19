@@ -61,6 +61,7 @@
     {"name":"snd_pick","order":5,"path":"sounds/snd_pick/snd_pick.yy",},
     {"name":"snd_quicksand","order":22,"path":"sounds/snd_quicksand/snd_quicksand.yy",},
     {"name":"snd_quicksandsfx","order":23,"path":"sounds/snd_quicksandsfx/snd_quicksandsfx.yy",},
+    {"name":"snd_refresh","order":24,"path":"sounds/snd_refresh/snd_refresh.yy",},
     {"name":"snd_warning","order":20,"path":"sounds/snd_warning/snd_warning.yy",},
     {"name":"snd_win_round","order":22,"path":"sounds/snd_win_round/snd_win_round.yy",},
     {"name":"spike_open","order":15,"path":"sounds/spike_open/spike_open.yy",},
