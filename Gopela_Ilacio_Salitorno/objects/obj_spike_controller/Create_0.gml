@@ -69,7 +69,7 @@ function show_horizontal_spikes() {
     }
     
     current_pattern = "horizontal";
-    audio_play_sound(spike_open, 1, false);
+    audio_play_sound(spikesfx, 1, false);
     show_debug_message("HORIZONTAL SPIKES UP!");
 }
 
@@ -96,7 +96,7 @@ function show_vertical_spikes() {
     }
     
     current_pattern = "vertical";
-    audio_play_sound(spike_open, 1, false);
+    audio_play_sound(spikesfx, 1, false);
     show_debug_message("VERTICAL SPIKES UP!");
 }
 

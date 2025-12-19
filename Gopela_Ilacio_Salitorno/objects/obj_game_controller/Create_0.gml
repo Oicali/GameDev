@@ -4,8 +4,9 @@ global.game_paused = false;
 
 // ADD THESE LINES for win screen system:
 // Initialize global scores
-//global.cat_score = 0;
-//global.mouse_score = 0;
+global.cat_score = 0;
+global.mouse_score = 0;
+global.round = 1; 
 
 // Game timer (60 seconds at 60 FPS = 3600 frames)
 game_time = 60 * 60;  // Change the first number to adjust seconds

@@ -5,8 +5,8 @@ randomize();
 
 
 // Movement variables
-spd = 1.8
-base_spd = 1.8
+spd = 2
+base_spd = 2
 hspd = 0;
 vspd = 0;
 
@@ -37,4 +37,5 @@ friction_ice = 0.94;  // Default friction
 ice_accel_multiplier = 0.07;  // ADD THIS - default acceleration (matches your step event)// Higher = more slippery (adjust if needed)
 ice_physics_active = true;  // Controls whether ice physics are on/off
 
+teleport_cooldown = 0;
 
