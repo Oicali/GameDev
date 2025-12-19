@@ -1,15 +1,9 @@
-/// @description Insert description here
-// You can write your code in this editor
-
 randomize();
-
-
 // Movement variables
 spd = 1.5
 base_spd = 1.5
 hspd = 0;
 vspd = 0;
-
 // Power-up variables
 is_stunned = false;
 effect_timer = 0;
@@ -20,22 +14,25 @@ confusion_shuffled = false;
 show_mouse_champion = false
 
 // Start with idle down sprite
+show_mouse_winner = false
 sprite_index = spr_rat_idle_down;
 direction = 270;
 speed = 0;
 
-// Game variables
-cheese_collected = 0;
+// Game variables - USE LOCAL AGAIN
+cheese_collected = 0; // ADD THIS BACK
+
+// Check if we teleported via gift
+if (global.teleported_by_gift) {
+    cheese_collected = global.mouse_cheese_collected; // Load saved cheese
+    global.teleported_by_gift = false; // Reset flag
+}
+
 image_xscale = 0.8
 image_yscale = 0.8
-
-// Ice physics variables (for Map3)
-// Ice physics variables (for Map3)
-hsp = 0;  // Horizontal speed
-vsp = 0;  // Vertical speed
-friction_ice = 0.94;  // Default friction
-ice_accel_multiplier = 0.07;  // ADD THIS - default acceleration (matches your step event)// Higher = more slippery (adjust if needed)
-ice_physics_active = true;  // Controls whether ice physics are on/off
-
+hsp = 0;
+vsp = 0;
+friction_ice = 0.94;
+ice_accel_multiplier = 0.07;
+ice_physics_active = true;
 teleport_cooldown = 0;
-

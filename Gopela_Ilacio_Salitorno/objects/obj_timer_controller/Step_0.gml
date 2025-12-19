@@ -1,4 +1,4 @@
-/// STEP EVENT
+
 // ===== PAUSE CHECK =====
 if (global.game_paused) {
     exit;
