@@ -13,7 +13,14 @@ collected = true;
 
 // Weighted effect pool
 var effects = [
-    
+     "mouse_fast", "mouse_fast", 
+    "mouse_slow",  
+    "mouse_stun",                  
+    "mouse_confused",            
+    "cat_fast", 
+    "cat_slow", "cat_slow",
+    "cat_stun", 
+    "cat_confused", "cat_confused",
 	"change_room","change_room","change_room","change_room","change_room","change_room","change_room","change_room"
 ];
 

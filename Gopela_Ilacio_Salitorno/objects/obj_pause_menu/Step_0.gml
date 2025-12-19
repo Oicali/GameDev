@@ -17,9 +17,9 @@ if (keyboard_check_pressed(vk_down)) {
 }
 
 // Enter or Space to select option
+// Enter or Space to select option
 if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space)) {
-    // Optional: Add a different click sound here
-    // audio_play_sound(snd_enter, 1, false);
+    audio_play_sound(snd_enter, 1, false); // Add click sound
     
     switch(selected) {
         case 0: // Resume
@@ -43,10 +43,17 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space)) {
         case 3: // Quit to main menu
             with (obj_settings_menu) instance_destroy();
             with (obj_howtoplay_menu) instance_destroy();
+            
+            // RESET ALL GAME STATES
             global.game_paused = false;
-            audio_stop_all();
             global.mouse_score = 0;
             global.cat_score = 0;
+            global.round = 1;
+            global.mouse_cheese_collected = 0;
+            global.saved_timer = 81;
+            global.teleported_by_gift = false;
+            
+            audio_stop_all();
             room_goto(Home);
             instance_destroy();
             break;

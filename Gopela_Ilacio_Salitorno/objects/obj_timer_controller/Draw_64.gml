@@ -10,7 +10,7 @@ if (show_room_refresh) {
     var blink = ((current_time div 500) mod 2 == 0);
     var main_color = blink ? c_yellow : c_orange;
     var outline_color = c_black;
-    var text = "ROOM REFRESH";
+    var text = "REMATCH!!";
     var cx = display_get_gui_width() / 2;
     var cy = display_get_gui_height() / 2;
     var scale = 3;

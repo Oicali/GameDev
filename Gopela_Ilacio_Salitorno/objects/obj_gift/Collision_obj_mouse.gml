@@ -20,8 +20,8 @@ var effects = [
     "cat_fast", 
     "cat_slow", "cat_slow",
     "cat_stun", 
-    "cat_confused", "cat_confused"  
-	
+    "cat_confused", "cat_confused",
+	"change_room","change_room","change_room","change_room","change_room","change_room","change_room","change_room"
 ];
 
 // Pick random entry
