@@ -64,7 +64,6 @@
     {"id":{"name":"obj_quicksand_spawner","path":"objects/obj_quicksand_spawner/obj_quicksand_spawner.yy",},},
     {"id":{"name":"obj_quicksand","path":"objects/obj_quicksand/obj_quicksand.yy",},},
     {"id":{"name":"obj_round","path":"objects/obj_round/obj_round.yy",},},
-    {"id":{"name":"obj_scorer","path":"objects/obj_scorer/obj_scorer.yy",},},
     {"id":{"name":"obj_settings_menu","path":"objects/obj_settings_menu/obj_settings_menu.yy",},},
     {"id":{"name":"obj_spike_controller","path":"objects/obj_spike_controller/obj_spike_controller.yy",},},
     {"id":{"name":"obj_teleport_left","path":"objects/obj_teleport_left/obj_teleport_left.yy",},},
