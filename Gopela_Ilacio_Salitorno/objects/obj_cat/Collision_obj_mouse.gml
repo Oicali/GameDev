@@ -28,13 +28,10 @@ if (global.cat_score >= 3) {
     other.x = 700;
     other.y = 600;
     
-    audio_stop_all();
     show_debug_message("Cat Champion!");
     
     // Show the persistent banner and set position/scale
-        obj_cat_banner.visible = true;
-        obj_cat_banner.image_xscale = 0.6;
-        obj_cat_banner.image_yscale = 0.6;
+    obj_cat_champion.visible = true;
 
     audio_stop_all();
 	audio_play_sound(snd_victory, 0, false);
@@ -54,16 +51,17 @@ else {
     } else if (room == Map3) {
         rooms = [Map2, Map1];
     }
-    
     var choice = irandom(array_length(rooms) - 1);
     
     audio_stop_all();
     audio_play_sound(snd_win_round, 0, false);
     audio_play_sound(snd_cat_meow, 0, false);
     
+	obj_cat_banner.visible = true;
+    obj_cat_banner.image_xscale = 0.6;
+    obj_cat_banner.image_yscale = 0.6;
+	
     next_room = rooms[choice];
-    show_cat_winner = true;
     global.game_paused = true;
     alarm[0] = room_speed * 5;
-    show_debug_message("cat score: " + string(global.cat_score));
 }

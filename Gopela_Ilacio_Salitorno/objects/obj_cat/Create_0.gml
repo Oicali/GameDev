@@ -17,7 +17,6 @@ confused_keys = [vk_up, vk_down, vk_left, vk_right]; // Arrow keys
 confusion_shuffled = false;
 
 // ROUND PAUSE VARIABLES
-show_cat_winner = false;
 show_cat_champion = false;
 
 // Start with idle down sprite

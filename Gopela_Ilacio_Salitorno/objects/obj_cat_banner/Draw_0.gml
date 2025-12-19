@@ -46,23 +46,9 @@ if (visible) {
     // Draw Mouse score
     draw_set_color(c_black); // Outline
     draw_text(mouse_score_x + 1, mouse_score_y + 1, string(global.mouse_score));
-    draw_set_color(c_blue);
+    draw_set_color(c_gray);
     draw_text(mouse_score_x, mouse_score_y, string(global.mouse_score));
     
-    // Optional: "Press any key" prompt
-    if (instance_exists(obj_cat) && obj_cat.show_cat_champion) {
-        draw_set_halign(fa_center);
-        
-        // Blinking "Press any key" text with smaller size
-        var blink = ((current_time div 500) mod 2 == 0);
-        if (blink) {
-            var scale = 0.6; // Smaller text size
-            draw_set_color(c_black);
-            draw_text_transformed(x + 1, current_y + 145, "Press any key", scale, scale, 0);
-            draw_set_color(c_white);
-            draw_text_transformed(x, current_y + 144, "Press any key", scale, scale, 0);
-        }
-    }
     
     // Reset draw settings
     draw_set_color(c_white);

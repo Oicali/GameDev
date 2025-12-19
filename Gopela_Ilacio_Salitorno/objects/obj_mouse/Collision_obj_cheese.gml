@@ -16,7 +16,7 @@ if (cheese_collected >= 10) {
         obj_cat.y = 600;
 		
 		 // Show the persistent banner and set position/scale
-        obj_mouse_banner.visible = true;
+        obj_mouse_champion.visible = true;
 
 		audio_stop_all();
 		audio_play_sound(snd_victory, 0, false);
@@ -43,9 +43,9 @@ if (cheese_collected >= 10) {
         audio_play_sound(snd_win_round, 0, false);
         audio_play_sound(snd_mouse_squeak, 0, false);
         
+		obj_mouse_banner.visible = true;
         // Set up the win display BEFORE any room changes
         next_room = rooms[choice];       // store next room
-        show_mouse_winner = true;        // flag to draw message
         global.game_paused = true;       // pause controls + timer
         alarm[1] = room_speed * 5;       // after 5 seconds, Alarm[1] will fire
         

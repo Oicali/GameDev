@@ -3,7 +3,7 @@
 if (show_cat_champion) {
     // Initialize wait timer if it doesn't exist
     if (!variable_instance_exists(id, "champion_wait_timer")) {
-        champion_wait_timer = room_speed * 3; // 3 seconds
+        champion_wait_timer = room_speed * 2; // 3 seconds
     }
     
     // Countdown the timer
