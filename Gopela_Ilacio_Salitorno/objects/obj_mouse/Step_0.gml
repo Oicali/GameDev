@@ -201,3 +201,37 @@ if (!actually_moving) {
     else if (direction == 180) sprite_index = spr_rat_idle_left;
     else if (direction == 0) sprite_index = spr_rat_idle_right;
 }
+if (teleport_cooldown > 0) {
+    teleport_cooldown--;
+}
+
+if (object_exists(obj_quicksand)) {
+    // If NOT touching quicksand, restore normal speed
+    if (!place_meeting(x, y, obj_quicksand)) {
+        // Only restore speed if there's NO active gift effect
+        if (effect_timer <= 0) {
+            // Return to normal speed immediately
+            spd = base_spd;
+            
+            // Reset color
+            image_blend = c_white;
+        }
+        
+        // Stop the quicksand sound immediately
+        if (audio_is_playing(snd_quicksandsfx)) {
+            audio_stop_sound(snd_quicksandsfx);
+        }
+        
+        // Destroy the slow indicator
+        if (variable_instance_exists(id, "quicksand_indicator") && instance_exists(quicksand_indicator)) {
+            instance_destroy(quicksand_indicator);
+            quicksand_indicator = noone;
+        }
+    }
+} else {
+    // If obj_quicksand doesn't exist, make sure speed is normal
+    // BUT only if no gift effect is active
+    if (spd < base_spd && effect_timer <= 0) {
+        spd = base_spd;
+    }
+}

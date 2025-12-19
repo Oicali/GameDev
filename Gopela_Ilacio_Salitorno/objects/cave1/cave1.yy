@@ -31,11 +31,14 @@
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
     "name":"caveins",
     "path":"sprites/caveins/caveins.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"caveins",
+    "path":"sprites/caveins/caveins.yy",
+  },
   "visible":true,
 }

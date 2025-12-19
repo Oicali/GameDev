@@ -4,8 +4,8 @@
 randomize();
 
 // Movement variables
-spd = 2
-base_spd = 2
+spd = 1.8
+base_spd = 1.8
 hspd = 0;
 vspd = 0;
 
@@ -30,3 +30,5 @@ vsp = 0;  // Vertical speed
 friction_ice = 0.94;  // Higher = more slippery (0.85 = slides a lot, 0.5 = less slide)
 ice_accel_multiplier = 0.07; 
 ice_physics_active = true;  // Controls whether ice physics are on/off
+/// @description Initialize
+teleport_cooldown = 0;
