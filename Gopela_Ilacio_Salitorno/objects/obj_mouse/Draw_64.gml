@@ -74,6 +74,7 @@ if (effect_timer > 0) {
 {
     draw_set_font(fnt_lilita_one); 
     var cheese_text = "Mouse Cheese: " + string(cheese_collected) + "/10";
+    var cheese_text = "Mouse Cheese: " + string(cheese_collected) + "/10"; // BACK TO LOCAL
     var draw_x = 10;
     var draw_y = display_get_gui_height() - 40; 
     var main_color = (cheese_collected >= 10) ? c_lime : c_white;

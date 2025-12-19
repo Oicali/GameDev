@@ -20,7 +20,8 @@ var effects = [
     "cat_fast", 
     "cat_slow", "cat_slow",
     "cat_stun", 
-    "cat_confused", "cat_confused"                  
+    "cat_confused", "cat_confused",
+	"change_room","change_room","change_room","change_room","change_room","change_room","change_room","change_room"
 ];
 
 // Pick random entry
@@ -60,7 +61,7 @@ switch(chosen) {
     // Disable ice physics and use normal speed
     other.ice_physics_active = false;
     other.spd = other.base_spd - 4;
-    if (other.spd < 1) other.spd = 1;
+    if (other.spd < 1) other.spd = 0.8;
     other.effect_timer = 5 * room_speed;
     
     audio_play_sound(snd_effects_slow, 0, false);
@@ -72,7 +73,7 @@ switch(chosen) {
         
         other.is_stunned = true;
         other.spd = 0;
-        other.effect_timer = 5 * room_speed;
+        other.effect_timer = 3 * room_speed;
 
         indicator_sprite = spr_effects_stun;
         target_player = other.id;
@@ -123,7 +124,7 @@ switch(chosen) {
         // Disable ice physics and use normal speed
         cat_instance.ice_physics_active = false;
         cat_instance.spd = cat_instance.base_spd - 4;
-        if (cat_instance.spd < 1) cat_instance.spd = 1;
+        if (cat_instance.spd < 1) cat_instance.spd = 0.8;
         cat_instance.effect_timer = 5 * room_speed;
         target_player = cat_instance;
     }
@@ -141,7 +142,7 @@ switch(chosen) {
         if (instance_exists(cat_instance)) {
             cat_instance.is_stunned = true;    
             cat_instance.spd = 0;
-            cat_instance.effect_timer = 5 * room_speed;
+            cat_instance.effect_timer = 3 * room_speed;
             target_player = cat_instance;
         }
         
@@ -162,6 +163,57 @@ switch(chosen) {
         }
         
         audio_play_sound(snd_effects_confuse, 0, false);
+        break;
+		
+ case "change_room":
+        show_debug_message("=== GIFT TELEPORT START ===");
+        
+        var saved_cheese = 0;
+        var saved_timer = 81;
+        
+        // SAVE the mouse's current cheese count
+        var mouse_instance = instance_find(obj_mouse, 0);
+        if (instance_exists(mouse_instance)) {
+            saved_cheese = mouse_instance.cheese_collected;
+            show_debug_message("Saved cheese: " + string(saved_cheese));
+        }
+        
+        // SAVE the current timer
+        if (instance_exists(obj_timer_controller)) {
+            var timer_instance = instance_find(obj_timer_controller, 0);
+            if (timer_instance != noone) {
+                saved_timer = timer_instance.time_left;
+                show_debug_message("Saved timer: " + string(saved_timer) + " seconds");
+            }
+        }
+        
+        // Pick random map (EXCLUDING CURRENT ROOM)
+        var available_rooms = [];
+        if (room == Map1) {
+            available_rooms = [Map2, Map3];
+        } else if (room == Map2) {
+            available_rooms = [Map1, Map3];
+        } else if (room == Map3) {
+            available_rooms = [Map1, Map2];
+        }
+        
+        var random_map = available_rooms[irandom(array_length(available_rooms) - 1)];
+        show_debug_message("Current room: " + room_get_name(room));
+        show_debug_message("Teleporting to: " + room_get_name(random_map));
+        
+        // Create fade transition WITH THE VALUES
+        var fade = instance_create_depth(0, 0, -9999, obj_fade_transition);
+        fade.mode = "out";
+        fade.alpha = 0;
+        fade.target_room = random_map;
+        fade.is_gift_teleport = true;
+        fade.saved_timer_value = saved_timer;
+        fade.saved_cheese_value = saved_cheese;
+        
+        audio_play_sound(snd_effects_confuse, 0, false);
+        
+        indicator_sprite = noone;
+        target_player = noone;
         break;
 }
 

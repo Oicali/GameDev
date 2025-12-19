@@ -1,13 +1,10 @@
 /// @description Collect Cheese
-// Increment cheese counter
-cheese_collected += 1;
-// Play sound effect (add your sound here)
+cheese_collected += 1; // CHANGED BACK TO LOCAL
+
 audio_play_sound(snd_collect_cheese, 1, false);
-// Destroy the cheese
 instance_destroy(other);
-// Check win condition
-if (cheese_collected >= 10) {
-    // Stop timer and increment score FIRST
+
+if (cheese_collected >= 10) { // CHANGED BACK TO LOCAL
     global.mouse_score += 1;
     
     if (global.mouse_score >= 3) {
@@ -25,7 +22,6 @@ if (cheese_collected >= 10) {
 		show_mouse_champion = true;  // Flag for key detection
 
     } else {
-        // Move cat for next round
         obj_cat.x = 700;
         obj_cat.y = 600;
         
@@ -52,5 +48,5 @@ if (cheese_collected >= 10) {
         show_debug_message("mouse score: " + string(global.mouse_score));
     }
 }
-// Optional: Show debug message
-show_debug_message("Mouse collected cheese! Total: " + string(cheese_collected));
+
+show_debug_message("Mouse collected cheese! Total: " + string(cheese_collected)); // CHANGED BACK
