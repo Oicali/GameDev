@@ -44,7 +44,6 @@
     {"name":"obj_quicksand_spawner","order":27,"path":"objects/obj_quicksand_spawner/obj_quicksand_spawner.yy",},
     {"name":"obj_quicksand","order":26,"path":"objects/obj_quicksand/obj_quicksand.yy",},
     {"name":"obj_round","order":5,"path":"objects/obj_round/obj_round.yy",},
-    {"name":"obj_scorer","order":24,"path":"objects/obj_scorer/obj_scorer.yy",},
     {"name":"obj_settings_menu","order":26,"path":"objects/obj_settings_menu/obj_settings_menu.yy",},
     {"name":"obj_spike_controller","order":11,"path":"objects/obj_spike_controller/obj_spike_controller.yy",},
     {"name":"obj_teleport_left","order":17,"path":"objects/obj_teleport_left/obj_teleport_left.yy",},

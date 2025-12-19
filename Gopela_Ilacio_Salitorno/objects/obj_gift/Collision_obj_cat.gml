@@ -67,7 +67,7 @@ switch(chosen) {
         // Disable ice physics and use normal speed
         mouse_instance.ice_physics_active = false;
         mouse_instance.spd = mouse_instance.base_spd - 4;
-        if (mouse_instance.spd < 1) mouse_instance.spd = 1;
+        if (mouse_instance.spd < 1) mouse_instance.spd = 0.8;
         mouse_instance.effect_timer = 5 * room_speed;
         target_player = mouse_instance;
     }
@@ -87,7 +87,7 @@ switch(chosen) {
 		if (instance_exists(mouse_instance)) {
              mouse_instance.is_stunned = true;
             mouse_instance.spd = 0;
-            mouse_instance.effect_timer = 5 * room_speed;
+            mouse_instance.effect_timer = 3 * room_speed;
             target_player = mouse_instance;
         }
         
@@ -140,7 +140,7 @@ switch(chosen) {
     // Disable ice physics and use normal speed
     other.ice_physics_active = false;
     other.spd = other.base_spd - 4;
-    if (other.spd < 1) other.spd = 1;
+    if (other.spd < 1) other.spd = 0.8;
     other.effect_timer = 5 * room_speed;
     
     audio_play_sound(snd_effects_slow, 0, false);
@@ -150,7 +150,7 @@ switch(chosen) {
     case "cat_stun":
         other.is_stunned = true;
         other.spd = 0;
-        other.effect_timer = 5 * room_speed;
+        other.effect_timer = 3 * room_speed;
         
         indicator_sprite = spr_effects_stun;
         target_player = other.id;
