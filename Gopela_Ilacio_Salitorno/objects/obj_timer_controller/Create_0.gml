@@ -7,6 +7,6 @@ countdown_done = false;
 
 show_room_refresh = false;
 // Round timer
-time_left = 81;
+time_left = 201;
 loop_count = 0;
 timer_done = false;
