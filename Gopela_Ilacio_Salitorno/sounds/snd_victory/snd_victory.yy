@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_gift_spawn",
+  "%Name":"snd_victory",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.533424,
+  "duration":7.476825,
   "exportDir":"",
-  "name":"snd_gift_spawn",
+  "name":"snd_victory",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_gift_spawn.wav",
-  "volume":1.0,
+  "soundFile":"snd_victory.mp3",
+  "volume":0.8,
 }
