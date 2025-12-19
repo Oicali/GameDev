@@ -1,5 +1,6 @@
-/// @description Insert description here
-// You can write your code in this editor
-
-room_goto(Map1);
-audio_stop_all()
+var fade = instance_create_depth(0, 0, -9999, obj_fade_transition);
+fade.mode = "out";
+fade.alpha = 0;
+fade.target_room = choose(Map1, Map2, Map3); // Randomly picks one!
+audio_play_sound(start, 1, false);
+audio_stop_all();
