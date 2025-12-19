@@ -27,10 +27,13 @@
     {"name":"inst_427DDDE9","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_58B5DE2C","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_55CF238E","path":"rooms/Map1/Map1.yy",},
-    {"name":"inst_22790EAB","path":"rooms/Map1/Map1.yy",},
+    {"name":"inst_7D2A3832","path":"rooms/Map1/Map1.yy",},
   ],
   "isDnd":false,
   "layers":[
+    {"$GMRInstanceLayer":"","%Name":"mouse_banner","depth":-1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"$GMRInstance":"v4","%Name":"inst_7D2A3832","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7D2A3832","objectId":{"name":"obj_mouse_banner","path":"objects/obj_mouse_banner/obj_mouse_banner.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.6,"scaleY":0.6,"x":39.0,"y":11.0,},
+      ],"layers":[],"name":"mouse_banner","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Banner","depth":-1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_55CF238E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_55CF238E","objectId":{"name":"obj_cat_banner","path":"objects/obj_cat_banner/obj_cat_banner.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.6,"scaleY":0.6,"x":300.0,"y":180.0,},
       ],"layers":[],"name":"Banner","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},

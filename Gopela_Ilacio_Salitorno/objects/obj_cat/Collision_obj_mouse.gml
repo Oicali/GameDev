@@ -38,7 +38,6 @@ if (global.cat_score >= 3) {
 
     audio_stop_all();
 	audio_play_sound(snd_victory, 0, false);
-	audio_play_sound(snd_victory, 0, false);
     // Pause and wait for key press (removed alarm)
     global.game_paused = true;
     show_cat_champion = true;  // Flag for key detection

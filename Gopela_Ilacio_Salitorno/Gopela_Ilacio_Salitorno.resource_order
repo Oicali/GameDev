@@ -36,6 +36,7 @@
     {"name":"obj_gift","order":1,"path":"objects/obj_gift/obj_gift.yy",},
     {"name":"obj_global","order":24,"path":"objects/obj_global/obj_global.yy",},
     {"name":"obj_howtoplay_menu","order":24,"path":"objects/obj_howtoplay_menu/obj_howtoplay_menu.yy",},
+    {"name":"obj_mouse_banner","order":29,"path":"objects/obj_mouse_banner/obj_mouse_banner.yy",},
     {"name":"obj_mouse","order":2,"path":"objects/obj_mouse/obj_mouse.yy",},
     {"name":"obj_pause_menu","order":12,"path":"objects/obj_pause_menu/obj_pause_menu.yy",},
     {"name":"obj_quicksand_spawner","order":27,"path":"objects/obj_quicksand_spawner/obj_quicksand_spawner.yy",},

@@ -56,6 +56,7 @@
     {"id":{"name":"obj_gift","path":"objects/obj_gift/obj_gift.yy",},},
     {"id":{"name":"obj_global","path":"objects/obj_global/obj_global.yy",},},
     {"id":{"name":"obj_howtoplay_menu","path":"objects/obj_howtoplay_menu/obj_howtoplay_menu.yy",},},
+    {"id":{"name":"obj_mouse_banner","path":"objects/obj_mouse_banner/obj_mouse_banner.yy",},},
     {"id":{"name":"obj_mouse","path":"objects/obj_mouse/obj_mouse.yy",},},
     {"id":{"name":"obj_pause_menu","path":"objects/obj_pause_menu/obj_pause_menu.yy",},},
     {"id":{"name":"obj_quicksand_spawner","path":"objects/obj_quicksand_spawner/obj_quicksand_spawner.yy",},},
