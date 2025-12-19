@@ -1,8 +1,13 @@
 show_debug_message("=== TIMER CREATE EVENT ===");
 show_debug_message("Saved timer value: " + string(global.saved_timer));
 
-// Initialize these FIRST (before the if/else)
-show_room_refresh = false; // ← MAKE SURE THIS IS HERE!
+// Pre-round countdown
+countdown_time = 4; // 3,2,1,Go! (4 steps)
+countdown_done = false;
+
+show_room_refresh = false;
+// Round timer
+time_left = 81;
 loop_count = 0;
 timer_done = false;
 

@@ -79,12 +79,7 @@ if (effect_timer > 0) {
         effect_color = c_purple;
     }
     
-    draw_set_font(fnt_lilita_one); 
-    draw_set_color(effect_color);
-    draw_set_halign(fa_right);
-    draw_text(room_width - 10, 10, "Mouse: " + effect_text + " " + string(seconds_left) + "s");
-    draw_set_halign(fa_left);
-    draw_set_color(c_white);
+   
 }
 
 
