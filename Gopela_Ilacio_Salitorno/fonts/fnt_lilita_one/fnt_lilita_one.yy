@@ -1,6 +1,6 @@
 {
   "$GMFont":"",
-  "%Name":"fnt_pause_menu",
+  "%Name":"fnt_lilita_one",
   "AntiAlias":1,
   "applyKerning":0,
   "ascender":30,
@@ -117,7 +117,7 @@
   "last":0,
   "lineHeight":38,
   "maintainGms1Font":false,
-  "name":"fnt_pause_menu",
+  "name":"fnt_lilita_one",
   "parent":{
     "name":"Fonts",
     "path":"folders/Fonts.yy",
