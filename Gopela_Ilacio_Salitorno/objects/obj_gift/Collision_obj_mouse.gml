@@ -21,7 +21,7 @@ var effects = [
     "cat_slow", "cat_slow",
     "cat_stun", 
     "cat_confused", "cat_confused",
-	"change_room","change_room","change_room","change_room","change_room","change_room","change_room","change_room"
+	"change_room","change_room",
 ];
 
 // Pick random entry
@@ -240,5 +240,5 @@ visible = false;
 image_alpha = 0;
 
 // Set respawn timer
-alarm[0] = 15 * room_speed;
+alarm[0] = 6 * room_speed;
 show_debug_message("Gift collected. Will respawn in 15 seconds");
