@@ -5,7 +5,7 @@ if (spd > base_spd) {
 }
 
 // Slow down the cat while touching
-spd = base_spd * 0.7; // Reduces speed to 70%
+spd = base_spd * 0.5; // Reduces speed to 70%
 
 // Play sound effect only once
 if (!audio_is_playing(snd_quicksand)) {
