@@ -1,7 +1,7 @@
 randomize();
 // Movement variables
-spd = 1.9
-base_spd = 1.9
+spd = 1.85
+base_spd = 1.85
 hspd = 0;
 vspd = 0;
 // Power-up variables
@@ -10,23 +10,21 @@ effect_timer = 0;
 is_confused = false;
 confused_keys = [ord("W"), ord("S"), ord("A"), ord("D")];
 confusion_shuffled = false;
-
 show_mouse_champion = false
-
 // Start with idle down sprite
 show_mouse_winner = false
 sprite_index = spr_rat_idle_down;
 direction = 270;
 speed = 0;
 
-// Game variables - USE LOCAL AGAIN
-cheese_collected = 0; // ADD THIS BACK
-
-// Check if we teleported via gift
+// RESTORE cheese if gift teleport
 if (global.teleported_by_gift) {
-    cheese_collected = global.mouse_cheese_collected; // Load saved cheese
-    global.teleported_by_gift = false; // Reset flag
+    cheese_collected = global.mouse_cheese_collected;
+    show_debug_message("RESTORED mouse cheese: " + string(cheese_collected));
+} else {
+    cheese_collected = 0;
 }
+// DON'T RESET FLAG HERE - Let fade transition do it
 
 image_xscale = 0.8
 image_yscale = 0.8

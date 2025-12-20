@@ -1,4 +1,4 @@
-/// @description Spawn 15 Cheese (Inside Camera View)
+/// @description Spawn Cheese (Adjusted for Gift Teleports)
 var _tilemap = layer_tilemap_get_id("Collision");
 var _tilemap_tree = -1;
 if (layer_exists("Tree_Collision")) {
@@ -13,31 +13,33 @@ var cam_y = camera_get_view_y(cam);
 var cam_width = camera_get_view_width(cam);
 var cam_height = camera_get_view_height(cam);
 
-// Add some padding so cheese aren't at edge
 var padding = 32;
-
-// Minimum distance between cheese
 var min_distance = 48;
-
-// List to track spawned cheese positions
 var cheese_positions = [];
+
+// CHECK GLOBAL VARIABLE (not mouse instance - spawner runs before mouse Create!)
+var cheese_to_spawn = 12;
+
+if (global.teleported_by_gift && global.mouse_cheese_collected > 0) {
+    cheese_to_spawn = 12 - global.mouse_cheese_collected;
+    show_debug_message("=== GIFT TELEPORT DETECTED ===");
+    show_debug_message("Mouse already has: " + string(global.mouse_cheese_collected));
+    show_debug_message("Spawning only: " + string(cheese_to_spawn) + " cheese");
+}
 
 var cheese_spawned = 0;
 var max_attempts = 3000;
 
-while (cheese_spawned < 12 && max_attempts > 0) {
-    // Random position INSIDE camera view
+while (cheese_spawned < cheese_to_spawn && max_attempts > 0) {
     var grid_x = irandom_range((cam_x + padding) / tile_size, (cam_x + cam_width - padding) / tile_size) * tile_size;
     var grid_y = irandom_range((cam_y + padding) / tile_size, (cam_y + cam_height - padding) / tile_size) * tile_size;
     
-    // Check 1: Not in collision tile
     var tile_check = tilemap_get_at_pixel(_tilemap, grid_x, grid_y);
-	var tree_check = 0;
-	if (_tilemap_tree != -1) {
-	    tree_check = tilemap_get_at_pixel(_tilemap_tree, grid_x, grid_y);
-	}
+    var tree_check = 0;
+    if (_tilemap_tree != -1) {
+        tree_check = tilemap_get_at_pixel(_tilemap_tree, grid_x, grid_y);
+    }
     
-    // Check 2: Not too close to other cheese
     var too_close = false;
     for (var i = 0; i < array_length(cheese_positions); i++) {
         var other_x = cheese_positions[i][0];
@@ -50,13 +52,9 @@ while (cheese_spawned < 12 && max_attempts > 0) {
         }
     }
     
-    // If valid position: spawn cheese
-   if (tile_check == 0 && tree_check == 0 && !too_close) { 
+    if (tile_check == 0 && tree_check == 0 && !too_close) { 
         instance_create_layer(grid_x, grid_y, "Instances_1", obj_cheese);
-        
-        // Store position
         array_push(cheese_positions, [grid_x, grid_y]);
-        
         cheese_spawned += 1;
         show_debug_message("Cheese #" + string(cheese_spawned) + " spawned at (" + string(grid_x) + ", " + string(grid_y) + ")");
     }
@@ -65,6 +63,4 @@ while (cheese_spawned < 12 && max_attempts > 0) {
 }
 
 show_debug_message("=== TOTAL SPAWNED: " + string(cheese_spawned) + " cheese ===");
-
-// DON'T DESTROY - Set alarm for teleportation
-alarm[0] = 12 * room_speed;  // 15 seconds
+alarm[0] = 12 * room_speed;
