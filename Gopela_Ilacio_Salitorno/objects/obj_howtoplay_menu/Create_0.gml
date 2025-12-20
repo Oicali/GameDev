@@ -20,7 +20,7 @@ page_x = room_width / 2;
 page_y = room_height / 2;
 
 // Scale the sprite to fit the screen
-target_width = room_width * 0.3;
+target_width = room_width * 0.9;
 sprite_scale = target_width / sprite_get_width(spr_howtoplay_page1);
 
 // Button positions

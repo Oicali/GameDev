@@ -244,5 +244,5 @@ visible = false;
 image_alpha = 0;
 
 // Set respawn timer
-alarm[0] = 7 * room_speed;
+alarm[0] = 6 * room_speed;
 show_debug_message("Gift collected. Will respawn in 15 seconds");
