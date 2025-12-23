@@ -13,8 +13,6 @@
     {"name":"inst_1108ACC7","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_4FB5E7E3","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_7BA605AE","path":"rooms/Map1/Map1.yy",},
-    {"name":"inst_2AF20406","path":"rooms/Map1/Map1.yy",},
-    {"name":"inst_62C12919","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_6C8C60C3","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_FD2B485","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_1E86B46E","path":"rooms/Map1/Map1.yy",},
@@ -23,7 +21,6 @@
     {"name":"inst_29C64A02","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_755248F4","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_55AD6823","path":"rooms/Map1/Map1.yy",},
-    {"name":"inst_295805EF","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_427DDDE9","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_58B5DE2C","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_55CF238E","path":"rooms/Map1/Map1.yy",},
@@ -31,6 +28,7 @@
     {"name":"inst_36BBD8D7","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_22790EAB","path":"rooms/Map1/Map1.yy",},
     {"name":"inst_3FB9396D","path":"rooms/Map1/Map1.yy",},
+    {"name":"inst_41568014","path":"rooms/Map1/Map1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -51,12 +49,10 @@
     {"$GMRInstanceLayer":"","%Name":"winning","depth":-900,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_29C64A02","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_29C64A02","objectId":{"name":"obj_game_controller","path":"objects/obj_game_controller/obj_game_controller.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":256.0,"y":160.0,},
         {"$GMRInstance":"v4","%Name":"inst_755248F4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_755248F4","objectId":{"name":"obj_win_screen","path":"objects/obj_win_screen/obj_win_screen.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":288.0,"y":160.0,},
+        {"$GMRInstance":"v4","%Name":"inst_41568014","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_41568014","objectId":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":55.0,"y":360.0,},
       ],"layers":[],"name":"winning","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"controller","depth":-800,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_1108ACC7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1108ACC7","objectId":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":32.0,"y":0.0,},
-        {"$GMRInstance":"v4","%Name":"inst_2AF20406","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":true,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2AF20406","objectId":{"name":"cave2","path":"objects/cave2/cave2.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.66351,"scaleY":0.12342417,"x":304.8689,"y":2.2405438,},
-        {"$GMRInstance":"v4","%Name":"inst_62C12919","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":true,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_62C12919","objectId":{"name":"cave3","path":"objects/cave3/cave3.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.92804974,"scaleY":0.15506808,"x":572.0,"y":2.2405438,},
-        {"$GMRInstance":"v4","%Name":"inst_295805EF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":true,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_295805EF","objectId":{"name":"cave1","path":"objects/cave1/cave1.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.6666667,"scaleY":0.18671195,"x":16.0,"y":3.721634,},
       ],"layers":[],"name":"controller","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tree_Collision","depth":-700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tree_Collision","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":0,"SerialiseWidth":0,"TileSerialiseData":[],},"tilesetId":null,"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRInstanceLayer":"","%Name":"effects_indicator","depth":-600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[

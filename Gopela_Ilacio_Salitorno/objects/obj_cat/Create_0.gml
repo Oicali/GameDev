@@ -15,9 +15,12 @@ effect_timer = 0;
 is_confused = false;
 confused_keys = [vk_up, vk_down, vk_left, vk_right]; // Arrow keys
 confusion_shuffled = false;
-
+show_champion_pending = false;
+show_banner_pending = false;
 // ROUND PAUSE VARIABLES
 show_cat_champion = false;
+
+original_sprite = sprite_index;
 
 // Start with idle down sprite
 sprite_index = spr_cat_idle_down;

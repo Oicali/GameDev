@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+if (global.game_paused) {
+    exit;
+}
 // Collected by cat
 if (!visible || image_alpha == 0) {
     exit;
@@ -16,8 +18,8 @@ collected = true;
 
 // Weighted effect pool
 var effects = [
-  
-	"change_room", "change_room","change_room",
+
+	"change_room", 
 ];
 
 // Pick random entry
@@ -193,7 +195,6 @@ switch(chosen) {
     
     // SET FLAG
     global.teleported_by_gift = true;
-    show_debug_message("FLAG SET TO TRUE - Value is now: " + string(global.teleported_by_gift));
     
     // Pick random map (EXCLUDING CURRENT ROOM)
     var available_rooms = [];
@@ -206,18 +207,17 @@ switch(chosen) {
     }
     
     var random_map = available_rooms[irandom(array_length(available_rooms) - 1)];
-    show_debug_message("Teleporting to: " + room_get_name(random_map));
-    show_debug_message("FLAG RIGHT BEFORE CREATING FADE: " + string(global.teleported_by_gift));
+    show_debug_message("Target room: " + room_get_name(random_map));
     
-    // Create fade transition
-    var fade = instance_create_depth(0, 0, -9999, obj_fade_transition);
-    fade.mode = "out";
-    fade.alpha = 0;
-    fade.target_room = random_map;
+    // ===== NEW: Create ROULETTE transition instead of fade =====
+    var roulette = instance_create_depth(0, 0, -10000, obj_roulette_transition);
+    roulette.target_room = random_map;
     
-    show_debug_message("FLAG RIGHT AFTER CREATING FADE: " + string(global.teleported_by_gift));
+    // Pause game during roulette
+    global.game_paused = true;
     
-    audio_play_sound(snd_effects_confuse, 0, false);
+    // Play exciting sound
+    audio_play_sound(snd_effects_confuse, 0, false);  // Replace with roulette sound
     
     indicator_sprite = noone;
     target_player = noone;
