@@ -4,6 +4,7 @@ show_debug_message("=== TIMER CREATE EVENT ===");
 countdown_time = 4;
 countdown_done = false;
 show_room_refresh = false;
+last_count = -1; 
 
 // Round timer
 time_left = 81;

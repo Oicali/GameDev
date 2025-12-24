@@ -45,48 +45,60 @@ if (global.game_paused) {
     exit; // skip drawing timer/countdown
 }
 
-// ===== COUNTDOWN DISPLAY =====
+// ===== COUNTDOWN DISPLAY WITH SPRITES =====
+// ===== COUNTDOWN DISPLAY WITH SPRITES =====
+// ===== COUNTDOWN DISPLAY WITH SPRITES =====
 if (state == "countdown") {
     var count = ceil(countdown_time);
-
-    var text = "";
+    
+    // ===== MANUAL POSITION (CHANGE THESE!) =====
+    var cx = 440;  // X position
+    var cy = 135;  // Y position
+    
+    // ===== MANUAL SIZE (CHANGE THIS!) =====
+    var sprite_scale = 0.9;  // Size of sprite
+    
+    // DETERMINE WHICH SPRITE TO SHOW
     if (count > 1) {
-        text = string(count - 1); // Shows 3,2,1
-    } else {
-        text = "GO!";
-    }
-
-    // Position (center of screen)
-    var cx = display_get_gui_width() / 2;
-    var cy = display_get_gui_height() / 2;
-
-    draw_set_font(fnt_lilita_one);
-    draw_set_halign(fa_center);
-    draw_set_valign(fa_middle);
-
-    // Colors
-    var main_color = (text == "GO!") ? make_color_rgb(0, 180, 0) : make_color_rgb(220, 180, 40);
-    var outline_color = c_black;
-
-    // Scale pulse effect
-    var scale = 3.2;
-    if (countdown_time - floor(countdown_time) < 0.5) {
-        scale = 3.7;
-    }
-
-    // Outline
-    draw_set_color(outline_color);
-    for (var ox = -5; ox <= 5; ox++) {
-        for (var oy = -5; oy <= 5; oy++) {
-            if (ox != 0 || oy != 0) {
-                draw_text_transformed(cx + ox, cy + oy, text, scale, scale, 0);
-            }
+        // ===== SHOW READY SPRITE (for 3 seconds) =====
+        draw_sprite_ext(
+            spr_ready,
+            0,
+            cx,
+            cy,
+            sprite_scale,
+            sprite_scale,
+            0,
+            c_white,
+            1
+        );
+        
+        // Play READY sound ONCE when it first appears
+        if (last_count == -1) {
+            audio_play_sound(snd_ready, 0, false);
+            last_count = 1; // Mark as played
+        }
+    } 
+    else {
+        // ===== SHOW GO SPRITE (for 1 second) =====
+        draw_sprite_ext(
+            spr_go,
+            0,
+            cx,
+            cy,
+            sprite_scale,
+            sprite_scale,
+            0,
+            c_white,
+            1
+        );
+        
+        // Play GO sound ONCE when it first appears
+        if (last_count != 0) {
+            audio_play_sound(snd_go, 0, false);
+            last_count = 0;
         }
     }
-
-    // Main fill
-    draw_set_color(main_color);
-    draw_text_transformed(cx, cy, text, scale, scale, 0);
 }
 else if (state == "active") {
     // ===== ROUND TIMER =====

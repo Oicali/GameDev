@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_fight_cloud",
+  "%Name":"snd_ready",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":20.5961,
+  "duration":0.36571428,
   "exportDir":"",
-  "name":"snd_fight_cloud",
+  "name":"snd_ready",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_fight_cloud.mp3",
-  "volume":0.66,
+  "soundFile":"snd_ready.mp3",
+  "volume":1.0,
 }

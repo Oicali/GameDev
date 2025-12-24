@@ -68,20 +68,36 @@ if (effect_timer > 0) {
 }
 
 // ===== CONFUSION SETUP (ONLY SHUFFLE ONCE) =====
+// ===== CONFUSION SETUP (ONLY SHUFFLE ONCE) =====
 if (is_confused && !confusion_shuffled) {
-    confused_keys = [vk_up, vk_down, vk_left, vk_right];
+    var original_keys = [vk_up, vk_down, vk_left, vk_right];
+    var is_same = true;
     
-    // Shuffle the array
-    var n = array_length(confused_keys);
-    for (var i = n - 1; i > 0; i--) {
-        var j = irandom(i);
-        var temp = confused_keys[i];
-        confused_keys[i] = confused_keys[j];
-        confused_keys[j] = temp;
+    // Keep shuffling until we get a DIFFERENT arrangement
+    while (is_same) {
+        confused_keys = [vk_up, vk_down, vk_left, vk_right];
+        
+        // Shuffle the array
+        var n = array_length(confused_keys);
+        for (var i = n - 1; i > 0; i--) {
+            var j = irandom(i);
+            var temp = confused_keys[i];
+            confused_keys[i] = confused_keys[j];
+            confused_keys[j] = temp;
+        }
+        
+        // Check if shuffled array is DIFFERENT from original
+        is_same = true;
+        for (var i = 0; i < array_length(confused_keys); i++) {
+            if (confused_keys[i] != original_keys[i]) {
+                is_same = false;
+                break;
+            }
+        }
     }
     
     confusion_shuffled = true;
-    show_debug_message("Cat keys shuffled!");
+    show_debug_message("Cat keys confused! Arrow keys scrambled!");
 }
 
 // ===== IF STUNNED, STOP ALL MOVEMENT =====

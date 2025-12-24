@@ -12,6 +12,7 @@ if (state == "countdown") {
     if (countdown_time <= 0 && !countdown_done) {
         countdown_done = true;
         state = "active";
+		 last_count = -1;
     }
 }
 // ===== ACTIVE ROUND STATE =====
