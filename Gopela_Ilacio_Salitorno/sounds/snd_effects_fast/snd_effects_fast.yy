@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.76825,
+  "duration":0.757551,
   "exportDir":"",
   "name":"snd_effects_fast",
   "parent":{

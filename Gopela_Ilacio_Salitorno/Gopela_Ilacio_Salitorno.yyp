@@ -128,7 +128,6 @@
     {"id":{"name":"spr_cat_wins","path":"sprites/spr_cat_wins/spr_cat_wins.yy",},},
     {"id":{"name":"spr_cheese","path":"sprites/spr_cheese/spr_cheese.yy",},},
     {"id":{"name":"spr_colon","path":"sprites/spr_colon/spr_colon.yy",},},
-    {"id":{"name":"spr_countdown","path":"sprites/spr_countdown/spr_countdown.yy",},},
     {"id":{"name":"spr_effects_confuse","path":"sprites/spr_effects_confuse/spr_effects_confuse.yy",},},
     {"id":{"name":"spr_effects_fast","path":"sprites/spr_effects_fast/spr_effects_fast.yy",},},
     {"id":{"name":"spr_effects_slow","path":"sprites/spr_effects_slow/spr_effects_slow.yy",},},
