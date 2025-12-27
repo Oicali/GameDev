@@ -37,3 +37,4 @@ back_btn_y = room_height * 0.31;
 back_btn_radius = 50;
 
 mouse_over_button = "";
+mouse_over_button_previous = "";

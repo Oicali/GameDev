@@ -1,6 +1,6 @@
+
 var fade = instance_create_depth(0, 0, -9999, obj_fade_transition);
 fade.mode = "out";
 fade.alpha = 0;
-fade.target_room = choose(Map1, Map2, Map3); // Randomly picks one!
-audio_play_sound(start, 1, false);
+fade.target_room = choose(Map1, Map2, Map3);
 audio_stop_all();

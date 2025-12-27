@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"start",
+  "%Name":"snd_start",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -12,7 +12,7 @@
   "conversionMode":0,
   "duration":1.9999774,
   "exportDir":"",
-  "name":"start",
+  "name":"snd_start",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"start.wav",
+  "soundFile":"snd_start.wav",
   "volume":1.0,
 }
