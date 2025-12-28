@@ -26,8 +26,8 @@ if (global.teleported_by_gift) {
 }
 // DON'T RESET FLAG HERE - Let fade transition do it
 
-image_xscale = 0.8
-image_yscale = 0.8
+image_xscale = 0.9
+image_yscale = 0.9
 hsp = 0;
 vsp = 0;
 friction_ice = 0.94;
