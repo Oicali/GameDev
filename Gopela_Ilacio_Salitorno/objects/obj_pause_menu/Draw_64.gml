@@ -27,25 +27,25 @@ var orange = make_color_rgb(255, 140, 0);
 var text_x = container_x;
 
 // Menu option Y positions (MOVED UP for better spacing)
-var resume_y = container_y - 60;   // Only 10 pixels up
-var restart_y = container_y - 10;
-var settings_y = container_y + 40;
-var quit_y = container_y + 90;
+var resume_y = container_y - 66;
+var restart_y = container_y - 16;
+var settings_y = container_y + 35;
+var quit_y = container_y + 85;
 
-// Draw RESUME
-draw_set_color((selected == 0) ? orange : c_black);
+// Draw RESUME (highlight if selected OR hovered)
+draw_set_color((selected == 0 || mouse_over == 0) ? orange : c_black);
 draw_text_transformed(text_x, resume_y, "RESUME", 1.2, 1.2, 0);
 
 // Draw RESTART
-draw_set_color((selected == 1) ? orange : c_black);
+draw_set_color((selected == 1 || mouse_over == 1) ? orange : c_black);
 draw_text_transformed(text_x, restart_y, "RESTART", 1.2, 1.2, 0);
 
 // Draw SETTINGS
-draw_set_color((selected == 2) ? orange : c_black);
+draw_set_color((selected == 2 || mouse_over == 2) ? orange : c_black);
 draw_text_transformed(text_x, settings_y, "SETTINGS", 1.2, 1.2, 0);
 
 // Draw QUIT
-draw_set_color((selected == 3) ? orange : c_black);
+draw_set_color((selected == 3 || mouse_over == 3) ? orange : c_black);
 draw_text_transformed(text_x, quit_y, "QUIT", 1.2, 1.2, 0);
 
 // Get arrow Y position based on selection
@@ -68,6 +68,21 @@ draw_sprite_ext(spr_arrow_left, 0, left_arrow_x, arrow_y, 0.5, 0.5, 0, orange, 1
 // Draw RIGHT arrow - SMALLER and CLOSER
 var right_arrow_x = text_x + arrow_offset + arrow_animation;
 draw_sprite_ext(spr_arrow_right, 0, right_arrow_x, arrow_y, 0.5, 0.5, 0, orange, 1);
+
+// Optional: Draw visual feedback when hovering with mouse
+if (mouse_over != -1) {
+    draw_set_alpha(0.1);
+    draw_set_color(c_orange);
+    var hover_y;
+    switch(mouse_over) {
+        case 0: hover_y = resume_y; break;
+        case 1: hover_y = restart_y; break;
+        case 2: hover_y = settings_y; break;
+        case 3: hover_y = quit_y; break;
+    }
+    draw_rectangle(text_x - 120, hover_y - 20, text_x + 120, hover_y + 20, false);
+    draw_set_alpha(1);
+}
 
 // Reset draw settings
 draw_set_font(-1);
