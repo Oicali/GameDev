@@ -5,3 +5,6 @@ window_center();
 
 // Disable any automatic scaling
 display_reset(0, false);
+
+// Disable texture interpolation for crisp graphics
+gpu_set_tex_filter(false);
