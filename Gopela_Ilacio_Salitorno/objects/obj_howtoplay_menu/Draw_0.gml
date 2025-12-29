@@ -62,8 +62,8 @@ var back_scale = (mouse_over_button == "back") ? 1.1 : 1.0;
 draw_sprite_ext(
     spr_btn_back,
     0,
-    back_btn_x,
-    back_btn_y,
+    back_btn_x - 30,  // Subtract 50 pixels to move left
+    back_btn_y + 17,
     back_scale,
     back_scale,
     0,
