@@ -86,4 +86,4 @@ show_debug_message("=== TELEPORT INITIATED ===");
 alarm[1] = 20;
 
 // Set next teleport in 12 seconds (only if cheese still exist)
-alarm[0] = 12 * room_speed;
+alarm[0] = 10 * room_speed;

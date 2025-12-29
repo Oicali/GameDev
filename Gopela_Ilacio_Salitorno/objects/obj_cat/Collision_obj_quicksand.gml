@@ -1,21 +1,15 @@
-/// @description Collision with obj_quicksand
-// If cat has fast effect, ignore quicksand
 if (spd > base_spd) {
-    exit; // Don't apply slowdown if moving faster than normal
+    exit;
 }
 
-// Slow down the cat while touching
-spd = base_spd * 0.5; // Reduces speed to 70%
+spd = base_spd * 0.5;
 
-// Play sound effect only once
 if (!audio_is_playing(snd_quicksand)) {
     audio_play_sound(snd_quicksand, 1, false);
 }
 
-// Visual feedback - tint yellow/brown while in quicksand
 image_blend = c_yellow;
 
-// Create slow indicator only once
 if (!variable_instance_exists(id, "quicksand_indicator") || !instance_exists(quicksand_indicator)) {
     quicksand_indicator = instance_create_layer(
         x - 9,

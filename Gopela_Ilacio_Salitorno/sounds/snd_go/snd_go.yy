@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":2.88,
+  "duration":1.0890023,
   "exportDir":"",
   "name":"snd_go",
   "parent":{

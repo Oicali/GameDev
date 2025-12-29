@@ -1,5 +1,3 @@
-/// DRAW GUI EVENT
-// ===== CAT ROUND WIN MESSAGE =====
 if (effect_timer > 0) {
     var seconds_left = ceil(effect_timer / room_speed);
     var effect_text = "";
@@ -22,7 +20,6 @@ if (effect_timer > 0) {
         effect_color = c_purple;
     }
     
-    // REPOSITIONED TO BOTTOM-RIGHT
     var gui_width = display_get_gui_width();
     var gui_height = display_get_gui_height();
     
@@ -30,13 +27,11 @@ if (effect_timer > 0) {
     draw_set_halign(fa_right);
     draw_set_valign(fa_bottom);
     
-    // Position at bottom-right corner
-    var text_x = gui_width - 10;  // 10 pixels from right edge
-    var text_y = gui_height - 10; // 10 pixels from bottom edge
+    var text_x = gui_width - 10; 
+    var text_y = gui_height - 10;
     
     var full_text = "Cat: " + effect_text + " " + string(seconds_left) + "s";
     
-    // Draw outline
     var outline_color = c_black;
     var stroke = 2;
     draw_set_color(outline_color);
@@ -48,18 +43,13 @@ if (effect_timer > 0) {
         }
     }
     
-    // Draw main text
     draw_set_color(effect_color);
     draw_text(text_x, text_y, full_text);
-    
-    // Reset alignment and color
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_color(c_white);
 }
 
-
-// ===== CAT SCORE DISPLAY (TOP RIGHT) =====
 {
     draw_set_font(fnt_lilita_one);
     draw_set_halign(fa_right);
@@ -78,8 +68,6 @@ if (effect_timer > 0) {
             }
         }
     }
-    
-    // Main fill (bright orange)
     var main_color = make_color_rgb(255, 140, 0);
     draw_set_color(main_color);
     draw_text(draw_x, draw_y, score_text);

@@ -51,21 +51,20 @@ if (global.game_paused) {
 if (state == "countdown") {
     var count = ceil(countdown_time);
     
-    // ===== MANUAL POSITION (CHANGE THESE!) =====
-    var cx = 440;  // X position
-    var cy = 135;  // Y position
-    
     // ===== MANUAL SIZE (CHANGE THIS!) =====
-    var sprite_scale = 0.9;  // Size of sprite
+    var sprite_scale = 0.9;
     
     // DETERMINE WHICH SPRITE TO SHOW
     if (count > 1) {
-        // ===== SHOW READY SPRITE (for 3 seconds) =====
+        // ===== READY SPRITE POSITION =====
+        var ready_x = 440;
+        var ready_y = 135;
+        
         draw_sprite_ext(
             spr_ready,
             0,
-            cx,
-            cy,
+            ready_x,
+            ready_y,
             sprite_scale,
             sprite_scale,
             0,
@@ -73,19 +72,21 @@ if (state == "countdown") {
             1
         );
         
-        // Play READY sound ONCE when it first appears
         if (last_count == -1) {
             audio_play_sound(snd_ready, 0, false);
-            last_count = 1; // Mark as played
+            last_count = 1;
         }
     } 
     else {
-        // ===== SHOW GO SPRITE (for 1 second) =====
+        // ===== GO SPRITE POSITION =====
+        var go_x = 440;
+        var go_y = 135;
+        
         draw_sprite_ext(
             spr_go,
             0,
-            cx,
-            cy,
+            go_x,
+            go_y,
             sprite_scale,
             sprite_scale,
             0,
@@ -93,7 +94,6 @@ if (state == "countdown") {
             1
         );
         
-        // Play GO sound ONCE when it first appears
         if (last_count != 0) {
             audio_play_sound(snd_go, 0, false);
             last_count = 0;

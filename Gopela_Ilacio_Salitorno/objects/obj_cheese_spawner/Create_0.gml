@@ -63,4 +63,4 @@ while (cheese_spawned < cheese_to_spawn && max_attempts > 0) {
 }
 
 show_debug_message("=== TOTAL SPAWNED: " + string(cheese_spawned) + " cheese ===");
-alarm[0] = 12 * room_speed;
+alarm[0] = 10 * room_speed;

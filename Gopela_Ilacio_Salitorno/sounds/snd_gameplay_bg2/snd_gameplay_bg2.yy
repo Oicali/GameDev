@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":105.90621,
+  "duration":127.26857,
   "exportDir":"",
   "name":"snd_gameplay_bg2",
   "parent":{
@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"snd_gameplay_bg2.mp3",
-  "volume":1.0,
+  "volume":0.86,
 }

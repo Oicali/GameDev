@@ -1,4 +1,3 @@
-/// @description Screen flash effect
 
 if (global.flash_alpha > 0) {
     draw_set_alpha(global.flash_alpha);
@@ -7,7 +6,7 @@ if (global.flash_alpha > 0) {
     draw_set_alpha(1);
     draw_set_color(c_white);
     
-    // Fade out flash
+    // fade out here
     global.flash_alpha -= 0.05;
     if (global.flash_alpha < 0) global.flash_alpha = 0;
 }
