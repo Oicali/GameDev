@@ -1,6 +1,6 @@
 /// DRAW GUI EVENT - obj_ui_hud_complete
 
-draw_set_alpha(0.8);
+draw_set_alpha(0.94);
 draw_sprite(spr_ui_hud_complete, 0, 0, 0);
 draw_set_font(fnt_lilita_one);
 draw_set_color(c_white);
