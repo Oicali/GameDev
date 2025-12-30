@@ -149,6 +149,7 @@
     {"name":"spr_rat_walk_right","order":18,"path":"sprites/spr_rat_walk_right/spr_rat_walk_right.yy",},
     {"name":"spr_rat_walk_up","order":24,"path":"sprites/spr_rat_walk_up/spr_rat_walk_up.yy",},
     {"name":"spr_ready","order":70,"path":"sprites/spr_ready/spr_ready.yy",},
+    {"name":"spr_rematch","order":84,"path":"sprites/spr_rematch/spr_rematch.yy",},
     {"name":"spr_settings_container","order":65,"path":"sprites/spr_settings_container/spr_settings_container.yy",},
     {"name":"spr_signal","order":81,"path":"sprites/spr_signal/spr_signal.yy",},
     {"name":"spr_sound_icon","order":64,"path":"sprites/spr_sound_icon/spr_sound_icon.yy",},

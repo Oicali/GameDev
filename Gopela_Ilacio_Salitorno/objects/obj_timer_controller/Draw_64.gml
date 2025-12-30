@@ -2,33 +2,28 @@
 
 //// ===== ROOM REFRESH DISPLAY (CHECK FIRST) =====
 if (show_room_refresh) {
-    draw_set_font(fnt_lilita_one);  // Changed font
-    draw_set_halign(fa_center);
-    draw_set_valign(fa_middle);
+    // ===== REMATCH SPRITE POSITION =====
+    var rematch_x = 405;  // ADJUST THIS
+    var rematch_y = 90;  // ADJUST THIS
+    var sprite_scale = 1;  // ADJUST THIS
     
-    // Blinking effect
+    // Blinking effect - alternate between white and normal
     var blink = ((current_time div 500) mod 2 == 0);
-    var main_color = blink ? c_yellow : c_orange;
-    var outline_color = c_black;
-    var text = "REMATCH!!";
-    var cx = display_get_gui_width() / 2;
-    var cy = display_get_gui_height() / 2;
-    var scale = 3;
+    var blink_color = blink ? c_white : c_yellow;
+    var blink_alpha = blink ? 1 : 0.7;
     
-    // Outline
-    draw_set_color(outline_color);
-    var stroke = 4;
-    for (var ox = -stroke; ox <= stroke; ox++) {
-        for (var oy = -stroke; oy <= stroke; oy++) {
-            if (ox != 0 || oy != 0) {
-                draw_text_transformed(cx + ox, cy + oy, text, scale, scale, 0);
-            }
-        }
-    }
-    
-    // Main fill
-    draw_set_color(main_color);
-    draw_text_transformed(cx, cy, text, scale, scale, 0);
+    // Draw sprite with blinking effect
+    draw_sprite_ext(
+        spr_rematch,
+        0,
+        rematch_x,
+        rematch_y,
+        sprite_scale,
+        sprite_scale,
+        0,
+        blink_color,
+        blink_alpha
+    );
     
     exit; // Don't draw anything else
 }

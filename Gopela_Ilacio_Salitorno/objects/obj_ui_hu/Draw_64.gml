@@ -1,28 +1,22 @@
 /// DRAW GUI EVENT - obj_ui_hud_complete
 draw_set_alpha(0.8);
-
 draw_sprite(spr_ui_hud_complete, 0, 0, 0);
-
 draw_set_font(fnt_lilita_one);
 draw_set_color(c_white);
-
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 var mouse_score_text = string(global.mouse_score);
 draw_text_transformed(70, 25, mouse_score_text, 0.6, 0.6, 0);
-
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 var round_text = "ROUND " + string(global.round);
 draw_text_transformed(display_get_gui_width() / 2, 25, round_text, 0.6, 0.6, 0);
-
 draw_set_halign(fa_right);
 draw_set_valign(fa_top);
 var cat_score_text = string(global.cat_score);
 draw_set_color(c_white);
 draw_text_transformed(display_get_gui_width() - 70, 25, cat_score_text, 0.6, 0.6, 0);
 draw_set_color(c_white);
-
 draw_set_halign(fa_left);
 draw_set_valign(fa_bottom);
 var cheese_text = "0/10";
@@ -31,24 +25,30 @@ if (instance_exists(obj_mouse)) {
 }
 draw_set_color(c_white);
 draw_text_transformed(70, display_get_gui_height() - 25, cheese_text, 0.6, 0.6, 0);
-
 draw_set_halign(fa_center);
 draw_set_valign(fa_bottom);
 var timer_text = "0:00";
+var timer_color = c_white;
+var timer_scale = 0.75;  // BIGGER BASE SIZE (was 0.6)
 if (instance_exists(obj_timer_controller)) {
     var minutes = floor(obj_timer_controller.time_left / 60);
     var seconds = floor(obj_timer_controller.time_left mod 60);
     var sec_text = (seconds < 10) ? "0" + string(seconds) : string(seconds);
     timer_text = string(minutes) + ":" + sec_text;
+    
+    // BLINKING RED IF 11 SECONDS OR LESS
+    if (obj_timer_controller.time_left <= 11) {
+        var blink = ((current_time div 500) mod 2 == 0);
+        timer_color = blink ? c_red : c_white;
+        timer_scale = 0.85;  // EVEN BIGGER WHEN RED (was 0.7)
+    }
 }
-draw_set_color(c_white);
-draw_text_transformed(display_get_gui_width() / 2, display_get_gui_height() - 25, timer_text, 0.6, 0.6, 0);
-
+draw_set_color(timer_color);
+draw_text_transformed(display_get_gui_width() / 2, display_get_gui_height() - 25, timer_text, timer_scale, timer_scale, 0);
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
 var status_text = "";
 var status_color = c_white;
-
 if (instance_exists(obj_cat)) {
     var cat = instance_find(obj_cat, 0);
     if (cat != noone && cat.effect_timer > 0) {
@@ -72,7 +72,6 @@ if (instance_exists(obj_cat)) {
         }
     }
 }
-
 if (status_text == "" && instance_exists(obj_mouse)) {
     var mouse = instance_find(obj_mouse, 0);
     if (mouse != noone && mouse.effect_timer > 0) {
@@ -96,8 +95,6 @@ if (status_text == "" && instance_exists(obj_mouse)) {
         }
     }
 }
-
 draw_set_color(status_color);
 draw_text_transformed(display_get_gui_width() - 70, display_get_gui_height() - 25, status_text, 0.6, 0.6, 0);
-
 draw_set_alpha(1.0);

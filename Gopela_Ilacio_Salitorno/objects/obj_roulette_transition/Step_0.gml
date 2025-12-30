@@ -53,25 +53,41 @@ if (state == "spinning") {
     display_scale = lerp(display_scale, 1, 0.2);
     tick_sound_delay--;
     
-    // FINISH: Switch to outro
-    if (spin_timer >= spin_duration) {
-        is_complete = true;
-        
-        // Lock to target room
-        for (var i = 0; i < array_length(all_rooms); i++) {
-            if (all_rooms[i] == target_room) {
-                current_display_index = i;
-                break;
-            }
+ // FINISH: Switch to stopped (show final room)
+if (spin_timer >= spin_duration) {
+    is_complete = true;
+    
+    // Lock to target room
+    for (var i = 0; i < array_length(all_rooms); i++) {
+        if (all_rooms[i] == target_room) {
+            current_display_index = i;
+            break;
         }
-        
+    }
+    
+    state = "stopped";  // Changed from "outro"
+    show_debug_message("=== ROULETTE COMPLETE - Showing final room ===");
+}
+
+exit;
+}
+
+// ===== STOPPED STATE - Show final room =====
+if (state == "stopped") {
+    stopped_timer++;
+    
+    // Keep displaying the final room (drawing handled in Draw event)
+    
+    // After showing final room, go to outro
+    if (stopped_timer >= stopped_duration) {
         state = "outro";
-        show_debug_message("=== ROULETTE COMPLETE - Starting outro ===");
+        show_debug_message("=== Starting outro ===");
     }
     
     exit;
 }
 
+// ===== OUTRO STATE =====
 // ===== OUTRO STATE =====
 if (state == "outro") {
     outro_timer++;
@@ -97,6 +113,7 @@ if (state == "outro") {
         
         show_debug_message("=== STARTING FADE TO: " + room_get_name(target_room) + " ===");
         
-        instance_destroy();
+        instance_destroy();  // Destroy immediately after creating fade
+        exit;  // Exit to prevent any more drawing
     }
 }

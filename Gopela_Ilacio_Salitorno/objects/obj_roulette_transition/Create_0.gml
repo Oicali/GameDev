@@ -29,11 +29,13 @@ saved_timer_value = global.saved_timer;
 saved_cheese_value = global.mouse_cheese_collected;
 is_complete = false;
 // ===== INTRO/OUTRO ANIMATION =====
-state = "intro";
+state = "intro";  // States: "intro", "spinning", "stopped", "outro"
 intro_text_y = display_get_gui_height() + 100;
 intro_target_y = display_get_gui_height() / 2;
 intro_timer = 0;
 intro_duration = 60;
 outro_timer = 0;
 outro_duration = 60;
+stopped_timer = 0;  // ADD THIS
+stopped_duration = 90;  // ADD THIS - Show final room for 1.5 seconds
 show_debug_message("=== ROULETTE START - Target: " + room_get_name(target_room) + " ===");

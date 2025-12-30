@@ -7,7 +7,7 @@ show_room_refresh = false;
 last_count = -1; 
 
 // Round timer
-time_left = 81;
+time_left = 80;
 loop_count = 0;
 timer_done = false;
 double_ko_timer = 0;
