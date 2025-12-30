@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":7.476825,
+  "duration":65.77633,
   "exportDir":"",
   "name":"snd_victory",
   "parent":{
@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"snd_victory.mp3",
-  "volume":0.8,
+  "volume":1.0,
 }

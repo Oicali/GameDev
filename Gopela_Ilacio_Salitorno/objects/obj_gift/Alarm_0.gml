@@ -1,5 +1,4 @@
 /// @description Respawn gift within camera view
-
 show_debug_message("=== ALARM 0 TRIGGERED ===");
 
 var _tilemap = layer_tilemap_get_id("Collision");
@@ -17,6 +16,7 @@ var cam_h = camera_get_view_height(cam);
 
 var padding = 40;
 var collision_check_radius = 16;
+var min_distance_from_players = 100; 
 
 var valid_position = false;
 var attempts = 0;
@@ -35,6 +35,7 @@ while (!valid_position && attempts < max_attempts) {
     
     var is_clear = true;
     
+    // Check collision tiles
     for (var check_x = -collision_check_radius; check_x <= collision_check_radius; check_x += tile_size) {
         for (var check_y = -collision_check_radius; check_y <= collision_check_radius; check_y += tile_size) {
             var test_x = new_x + check_x;
@@ -55,6 +56,23 @@ while (!valid_position && attempts < max_attempts) {
             }
         }
         if (!is_clear) break;
+    }
+    
+    // ADD THIS - Check distance from players
+    if (is_clear) {
+        if (instance_exists(obj_mouse)) {
+            var dist_to_mouse = point_distance(new_x, new_y, obj_mouse.x, obj_mouse.y);
+            if (dist_to_mouse < min_distance_from_players) {
+                is_clear = false;
+            }
+        }
+        
+        if (is_clear && instance_exists(obj_cat)) {
+            var dist_to_cat = point_distance(new_x, new_y, obj_cat.x, obj_cat.y);
+            if (dist_to_cat < min_distance_from_players) {
+                is_clear = false;
+            }
+        }
     }
     
     if (is_clear) {

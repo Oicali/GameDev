@@ -10,7 +10,7 @@ if (state == "intro") {
     // After intro finishes, switch to spinning
     if (intro_timer >= intro_duration) {
         state = "spinning";
-		 audio_play_sound(snd_rouletter, 0, false);
+		 audio_play_sound(snd_roulette, 0, false);
         show_debug_message("=== INTRO COMPLETE - Starting spin ===");
     }
     
@@ -28,23 +28,32 @@ if (state == "spinning") {
     var progress = spin_timer / spin_duration;
     current_interval = lerp(min_interval, max_interval, power(progress, 2));
     
-    // Cycle through rooms
-    interval_timer++;
-    if (interval_timer >= current_interval) {
-        interval_timer = 0;
-        
-        current_display_index++;
-        if (current_display_index >= array_length(all_rooms)) {
-            current_display_index = 0;
+    // STOP CYCLING when very close to target room and near the end
+    var should_cycle = true;
+    if (progress > 0.95) {  // In last 5% of spin
+        // Check if we're on the target room
+        if (all_rooms[current_display_index] == target_room) {
+            should_cycle = false;  // Stop cycling - we're on the target!
         }
-        
-        flash_alpha = 0.3;
-        display_scale = 1.2;
-        
-        // Tick sound
-        if (tick_sound_delay <= 0) {
-            //audio_play_sound(snd_effects_confuse, 0, false);  // Small tick sound
-            tick_sound_delay = max(current_interval, 5);  // Don't play too often
+    }
+    
+    // Cycle through rooms
+    if (should_cycle) {
+        interval_timer++;
+        if (interval_timer >= current_interval) {
+            interval_timer = 0;
+            
+            current_display_index++;
+            if (current_display_index >= array_length(all_rooms)) {
+                current_display_index = 0;
+            }
+            
+            flash_alpha = 0.3;
+            display_scale = 1.2;
+            
+            if (tick_sound_delay <= 0) {
+                tick_sound_delay = max(current_interval, 5);
+            }
         }
     }
     
@@ -53,23 +62,23 @@ if (state == "spinning") {
     display_scale = lerp(display_scale, 1, 0.2);
     tick_sound_delay--;
     
- // FINISH: Switch to stopped (show final room)
-if (spin_timer >= spin_duration) {
-    is_complete = true;
-    
-    // Lock to target room
-    for (var i = 0; i < array_length(all_rooms); i++) {
-        if (all_rooms[i] == target_room) {
-            current_display_index = i;
-            break;
+    // FINISH: Switch to stopped
+    if (spin_timer >= spin_duration) {
+        is_complete = true;
+        
+        // Make sure we're showing the target room (safety check)
+        for (var i = 0; i < array_length(all_rooms); i++) {
+            if (all_rooms[i] == target_room) {
+                current_display_index = i;
+                break;
+            }
         }
+        
+        state = "stopped";
+        show_debug_message("=== ROULETTE COMPLETE - Showing final room ===");
     }
     
-    state = "stopped";  // Changed from "outro"
-    show_debug_message("=== ROULETTE COMPLETE - Showing final room ===");
-}
-
-exit;
+    exit;
 }
 
 // ===== STOPPED STATE - Show final room =====

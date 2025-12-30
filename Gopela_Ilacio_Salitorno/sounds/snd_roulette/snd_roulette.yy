@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_rouletter",
+  "%Name":"snd_roulette",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":10.373673,
+  "duration":10.705306,
   "exportDir":"",
-  "name":"snd_rouletter",
+  "name":"snd_roulette",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_rouletter.mp3",
+  "soundFile":"snd_roulette.mp3",
   "volume":1.0,
 }
