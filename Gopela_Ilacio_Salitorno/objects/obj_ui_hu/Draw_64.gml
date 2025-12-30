@@ -1,28 +1,21 @@
 /// DRAW GUI EVENT - obj_ui_hud_complete
-
-// SET OPACITY TO 50%
 draw_set_alpha(0.8);
 
-// Draw the background sprite
 draw_sprite(spr_ui_hud_complete, 0, 0, 0);
 
-// Set font and reset colors
 draw_set_font(fnt_lilita_one);
 draw_set_color(c_white);
 
-// ===== TOP LEFT - MOUSE SCORE =====
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 var mouse_score_text = string(global.mouse_score);
 draw_text_transformed(70, 25, mouse_score_text, 0.6, 0.6, 0);
 
-// ===== TOP CENTER - ROUND NUMBER =====
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 var round_text = "ROUND " + string(global.round);
 draw_text_transformed(display_get_gui_width() / 2, 25, round_text, 0.6, 0.6, 0);
 
-// ===== TOP RIGHT - CAT SCORE =====
 draw_set_halign(fa_right);
 draw_set_valign(fa_top);
 var cat_score_text = string(global.cat_score);
@@ -30,30 +23,32 @@ draw_set_color(c_white);
 draw_text_transformed(display_get_gui_width() - 70, 25, cat_score_text, 0.6, 0.6, 0);
 draw_set_color(c_white);
 
-// ===== BOTTOM LEFT - CHEESE COUNTER =====
 draw_set_halign(fa_left);
 draw_set_valign(fa_bottom);
-var cheese_text = string(obj_mouse.cheese_collected) + "/10";
+var cheese_text = "0/10";
+if (instance_exists(obj_mouse)) {
+    cheese_text = string(obj_mouse.cheese_collected) + "/10";
+}
 draw_set_color(c_white);
 draw_text_transformed(70, display_get_gui_height() - 25, cheese_text, 0.6, 0.6, 0);
 
-// ===== BOTTOM CENTER - TIMER =====
 draw_set_halign(fa_center);
 draw_set_valign(fa_bottom);
-var minutes = floor(obj_timer_controller.time_left / 60);
-var seconds = floor(obj_timer_controller.time_left mod 60);
-var sec_text = (seconds < 10) ? "0" + string(seconds) : string(seconds);
-var timer_text = string(minutes) + ":" + sec_text;
+var timer_text = "0:00";
+if (instance_exists(obj_timer_controller)) {
+    var minutes = floor(obj_timer_controller.time_left / 60);
+    var seconds = floor(obj_timer_controller.time_left mod 60);
+    var sec_text = (seconds < 10) ? "0" + string(seconds) : string(seconds);
+    timer_text = string(minutes) + ":" + sec_text;
+}
 draw_set_color(c_white);
 draw_text_transformed(display_get_gui_width() / 2, display_get_gui_height() - 25, timer_text, 0.6, 0.6, 0);
 
-// ===== BOTTOM RIGHT - STATUS (CAT or MOUSE effect) =====
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
 var status_text = "";
 var status_color = c_white;
 
-// Check if CAT has an effect
 if (instance_exists(obj_cat)) {
     var cat = instance_find(obj_cat, 0);
     if (cat != noone && cat.effect_timer > 0) {
@@ -78,7 +73,6 @@ if (instance_exists(obj_cat)) {
     }
 }
 
-// Check if MOUSE has an effect (only if cat doesn't)
 if (status_text == "" && instance_exists(obj_mouse)) {
     var mouse = instance_find(obj_mouse, 0);
     if (mouse != noone && mouse.effect_timer > 0) {
@@ -106,5 +100,4 @@ if (status_text == "" && instance_exists(obj_mouse)) {
 draw_set_color(status_color);
 draw_text_transformed(display_get_gui_width() - 70, display_get_gui_height() - 25, status_text, 0.6, 0.6, 0);
 
-// RESET OPACITY TO FULL
 draw_set_alpha(1.0);

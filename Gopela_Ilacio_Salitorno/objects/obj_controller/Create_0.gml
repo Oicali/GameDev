@@ -9,4 +9,7 @@ if(room==Map1){
 } else if (room==Map3){
 	audio_stop_all();
 	audio_play_sound(snd_gameplay_bg3, 0, true);
+}else if (room==Map4){
+	audio_stop_all();
+	audio_play_sound(snd_gameplay_bg4, 0, true);
 }

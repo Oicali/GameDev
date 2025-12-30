@@ -174,14 +174,12 @@ switch(chosen) {
 case "change_room":
     show_debug_message("=== GIFT TELEPORT START ===");
     
-    // SAVE to GLOBAL variables
     var mouse_instance = instance_find(obj_mouse, 0);
     if (instance_exists(mouse_instance)) {
         global.mouse_cheese_collected = mouse_instance.cheese_collected;
         show_debug_message("Saved cheese: " + string(global.mouse_cheese_collected));
     }
     
-    // SAVE the current timer
     if (instance_exists(obj_timer_controller)) {
         var timer_instance = instance_find(obj_timer_controller, 0);
         if (timer_instance != noone) {
@@ -190,31 +188,29 @@ case "change_room":
         }
     }
     
-    // SET FLAG
     global.teleported_by_gift = true;
     
-    // Pick random map (EXCLUDING CURRENT ROOM)
+    // FIXED - ADD MAP4
     var available_rooms = [];
     if (room == Map1) {
-        available_rooms = [Map2, Map3];
+        available_rooms = [Map2, Map3, Map4];
     } else if (room == Map2) {
-        available_rooms = [Map1, Map3];
+        available_rooms = [Map1, Map3, Map4];
     } else if (room == Map3) {
-        available_rooms = [Map1, Map2];
+        available_rooms = [Map1, Map2, Map4];
+    } else if (room == Map4) {
+        available_rooms = [Map1, Map2, Map3];
     }
     
     var random_map = available_rooms[irandom(array_length(available_rooms) - 1)];
     show_debug_message("Target room: " + room_get_name(random_map));
     
-    // ===== NEW: Create ROULETTE transition instead of fade =====
     var roulette = instance_create_depth(0, 0, -10000, obj_roulette_transition);
     roulette.target_room = random_map;
     
-    // Pause game during roulette
     global.game_paused = true;
     
-    // Play exciting sound
-    audio_play_sound(snd_effects_confuse, 0, false);  // Replace with roulette sound
+    audio_play_sound(snd_effects_confuse, 0, false);
     
     indicator_sprite = noone;
     target_player = noone;

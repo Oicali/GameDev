@@ -10,6 +10,8 @@ last_count = -1;
 time_left = 81;
 loop_count = 0;
 timer_done = false;
+double_ko_timer = 0;
+player_hit_by_bomb = "";
 
 // CHECK IF GIFT TELEPORT
 if (global.teleported_by_gift) {
@@ -24,7 +26,7 @@ if (global.teleported_by_gift) {
     state = "countdown";
     countdown_time = 4;
     countdown_done = false;
-    time_left = 81;
+    time_left = 80;
     show_debug_message("NORMAL START! Timer set to: " + string(time_left) + " - WITH COUNTDOWN");
 }
 

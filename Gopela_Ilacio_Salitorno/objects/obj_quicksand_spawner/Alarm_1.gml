@@ -68,4 +68,4 @@ audio_sound_gain(teleport_out, 0.5, 0);
 show_debug_message("=== SPAWNED " + string(quicksand_spawned) + " NEW QUICKSAND ===");
 
 // Set next respawn (10-20 seconds random)
-alarm[0] = irandom_range(20, 30) * room_speed; // 20-30 seconds
+alarm[0] = irandom_range(10, 20) * room_speed; // 20-30 seconds

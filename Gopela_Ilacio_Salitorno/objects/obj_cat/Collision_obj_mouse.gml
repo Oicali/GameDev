@@ -57,11 +57,13 @@ if (global.cat_score >= 3) {
 else {
     var rooms = [];
     if (room == Map1) {
-        rooms = [Map2, Map3];
+        rooms = [Map2, Map3, Map4];
     } else if (room == Map2) {
-        rooms = [Map1, Map3];
+        rooms = [Map1, Map3, Map4];
     } else if (room == Map3) {
-        rooms = [Map2, Map1];
+        rooms = [Map1, Map2, Map4];
+    } else if (room == Map4) {
+        rooms = [Map1, Map2, Map3];
     }
     var choice = irandom(array_length(rooms) - 1);
     next_room = rooms[choice];

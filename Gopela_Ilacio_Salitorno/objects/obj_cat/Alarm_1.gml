@@ -1,6 +1,8 @@
-obj_mouse.visible = true;
-obj_mouse.x = 700;
-obj_mouse.y = 600;
+if (instance_exists(obj_mouse)) {
+    obj_mouse.visible = true;
+    obj_mouse.x = 700;
+    obj_mouse.y = 600;
+}
 
 if (show_champion_pending) {
     obj_cat_champion.visible = true;

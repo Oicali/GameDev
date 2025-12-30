@@ -4,7 +4,10 @@ spd = 1.8
 base_spd = 1.8
 hspd = 0;
 vspd = 0;
-
+is_flying = false;
+spin_speed = 0;
+gravity_y = 0;
+is_double_ko = false;
 // power-up vars
 is_stunned = false;
 effect_timer = 0;

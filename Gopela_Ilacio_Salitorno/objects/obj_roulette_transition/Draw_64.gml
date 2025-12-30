@@ -58,19 +58,23 @@ if (state == "spinning") {
     var map_sprite = noone;
     
     switch(current_room) {
-        case Map1: 
-            map_sprite = spr_map1_preview; 
-            room_name = "MAP 1";
-            break;
-        case Map2: 
-            map_sprite = spr_map2_preview; 
-            room_name = "MAP 2";
-            break;
-        case Map3: 
-            map_sprite = spr_map3_preview; 
-            room_name = "MAP 3";
-            break;
-    }
+    case Map1: 
+        map_sprite = spr_map1_preview; 
+        room_name = "";
+        break;
+    case Map2: 
+        map_sprite = spr_map2_preview; 
+        room_name = "";
+        break;
+    case Map3: 
+        map_sprite = spr_map3_preview; 
+        room_name = "";
+        break;
+    case Map4:                          // ADD THIS
+        map_sprite = spr_map4_preview;  // ADD THIS
+        room_name = "";            // ADD THIS
+        break;                          // ADD THIS
+}
     
     // Draw map preview
     if (sprite_exists(map_sprite)) {
@@ -109,7 +113,7 @@ if (state == "spinning") {
     draw_set_halign(fa_center);
     draw_set_valign(fa_top);
     draw_set_color(c_white);
-    draw_text_transformed(center_x, center_y + 150, "SELECTING ROOM...", 1.5, 1.5, 0);
+    draw_text_transformed(center_x, center_y + 150, "", 1.5, 1.5, 0);
     
     // Progress bar
     var bar_width = 400;

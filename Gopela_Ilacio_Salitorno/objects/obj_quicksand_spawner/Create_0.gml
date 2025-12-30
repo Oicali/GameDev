@@ -68,4 +68,4 @@ while (quicksand_spawned < quicksand_to_spawn && max_attempts > 0) {
 show_debug_message("=== TOTAL SPAWNED: " + string(quicksand_spawned) + " quicksand ===");
 
 // Set alarm for next respawn (10-20 seconds random)
-alarm[0] = irandom_range(20, 30) * room_speed; // 20-30 seconds
+alarm[0] = irandom_range(10, 20) * room_speed; // 20-30 seconds

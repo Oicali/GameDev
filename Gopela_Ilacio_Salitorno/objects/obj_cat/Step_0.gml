@@ -40,6 +40,78 @@ if (instance_exists(obj_timer_controller)) {
 	} 
 }
 
+if (is_flying) {
+    x += hspd;
+    y += vspd;
+    vspd += gravity_y;
+    image_angle += spin_speed;
+    
+    if (y > room_height + 100 || x < -100 || x > room_width + 100) {
+        if (is_double_ko) {
+            // DOUBLE KO - REMATCH
+            show_debug_message("=== CAT OFF SCREEN - DOUBLE KO DETECTED ===");
+            if (instance_exists(obj_timer_controller)) {
+                obj_timer_controller.show_room_refresh = true;
+                obj_timer_controller.alarm[0] = room_speed * 3;
+                global.game_paused = true;
+                audio_stop_all();
+                audio_play_sound(snd_refresh, 0, false);
+            }
+        } else {
+            // NORMAL - MOUSE WINS
+            global.mouse_score += 1;
+            show_debug_message("Cat bombed off screen! Mouse score: " + string(global.mouse_score) + "/3");
+            
+            global.teleported_by_gift = false;
+            global.saved_timer = 81;
+            global.mouse_cheese_collected = 0;
+            
+            if (global.mouse_score >= 3) {
+                show_debug_message("Mouse Champion!");
+                global.game_paused = true;
+                
+                if (instance_exists(obj_mouse)) {
+                    obj_mouse.show_mouse_champion = true;
+                    obj_mouse_champion.visible = true;
+                    audio_stop_all();
+                    audio_play_sound(snd_victory, 0, false);
+                }
+            } else {
+                var rooms = [];
+                if (room == Map1) {
+                    rooms = [Map2, Map3, Map4];
+                } else if (room == Map2) {
+                    rooms = [Map1, Map3, Map4];
+                } else if (room == Map3) {
+                    rooms = [Map1, Map2, Map4];
+                } else if (room == Map4) {
+                    rooms = [Map1, Map2, Map3];
+                } else {
+                    rooms = [Map1, Map2, Map3, Map4];
+                }
+                
+                if (array_length(rooms) > 0) {
+                    var choice = irandom(array_length(rooms) - 1);
+                    
+                    if (instance_exists(obj_mouse)) {
+                        obj_mouse.next_room = rooms[choice];
+                        obj_mouse.alarm[1] = room_speed * 3;
+                        obj_mouse_banner.visible = true;
+                        audio_stop_all();
+                        audio_play_sound(snd_win_round, 0, false);
+                        audio_play_sound(snd_mouse_squeak, 0, false);
+                    }
+                }
+                
+                global.game_paused = true;
+            }
+        }
+        
+        instance_destroy();
+    }
+    exit;
+}
+
 if (effect_timer > 0) {
     effect_timer -= 1;
     

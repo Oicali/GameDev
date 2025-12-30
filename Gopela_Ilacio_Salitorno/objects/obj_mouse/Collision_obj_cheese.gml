@@ -28,14 +28,16 @@ if (cheese_collected >= 10) {
         obj_cat.x = 700;
         obj_cat.y = 600;
         
-        var rooms = [];
-        if (room == Map1) {
-            rooms = [Map2, Map3];
-        } else if (room == Map2) {
-            rooms = [Map1, Map3];
-        } else if (room == Map3) {
-            rooms = [Map2, Map1];
-        }
+         var rooms = [];
+	    if (room == Map1) {
+	        rooms = [Map2, Map3, Map4];
+	    } else if (room == Map2) {
+	        rooms = [Map1, Map3, Map4];
+	    } else if (room == Map3) {
+	        rooms = [Map1, Map2, Map4];
+	    } else if (room == Map4) {
+	        rooms = [Map1, Map2, Map3];
+	    }
         
         audio_stop_all();
         var choice = irandom(array_length(rooms) - 1);

@@ -46,3 +46,10 @@ else if (state == "active") {
         }
     }
 }
+
+if (double_ko_timer > 0) {
+    double_ko_timer -= 1;
+    if (double_ko_timer <= 0) {
+        player_hit_by_bomb = "";
+    }
+}

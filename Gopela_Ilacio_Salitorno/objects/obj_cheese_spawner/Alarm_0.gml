@@ -1,4 +1,8 @@
 /// @description Teleport All Remaining Cheese with Effects (Improved)
+if (global.game_paused) {
+    alarm[0] = 1;  // Check again next frame
+    exit;
+}
 
 show_debug_message("=== TELEPORTING REMAINING CHEESE ===");
 

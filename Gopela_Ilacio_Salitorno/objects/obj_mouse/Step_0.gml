@@ -1,3 +1,4 @@
+
 // ===== PAUSE CHECK =====
 if (show_mouse_champion) {
     // Initialize wait timer if it doesn't exist
@@ -45,6 +46,69 @@ if (instance_exists(obj_timer_controller)) {
         else if (direction == 0) sprite_index = spr_rat_idle_right;
         exit;
     }
+}
+
+if (is_flying) {
+    x += hspd;
+    y += vspd;
+    vspd += gravity_y;
+    image_angle += spin_speed;
+    
+    if (y > room_height + 100 || x < -100 || x > room_width + 100) {
+        if (is_double_ko) {
+            // DOUBLE KO - REMATCH
+            show_debug_message("=== MOUSE OFF SCREEN - DOUBLE KO DETECTED ===");
+            if (instance_exists(obj_timer_controller)) {
+                obj_timer_controller.show_room_refresh = true;
+                obj_timer_controller.alarm[0] = room_speed * 3;
+                global.game_paused = true;
+                audio_stop_all();
+                audio_play_sound(snd_refresh, 0, false);
+            }
+        } else {
+            // NORMAL - CAT WINS
+            global.cat_score += 1;
+            show_debug_message("Mouse bombed off screen! Cat score: " + string(global.cat_score) + "/3");
+            
+            if (global.cat_score >= 3) {
+                show_debug_message("Cat Champion!");
+                global.game_paused = true;
+                
+                if (instance_exists(obj_cat)) {
+                    obj_cat.show_champion_pending = true;
+                    obj_cat.alarm[1] = room_speed * 3;
+                }
+            } else {
+                var rooms = [];
+                if (room == Map1) {
+                    rooms = [Map2, Map3, Map4];
+                } else if (room == Map2) {
+                    rooms = [Map1, Map3, Map4];
+                } else if (room == Map3) {
+                    rooms = [Map1, Map2, Map4];
+                } else if (room == Map4) {
+                    rooms = [Map1, Map2, Map3];
+                } else {
+                    rooms = [Map1, Map2, Map3, Map4];
+                }
+                
+                if (array_length(rooms) > 0) {
+                    var choice = irandom(array_length(rooms) - 1);
+                    
+                    if (instance_exists(obj_cat)) {
+                        obj_cat.next_room = rooms[choice];
+                        obj_cat.show_banner_pending = true;
+                        obj_cat.alarm[1] = room_speed * 1;
+                    }
+                }
+                
+                global.game_paused = true;
+            }
+        }
+        
+        instance_destroy();
+    }
+    exit;
 }
 
 /// @description Movement with Collision

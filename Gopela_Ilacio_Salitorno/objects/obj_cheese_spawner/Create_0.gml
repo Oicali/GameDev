@@ -1,4 +1,4 @@
-/// @description Spawn Cheese (Improved Collision Detection)
+
 
 var _tilemap = layer_tilemap_get_id("Collision");
 var _tilemap_tree = -1;
