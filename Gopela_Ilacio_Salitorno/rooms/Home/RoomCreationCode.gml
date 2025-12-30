@@ -1,10 +1,12 @@
-// Force correct window and display size
 surface_resize(application_surface, 1280, 720);
 window_set_size(1280, 720);
 window_center();
-
-// Disable any automatic scaling
 display_reset(0, false);
-
-// Disable texture interpolation for crisp graphics
 gpu_set_tex_filter(false);
+
+// Hide all buttons at start
+instance_deactivate_object(obj_button_start);
+instance_deactivate_object(obj_button_howtoplay);
+instance_deactivate_object(obj_button_exit);
+
+// Don't create transition yet

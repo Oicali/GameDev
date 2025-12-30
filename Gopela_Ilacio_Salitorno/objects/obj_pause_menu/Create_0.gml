@@ -20,10 +20,16 @@ settings_y = container_y + 35;
 quit_y = container_y + 85;
 
 // Click detection areas (height of each button)
-button_height = 40; // Adjust if needed
+button_height = 40;
+button_width = 200;
 
 // Arrow distance from text
 arrow_offset = 100;
 
 // Mouse hover tracking
-mouse_over = -1; // -1 = no hover, 0-3 = menu option
+mouse_over = -1;
+
+// ADD THESE - Prevent immediate clicking
+menu_active_timer = 0; // Timer before menu becomes clickable
+menu_ready = false; // Menu ready for input
+mouse_released = false; // Track if mouse was released after opening menu
