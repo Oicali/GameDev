@@ -1,3 +1,4 @@
+//step code for obj_button_howtoplay
 var draw_scale_x = image_xscale;
 var draw_scale_y = image_yscale;
 

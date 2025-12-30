@@ -1,9 +1,6 @@
-// Make sure we're in a game room
-if (room == Home) {
-    instance_destroy();
-    exit;
-}
-
+// Create codes for obj_settings_menu
+// Store where we came from (Home or game room)
+came_from_home = (room == Home);  // Make sure "Home" matches your actual room name
 depth = -10000;
 
 // Volume
@@ -33,14 +30,14 @@ back_btn_x = container_x;
 back_btn_y = container_y + 120;
 back_btn_hover = false;
 
-// NEW CODE - ADD THESE LINES:
 // Calculate minimum slider position (after the icon)
-var icon_right_edge = (container_x - 218) + 40; // Icon center + icon radius
-slider_min_x = icon_right_edge + 1; // Add 10px padding
+var icon_right_edge = (container_x - 218) + 40;
+slider_min_x = icon_right_edge + 1;
 
-
-// Then when you calculate bar_left or slider range:
-bar_left = slider_min_x;  // Start slider track here instead
-bar_right = container_x + 230; // Keep your existing right edge
+// Slider range
+bar_left = slider_min_x;
+bar_right = container_x + 230;
 bar_width = bar_right - bar_left;
 
+closing = false;
+close_timer = 0;

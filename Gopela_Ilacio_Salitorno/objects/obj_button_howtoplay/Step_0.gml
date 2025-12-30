@@ -1,3 +1,13 @@
+// code for obj_button_howtoplay
+if (instance_exists(obj_settings_menu)) {
+    exit;
+}
+
+// Don't respond if How to Play menu is already open
+if (instance_exists(obj_howtoplay_menu) && obj_howtoplay_menu.active) {
+    exit;
+}
+
 hover = (mouse_x >= bbox_left && mouse_x <= bbox_right && 
          mouse_y >= bbox_top && mouse_y <= bbox_bottom);
 
