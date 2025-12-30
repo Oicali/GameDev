@@ -140,7 +140,7 @@
     {"name":"spr_howtoplay_page1","order":54,"path":"sprites/spr_howtoplay_page1/spr_howtoplay_page1.yy",},
     {"name":"spr_howtoplay_page2","order":55,"path":"sprites/spr_howtoplay_page2/spr_howtoplay_page2.yy",},
     {"name":"spr_howtoplay_page3","order":56,"path":"sprites/spr_howtoplay_page3/spr_howtoplay_page3.yy",},
-    {"name":"spr_logo","order":78,"path":"sprites/spr_logo/spr_logo.yy",},
+    {"name":"spr_logo","order":90,"path":"sprites/spr_logo/spr_logo.yy",},
     {"name":"spr_map1_preview","order":67,"path":"sprites/spr_map1_preview/spr_map1_preview.yy",},
     {"name":"spr_map2_preview","order":68,"path":"sprites/spr_map2_preview/spr_map2_preview.yy",},
     {"name":"spr_map3_preview","order":69,"path":"sprites/spr_map3_preview/spr_map3_preview.yy",},

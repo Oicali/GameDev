@@ -1,5 +1,3 @@
-/// @description Fade transition
-
 if (mode == "out") {
     // Fade out (screen goes black)
     if (alpha < 1) {
@@ -7,9 +5,9 @@ if (mode == "out") {
     } else {
         // Fade complete, change room
         if (target_room != -1) {
-            show_debug_message("=== CHANGING ROOM - Flag is: " + string(global.teleported_by_gift) + " ===");
+            show_debug_message("=== CHANGING ROOM ===");
             room_goto(target_room);
-            mode = "in";  // Switch to fade in after room change
+            mode = "in";
         }
     }
 }
@@ -18,13 +16,12 @@ else if (mode == "in") {
     if (alpha > 0) {
         alpha -= fade_speed;
     } else {
-        // Fade complete - RESET FLAGS NOW
-        show_debug_message("=== BEFORE RESET - Flag: " + string(global.teleported_by_gift) + ", Timer: " + string(global.saved_timer) + ", Cheese: " + string(global.mouse_cheese_collected) + " ===");
+        // Fade complete
+        show_debug_message("=== FADE COMPLETE ===");
         
         if (global.teleported_by_gift) {
             global.teleported_by_gift = false;
             global.saved_timer = 81;
-            show_debug_message("=== FADE COMPLETE - FLAGS RESET ===");
         }
         
         instance_destroy();
