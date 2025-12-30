@@ -1,82 +1,63 @@
-/// @description Respawn gift within camera view (avoid collision - SCALED SIZE)
+/// @description Respawn gift within camera view
+
 show_debug_message("=== ALARM 0 TRIGGERED ===");
 
-// Get tilemap for collision checking
 var _tilemap = layer_tilemap_get_id("Collision");
 var _tilemap_tree = -1;
 if (layer_exists("Tree_Collision")) {
     _tilemap_tree = layer_tilemap_get_id("Tree_Collision");
 }
 
-// Get camera bounds
+var tile_size = 16;
 var cam = view_camera[0];
 var cam_x = camera_get_view_x(cam);
 var cam_y = camera_get_view_y(cam);
 var cam_w = camera_get_view_width(cam);
 var cam_h = camera_get_view_height(cam);
 
-// Try to find valid spawn position
+var padding = 40;
+var collision_check_radius = 16;
+
 var valid_position = false;
 var attempts = 0;
-var max_attempts = 200;
+var max_attempts = 500;
 var new_x = x;
 var new_y = y;
 
-// Use ACTUAL displayed size (considering scale)
-// Original: 52x64, but scaled to ~0.38 x 0.40
-var gift_width = (sprite_width * image_xscale) / 2;   // Half width
-var gift_height = (sprite_height * image_yscale) / 2; // Half height
-
-show_debug_message("Gift collision size: " + string(gift_width * 2) + "x" + string(gift_height * 2));
-
 while (!valid_position && attempts < max_attempts) {
-    // Random position within camera view
-    new_x = cam_x + irandom_range(60, cam_w - 60);
-    new_y = cam_y + irandom_range(60, cam_h - 60);
+    var min_x = floor((cam_x + padding) / tile_size);
+    var max_x = floor((cam_x + cam_w - padding) / tile_size);
+    var min_y = floor((cam_y + padding) / tile_size);
+    var max_y = floor((cam_y + cam_h - padding) / tile_size);
     
-    // Make sure it's within room bounds
-    new_x = clamp(new_x, 60, room_width - 60);
-    new_y = clamp(new_y, 60, room_height - 60);
+    new_x = irandom_range(min_x, max_x) * tile_size;
+    new_y = irandom_range(min_y, max_y) * tile_size;
     
-    // Check MULTIPLE points around the gift (using scaled size!)
-    var check_center = tilemap_get_at_pixel(_tilemap, new_x, new_y);
-    var check_top = tilemap_get_at_pixel(_tilemap, new_x, new_y - gift_height);
-    var check_bottom = tilemap_get_at_pixel(_tilemap, new_x, new_y + gift_height);
-    var check_left = tilemap_get_at_pixel(_tilemap, new_x - gift_width, new_y);
-    var check_right = tilemap_get_at_pixel(_tilemap, new_x + gift_width, new_y);
+    var is_clear = true;
     
-    // Check all 4 corners
-    var check_tl = tilemap_get_at_pixel(_tilemap, new_x - gift_width, new_y - gift_height);
-    var check_tr = tilemap_get_at_pixel(_tilemap, new_x + gift_width, new_y - gift_height);
-    var check_bl = tilemap_get_at_pixel(_tilemap, new_x - gift_width, new_y + gift_height);
-    var check_br = tilemap_get_at_pixel(_tilemap, new_x + gift_width, new_y + gift_height);
+    for (var check_x = -collision_check_radius; check_x <= collision_check_radius; check_x += tile_size) {
+        for (var check_y = -collision_check_radius; check_y <= collision_check_radius; check_y += tile_size) {
+            var test_x = new_x + check_x;
+            var test_y = new_y + check_y;
+            
+            var tile_check = tilemap_get_at_pixel(_tilemap, test_x, test_y);
+            if (tile_check != 0) {
+                is_clear = false;
+                break;
+            }
+            
+            if (_tilemap_tree != -1) {
+                var tree_check = tilemap_get_at_pixel(_tilemap_tree, test_x, test_y);
+                if (tree_check != 0) {
+                    is_clear = false;
+                    break;
+                }
+            }
+        }
+        if (!is_clear) break;
+    }
     
-	// ADD TREE CHECKS BELOW:
-// ADD TREE CHECKS ONLY IF LAYER EXISTS:
-var tree_center = 0, tree_top = 0, tree_bottom = 0, tree_left = 0, tree_right = 0;
-var tree_tl = 0, tree_tr = 0, tree_bl = 0, tree_br = 0;
-
-if (_tilemap_tree != -1) {
-    tree_center = tilemap_get_at_pixel(_tilemap_tree, new_x, new_y);
-    tree_top = tilemap_get_at_pixel(_tilemap_tree, new_x, new_y - gift_height);
-    tree_bottom = tilemap_get_at_pixel(_tilemap_tree, new_x, new_y + gift_height);
-    tree_left = tilemap_get_at_pixel(_tilemap_tree, new_x - gift_width, new_y);
-    tree_right = tilemap_get_at_pixel(_tilemap_tree, new_x + gift_width, new_y);
-    tree_tl = tilemap_get_at_pixel(_tilemap_tree, new_x - gift_width, new_y - gift_height);
-    tree_tr = tilemap_get_at_pixel(_tilemap_tree, new_x + gift_width, new_y - gift_height);
-    tree_bl = tilemap_get_at_pixel(_tilemap_tree, new_x - gift_width, new_y + gift_height);
-    tree_br = tilemap_get_at_pixel(_tilemap_tree, new_x + gift_width, new_y + gift_height);
-}
-
-    // Valid only if ALL points are walkable (tile == 0)
-   // Valid only if ALL points are walkable (tile == 0 for BOTH layers)
-if (check_center == 0 && check_top == 0 && check_bottom == 0 && 
-    check_left == 0 && check_right == 0 &&
-    check_tl == 0 && check_tr == 0 && check_bl == 0 && check_br == 0 &&
-    tree_center == 0 && tree_top == 0 && tree_bottom == 0 &&
-    tree_left == 0 && tree_right == 0 &&
-    tree_tl == 0 && tree_tr == 0 && tree_bl == 0 && tree_br == 0) {
-        // Valid position found!
+    if (is_clear) {
         valid_position = true;
         x = new_x;
         y = new_y;
@@ -85,12 +66,10 @@ if (check_center == 0 && check_top == 0 && check_bottom == 0 &&
     attempts += 1;
 }
 
-// If couldn't find valid position, keep current position
 if (!valid_position) {
     show_debug_message("WARNING: Couldn't find valid spawn position after " + string(max_attempts) + " attempts");
 }
 
-// Make visible and reset collected flag
 visible = true;
 image_alpha = 1;
 collected = false;
