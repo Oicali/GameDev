@@ -5,5 +5,5 @@ current_scale = 1.0;
 hover = false;
 
 // Position (top-right corner or wherever you want)
-x = room_width - 100; // Adjust position
+x = room_width - 150; // Adjust position
 y = 50; // Adjust position

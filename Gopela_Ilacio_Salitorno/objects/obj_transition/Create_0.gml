@@ -1,3 +1,9 @@
+// Prevent multiple transitions - CRITICAL!
+if (instance_number(obj_transition) > 1) {
+    instance_destroy();
+    exit;
+}
+
 circle_radius = 0;
 transition_speed = 9;
 

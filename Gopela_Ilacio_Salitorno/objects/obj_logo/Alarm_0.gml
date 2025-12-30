@@ -1,1 +1,1 @@
- instance_destroy();
+global.go_to_home = true;

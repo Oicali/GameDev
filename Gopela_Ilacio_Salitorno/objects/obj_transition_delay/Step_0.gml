@@ -1,16 +1,13 @@
 timer += 1;
 
-// After logo fades (5 seconds = 300 frames)
+// After delay
 if (timer > 300) {
-    // Activate buttons
+    // Just activate buttons - NO transition!
     instance_activate_object(obj_button_start);
     instance_activate_object(obj_button_howtoplay);
     instance_activate_object(obj_button_exit);
+    instance_activate_object(obj_button_settings);
     
-    // Create transition
-    if (!instance_exists(obj_transition)) {
-        instance_create_depth(0, 0, -10000, obj_transition);
-    }
-    
+    // DON'T create transition here - just destroy the delay object
     instance_destroy();
 }
