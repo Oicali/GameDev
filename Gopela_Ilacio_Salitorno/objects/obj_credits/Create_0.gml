@@ -1,19 +1,18 @@
-// CREATE EVENT obj_credits
-// Draw on top of everything
-depth = -10000;
+// Initialize the global variable
+global.menu_is_blocking_buttons = false;
 
-// Start hidden
+// Rest of your create code...
+depth = -99999999;
 visible = false;
 active = false;
 
-// Current page (1, 2, or 3)
+// Current page (1, 2)
 current_page = 1;
 total_pages = 2;
 
 // Store all page sprites in an array
 page_sprites[0] = credits1;
 page_sprites[1] = credits2;
-
 
 // Position for the main image (centered)
 page_x = room_width / 2;
@@ -24,11 +23,11 @@ target_width = room_width * 0.9;
 sprite_scale = target_width / sprite_get_width(credits1);
 
 // Button positions
-left_arrow_x = room_width * 0.473;
+left_arrow_x = room_width * 0.2;
 left_arrow_y = room_height * 0.70;
 left_arrow_radius = 40;
 
-right_arrow_x = room_width * 0.535;
+right_arrow_x = room_width * 0.7;
 right_arrow_y = room_height * 0.70;
 right_arrow_radius = 40;
 

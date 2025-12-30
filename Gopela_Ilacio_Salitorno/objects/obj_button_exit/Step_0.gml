@@ -1,15 +1,7 @@
-//step code for obj_button_exit
-// Don't respond if Settings menu is open
-if (instance_exists(obj_settings_menu)) {
-    exit;
-}
+// Check global flag FIRST
+if (global.menu_is_blocking_buttons) exit;
 
-// Don't respond if How to Play menu is open
-if (instance_exists(obj_howtoplay_menu) && obj_howtoplay_menu.active) {
-    exit;
-}
-
-// Rest of code...
+// Rest of your button code continues below...
 
 // Check hover
 hover = (mouse_x >= bbox_left && mouse_x <= bbox_right && 
@@ -22,11 +14,11 @@ if (hover && mouse_check_button_released(mb_left)) {
 
 // Visual feedback
 if (hover && mouse_check_button(mb_left)) {
-    target_scale = 0.92; // Pressed
+    target_scale = 0.92;
 } else if (hover) {
-    target_scale = 1.08; // Hover
+    target_scale = 1.08;
 } else {
-    target_scale = 1.0; // Normal
+    target_scale = 1.0;
 }
 
 // Smooth scaling

@@ -1,24 +1,18 @@
-// If not active, reactivate buttons and exit
-if (!active) {
-    instance_activate_object(obj_button_start);
-    instance_activate_object(obj_button_howtoplay);
-    instance_activate_object(obj_button_exit);
-    instance_activate_object(obj_button_settings);
-    instance_activate_object(obj_button_credits);  // ← MISSING!
-    exit;
+// Set global flag
+if (active) {
+    global.menu_is_blocking_buttons = true;
+} else {
+    global.menu_is_blocking_buttons = false;
 }
 
-// Deactivate all buttons when credits is open
-instance_deactivate_object(obj_button_start);
-instance_deactivate_object(obj_button_howtoplay);
-instance_deactivate_object(obj_button_exit);
-instance_deactivate_object(obj_button_settings);
-instance_deactivate_object(obj_button_credits);  // ← MISSING!
+// If not active, exit
+if (!active) {
+    exit;
+}
 
 // Mouse position
 var mx = mouse_x;
 var my = mouse_y;
-
 mouse_over_button = "";
 
 // ===== LEFT ARROW =====
@@ -56,6 +50,7 @@ if (point_distance(mx, my, back_btn_x, back_btn_y) < back_btn_radius) {
         visible = false;
         active = false;
         current_page = 1;
+        global.menu_is_blocking_buttons = false;
     }
 }
 
@@ -80,4 +75,5 @@ if (keyboard_check_pressed(vk_escape)) {
     visible = false;
     active = false;
     current_page = 1;
+    global.menu_is_blocking_buttons = false;
 }
