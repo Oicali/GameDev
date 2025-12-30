@@ -1,3 +1,4 @@
+//draw gui code for obj_settings_menu
 // Draw semi-transparent overlay
 draw_set_alpha(0.7);
 draw_set_color(c_black);

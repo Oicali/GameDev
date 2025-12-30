@@ -1,3 +1,5 @@
+//draw code for obj_button_exit
+
 var draw_scale_x = image_xscale;
 var draw_scale_y = image_yscale;
 

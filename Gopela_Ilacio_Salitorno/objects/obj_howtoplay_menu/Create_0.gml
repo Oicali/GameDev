@@ -1,4 +1,4 @@
-// CREATE EVENT
+// CREATE EVENT obj_howtoplay_menu
 // Draw on top of everything
 depth = -10000;
 

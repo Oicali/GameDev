@@ -1,4 +1,4 @@
-//DRAW EVENT
+//DRAW EVENT obj_howtoplay_menu
 // Only draw if visible
 if (!visible) exit;
 
