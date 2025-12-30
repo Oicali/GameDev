@@ -19,9 +19,9 @@ surface_set_target(surf);
 draw_clear_alpha(c_black, 1); // Fill with black
 gpu_set_blendmode(bm_subtract); // Subtract mode
 draw_set_color(c_white);
-draw_circle(view_w / 2, view_h / 2, circle_radius, false); // Punch circle hole
+draw_circle(view_w / 2, view_h / 2, circle_radius, false); // Draw circle hole
 gpu_set_blendmode(bm_normal);
 surface_reset_target();
 
 // Draw the surface to screen
-draw_surface(surf, view_x, view_y);
+draw_surface(surf, 0, 0);

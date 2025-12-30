@@ -207,8 +207,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Home","path":"rooms/Home/Home.yy",},},
     {"roomId":{"name":"Logo","path":"rooms/Logo/Logo.yy",},},
+    {"roomId":{"name":"Home","path":"rooms/Home/Home.yy",},},
     {"roomId":{"name":"Map1","path":"rooms/Map1/Map1.yy",},},
     {"roomId":{"name":"Map2","path":"rooms/Map2/Map2.yy",},},
     {"roomId":{"name":"Map3","path":"rooms/Map3/Map3.yy",},},
