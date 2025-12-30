@@ -14,20 +14,20 @@ global.freeze_frames = 10;
 global.flash_alpha = 0.6;
 global.flash_color = c_white;
 
-sprite_index = spr_fight_cloud;
+sprite_index = spr_fight;
 image_index = 0;
 image_speed = 1;
 
-x = fight_x - 34;
-y = fight_y - 36;
-image_xscale = 0.16;
-image_yscale = 0.16;
+x = fight_x - 0;
+y = fight_y - 0;
+image_xscale = 1.2;
+image_yscale = 1.2;
 
 other.visible = false;
 other.x = 700;
 other.y = 600;
 
-audio_play_sound(snd_fight_cloud, 0, false);
+audio_play_sound(snd_fight, 0, false);
 
 other.effect_timer = 0;
 other.spd = other.base_spd;

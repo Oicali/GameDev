@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_fight_cloud",
-    "path":"sprites/spr_fight_cloud/spr_fight_cloud.yy",
+    "name":"spr_fight",
+    "path":"sprites/spr_fight/spr_fight.yy",
   },
   "spriteMaskId":null,
   "visible":true,
