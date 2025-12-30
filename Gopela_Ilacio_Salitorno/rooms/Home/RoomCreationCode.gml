@@ -9,5 +9,6 @@ instance_deactivate_object(obj_button_start);
 instance_deactivate_object(obj_button_howtoplay);
 instance_deactivate_object(obj_button_exit);
 
+
 // Don't create transition yet
 instance_create_depth(0, 0, -10000, obj_transition);

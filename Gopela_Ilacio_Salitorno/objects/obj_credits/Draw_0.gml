@@ -1,5 +1,7 @@
+// draw EVENT obj_credits
 // Only draw if visible
 if (!visible) exit;
+
 
 // Draw dark overlay
 draw_set_alpha(0.7);
