@@ -1,37 +1,37 @@
 ///// DRAW GUI EVENT
 
 //// ===== ROOM REFRESH DISPLAY (CHECK FIRST) =====
-//if (show_room_refresh) {
-//    draw_set_font(fnt_lilita_one);  // Changed font
-//    draw_set_halign(fa_center);
-//    draw_set_valign(fa_middle);
+if (show_room_refresh) {
+    draw_set_font(fnt_lilita_one);  // Changed font
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
     
-//    // Blinking effect
-//    var blink = ((current_time div 500) mod 2 == 0);
-//    var main_color = blink ? c_yellow : c_orange;
-//    var outline_color = c_black;
-//    var text = "REMATCH!!";
-//    var cx = display_get_gui_width() / 2;
-//    var cy = display_get_gui_height() / 2;
-//    var scale = 3;
+    // Blinking effect
+    var blink = ((current_time div 500) mod 2 == 0);
+    var main_color = blink ? c_yellow : c_orange;
+    var outline_color = c_black;
+    var text = "REMATCH!!";
+    var cx = display_get_gui_width() / 2;
+    var cy = display_get_gui_height() / 2;
+    var scale = 3;
     
-//    // Outline
-//    draw_set_color(outline_color);
-//    var stroke = 4;
-//    for (var ox = -stroke; ox <= stroke; ox++) {
-//        for (var oy = -stroke; oy <= stroke; oy++) {
-//            if (ox != 0 || oy != 0) {
-//                draw_text_transformed(cx + ox, cy + oy, text, scale, scale, 0);
-//            }
-//        }
-//    }
+    // Outline
+    draw_set_color(outline_color);
+    var stroke = 4;
+    for (var ox = -stroke; ox <= stroke; ox++) {
+        for (var oy = -stroke; oy <= stroke; oy++) {
+            if (ox != 0 || oy != 0) {
+                draw_text_transformed(cx + ox, cy + oy, text, scale, scale, 0);
+            }
+        }
+    }
     
-//    // Main fill
-//    draw_set_color(main_color);
-//    draw_text_transformed(cx, cy, text, scale, scale, 0);
+    // Main fill
+    draw_set_color(main_color);
+    draw_text_transformed(cx, cy, text, scale, scale, 0);
     
-//    exit; // Don't draw anything else
-//}
+    exit; // Don't draw anything else
+}
 
 //// ... rest of your Draw GUI code stays the same ...
 
@@ -46,60 +46,58 @@
 //}
 
 //// ===== COUNTDOWN DISPLAY WITH SPRITES =====
-//// ===== COUNTDOWN DISPLAY WITH SPRITES =====
-//// ===== COUNTDOWN DISPLAY WITH SPRITES =====
-//if (state == "countdown") {
-//    var count = ceil(countdown_time);
+if (state == "countdown") {
+    var count = ceil(countdown_time);
     
-//    // ===== MANUAL SIZE (CHANGE THIS!) =====
-//    var sprite_scale = 0.9;
+    // ===== MANUAL SIZE (CHANGE THIS!) =====
+    var sprite_scale = 0.9;
     
-//    // DETERMINE WHICH SPRITE TO SHOW
-//    if (count > 1) {
-//        // ===== READY SPRITE POSITION =====
-//        var ready_x = 440;
-//        var ready_y = 135;
+    // DETERMINE WHICH SPRITE TO SHOW
+    if (count > 1) {
+        // ===== READY SPRITE POSITION =====
+        var ready_x = 440;
+        var ready_y = 135;
         
-//        draw_sprite_ext(
-//            spr_ready,
-//            0,
-//            ready_x,
-//            ready_y,
-//            sprite_scale,
-//            sprite_scale,
-//            0,
-//            c_white,
-//            1
-//        );
+        draw_sprite_ext(
+            spr_ready,
+            0,
+            ready_x,
+            ready_y,
+            sprite_scale,
+            sprite_scale,
+            0,
+            c_white,
+            1
+        );
         
-//        if (last_count == -1) {
-//            audio_play_sound(snd_ready, 0, false);
-//            last_count = 1;
-//        }
-//    } 
-//    else {
-//        // ===== GO SPRITE POSITION =====
-//        var go_x = 440;
-//        var go_y = 135;
+        if (last_count == -1) {
+            audio_play_sound(snd_ready, 0, false);
+            last_count = 1;
+        }
+    } 
+    else {
+        // ===== GO SPRITE POSITION =====
+        var go_x = 420;
+        var go_y = 120;
         
-//        draw_sprite_ext(
-//            spr_go,
-//            0,
-//            go_x,
-//            go_y,
-//            sprite_scale,
-//            sprite_scale,
-//            0,
-//            c_white,
-//            1
-//        );
+        draw_sprite_ext(
+            spr_go,
+            0,
+            go_x,
+            go_y,
+            sprite_scale,
+            sprite_scale,
+            0,
+            c_white,
+            1
+        );
         
-//        if (last_count != 0) {
-//            audio_play_sound(snd_go, 0, false);
-//            last_count = 0;
-//        }
-//    }
-//}
+        if (last_count != 0) {
+            audio_play_sound(snd_go, 0, false);
+            last_count = 0;
+        }
+    }
+}
 //else if (state == "active") {
 //    // ===== ROUND TIMER =====
 //    var minutes = floor(time_left / 60);

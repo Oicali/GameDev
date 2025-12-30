@@ -68,7 +68,7 @@ switch(chosen) {
     other.ice_physics_active = false;
     other.spd = other.base_spd - 4;
     if (other.spd < 1) other.spd = 0.8;
-    other.effect_timer = 5 * room_speed;
+    other.effect_timer = 3 * room_speed;
     
     audio_play_sound(snd_effects_slow, 0, false);
     break;
@@ -79,7 +79,7 @@ switch(chosen) {
         
         other.is_stunned = true;
         other.spd = 0;
-        other.effect_timer = 3 * room_speed;
+        other.effect_timer = 2 * room_speed;
 
         indicator_sprite = spr_effects_stun;
         target_player = other.id;
@@ -131,7 +131,7 @@ switch(chosen) {
         cat_instance.ice_physics_active = false;
         cat_instance.spd = cat_instance.base_spd - 4;
         if (cat_instance.spd < 1) cat_instance.spd = 0.8;
-        cat_instance.effect_timer = 5 * room_speed;
+        cat_instance.effect_timer = 3 * room_speed;
         target_player = cat_instance;
     }
 
@@ -148,7 +148,7 @@ switch(chosen) {
         if (instance_exists(cat_instance)) {
             cat_instance.is_stunned = true;    
             cat_instance.spd = 0;
-            cat_instance.effect_timer = 3 * room_speed;
+            cat_instance.effect_timer = 2 * room_speed;
             target_player = cat_instance;
         }
         

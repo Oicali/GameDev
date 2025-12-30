@@ -87,7 +87,6 @@
     {"name":"snd_victory","order":25,"path":"sounds/snd_victory/snd_victory.yy",},
     {"name":"snd_warning","order":20,"path":"sounds/snd_warning/snd_warning.yy",},
     {"name":"snd_win_round","order":22,"path":"sounds/snd_win_round/snd_win_round.yy",},
-    {"name":"spike_open","order":15,"path":"sounds/spike_open/spike_open.yy",},
     {"name":"spikesfx","order":21,"path":"sounds/spikesfx/spikesfx.yy",},
     {"name":"teleport_in","order":8,"path":"sounds/teleport_in/teleport_in.yy",},
     {"name":"teleport_out","order":16,"path":"sounds/teleport_out/teleport_out.yy",},

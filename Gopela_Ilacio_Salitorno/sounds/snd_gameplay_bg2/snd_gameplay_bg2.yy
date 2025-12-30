@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"snd_gameplay_bg2.mp3",
-  "volume":0.86,
+  "volume":0.7,
 }

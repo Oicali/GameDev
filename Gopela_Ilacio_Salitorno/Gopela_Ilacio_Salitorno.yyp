@@ -110,7 +110,6 @@
     {"id":{"name":"snd_victory","path":"sounds/snd_victory/snd_victory.yy",},},
     {"id":{"name":"snd_warning","path":"sounds/snd_warning/snd_warning.yy",},},
     {"id":{"name":"snd_win_round","path":"sounds/snd_win_round/snd_win_round.yy",},},
-    {"id":{"name":"spike_open","path":"sounds/spike_open/spike_open.yy",},},
     {"id":{"name":"spikesfx","path":"sounds/spikesfx/spikesfx.yy",},},
     {"id":{"name":"teleport_in","path":"sounds/teleport_in/teleport_in.yy",},},
     {"id":{"name":"teleport_out","path":"sounds/teleport_out/teleport_out.yy",},},

@@ -1,5 +1,8 @@
 /// DRAW GUI EVENT - obj_ui_hud_complete
 
+// SET OPACITY TO 50%
+draw_set_alpha(0.8);
+
 // Draw the background sprite
 draw_sprite(spr_ui_hud_complete, 0, 0, 0);
 
@@ -47,7 +50,6 @@ draw_text_transformed(display_get_gui_width() / 2, display_get_gui_height() - 25
 // ===== BOTTOM RIGHT - STATUS (CAT or MOUSE effect) =====
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
-
 var status_text = "";
 var status_color = c_white;
 
@@ -103,3 +105,6 @@ if (status_text == "" && instance_exists(obj_mouse)) {
 
 draw_set_color(status_color);
 draw_text_transformed(display_get_gui_width() - 70, display_get_gui_height() - 25, status_text, 0.6, 0.6, 0);
+
+// RESET OPACITY TO FULL
+draw_set_alpha(1.0);

@@ -1,7 +1,7 @@
 randomize();
 // Movement variables
-spd = 1.85
-base_spd = 1.85
+spd = 1.87
+base_spd = 1.87
 hspd = 0;
 vspd = 0;
 // Power-up variables
