@@ -1,17 +1,3 @@
-//step event for obj_settings_menu
-
-// Reactivate all buttons when settings menu closes
-instance_activate_object(obj_button_start);
-instance_activate_object(obj_button_howtoplay);
-instance_activate_object(obj_button_exit);
-//instance_activate_object(obj_button_settings);
-// DEACTIVATE all home page buttons when settings menu is open
-if (!closing) {
-    instance_deactivate_object(obj_button_start);
-    instance_deactivate_object(obj_button_howtoplay);
-    instance_deactivate_object(obj_button_exit);
-    instance_deactivate_object(obj_button_settings);
-}
 
 // Get mouse position for GUI
 var mx = device_mouse_x_to_gui(0);
@@ -21,11 +7,12 @@ var my = device_mouse_y_to_gui(0);
 if (closing) {
     close_timer--;
     if (close_timer <= 0) {
-        // Reactivate buttons
+        // Reactivate buttons before destroying
         instance_activate_object(obj_button_start);
         instance_activate_object(obj_button_howtoplay);
         instance_activate_object(obj_button_exit);
         instance_activate_object(obj_button_settings);
+        instance_activate_object(obj_button_credits);
         
         // Now destroy
         if (came_from_home) {
@@ -37,6 +24,13 @@ if (closing) {
     }
     exit;
 }
+
+// DEACTIVATE all buttons when settings menu is open
+instance_deactivate_object(obj_button_start);
+instance_deactivate_object(obj_button_howtoplay);
+instance_deactivate_object(obj_button_exit);
+instance_deactivate_object(obj_button_settings);
+instance_deactivate_object(obj_button_credits);
 
 // Click slider
 if (mouse_check_button_pressed(mb_left)) {
@@ -75,3 +69,4 @@ if (keyboard_check_pressed(vk_escape)) {
     closing = true;
     close_timer = 5; // Wait 5 frames before closing
 }
+

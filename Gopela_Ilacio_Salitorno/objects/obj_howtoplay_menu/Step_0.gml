@@ -1,16 +1,21 @@
 /// MOUSE EVENT (or Step Event) - obj_howtoplay_menu
 
+// If not active, reactivate all buttons and exit
 if (!active) {
     instance_activate_object(obj_button_start);
     instance_activate_object(obj_button_howtoplay);
     instance_activate_object(obj_button_exit);
+    instance_activate_object(obj_button_credits);
+    instance_activate_object(obj_button_settings);
     exit;
 }
 
+// Menu is active - deactivate ALL buttons
 instance_deactivate_object(obj_button_start);
 instance_deactivate_object(obj_button_howtoplay);
 instance_deactivate_object(obj_button_exit);
-
+instance_deactivate_object(obj_button_credits);
+instance_deactivate_object(obj_button_settings);
 // mouse position
 var mx = mouse_x;
 var my = mouse_y;

@@ -24,12 +24,12 @@ target_width = room_width * 0.9;
 sprite_scale = target_width / sprite_get_width(spr_howtoplay_page1);
 
 // Button positions
-left_arrow_x = room_width * 0.473;
-left_arrow_y = room_height * 0.70;
+left_arrow_x = room_width * 0.47;
+left_arrow_y = room_height * 0.75;
 left_arrow_radius = 40;
 
-right_arrow_x = room_width * 0.535;
-right_arrow_y = room_height * 0.70;
+right_arrow_x = room_width * 0.53;
+right_arrow_y = room_height * 0.75;
 right_arrow_radius = 40;
 
 back_btn_x = room_width * 0.73;
